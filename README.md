@@ -1,1 +1,1 @@
-# -Capstone-Team-Climate-Trace
+# Capstone-Team-Climate-Trace
