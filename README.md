@@ -1,5 +1,4 @@
-# Climate TRACE: Estimating Global Greenhouse Gas Emissions from Buildings Using Machine Learning
-
+# 🌎 Climate TRACE <br> Estimating Global Greenhouse Gas Emissions from Buildings
 ### Overview
 
 **Name of Project**: Climate TRACE: Estimating global greenhouse gas emissions from buildings using machine learning and satellite imagery
