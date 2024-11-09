@@ -12,3 +12,33 @@ A more detailed vision for this work is described in this paper: https://www.cli
 
 
 **Goals**​: The team will create new feature inputs for a machine learning model based on characteristics such as temperature, humidity, economic data, population, and other factors related to building energy consumption. These features will be used to estimate energy use intensity, the key factor in determining a building's emissions intensity. These results will be compared to ground truth data and the performance evaluated. The team will also develop uncertainty estimates on their predictions to contextualize findings for the decision makers that will use the resulting data.
+
+**Repository Directory Structure**
+
+```python
+.
+├── README.md
+├── data
+│   ├── interim
+│   │   └── HDD.csv
+│   ├── processed
+│   │   └── merged_df.csv
+│   └── raw
+│       ├── HDI_educationalIndex_incomeIndex.csv
+│       ├── download.nc
+│       ├── gdp_data.csv
+│       └── population
+│           └── API_SP.POP.TOTL_DS2_en_csv_v2_31753.csv
+├── models
+│   └── model.py
+├── notebooks
+│   ├── DataPreprocessing.ipynb
+│   ├── Model.ipynb
+│   └── Plots.ipynb
+├── reports
+└── results
+    ├── results_20241108_2119_Total.csv
+    ├── results_20241108_2119_all_domain.csv
+    ├── results_20241108_2119_cross_domain.csv
+
+```
