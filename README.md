@@ -16,6 +16,7 @@ A more detailed vision for this work is described in this paper: https://www.cli
 **Repository Directory Structure**
 
 ```python
+
 ├── README.md
 ├── data
 │   ├── interim
@@ -26,8 +27,7 @@ A more detailed vision for this work is described in this paper: https://www.cli
 │       ├── HDI_educationalIndex_incomeIndex.csv
 │       ├── download.nc
 │       ├── gdp_data.csv
-│       └── population
-│           └── API_SP.POP.TOTL_DS2_en_csv_v2_31753.csv
+│       └── population.csv
 ├── notebooks
 │   ├── 01_DataPreprocessing.ipynb
 │   ├── 02_Model.ipynb
