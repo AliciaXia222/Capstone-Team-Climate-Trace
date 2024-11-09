@@ -20,7 +20,8 @@ A more detailed vision for this work is described in this paper: https://www.cli
 ├── README.md
 ├── data
 │   ├── interim
-│   │   └── HDD.csv
+│   │   ├── HDD.csv
+│   │   └── HDD_test.csv
 │   ├── processed
 │   │   └── merged_df.csv
 │   └── raw
@@ -30,14 +31,20 @@ A more detailed vision for this work is described in this paper: https://www.cli
 │       └── population.csv
 ├── notebooks
 │   ├── 01_DataPreprocessing.ipynb
-│   ├── 02_Model.ipynb
-│   └── 03_Plots.ipynb
+│   ├── 02_HDDProcessing.ipynb
+│   ├── 03_Humidityrocessing.ipynb
+│   ├── 04_Model.ipynb
+│   └── 05_Plots.ipynb
 ├── reports
 └── results
-    ├── results_20241108_2123_all_domain.csv
-    ├── results_20241108_2123_cross_domain.csv
-    ├── results_20241108_2123_total.csv
-    └── results_20241108_2123_within_domain.csv
+    ├── results_20241109_0818_all_domain_knn.csv
+    ├── results_20241109_0818_all_domain_lr.csv
+    ├── results_20241109_0818_cross_domain_knn.csv
+    ├── results_20241109_0818_cross_domain_lr.csv
+    ├── results_20241109_0818_total_knn.csv
+    ├── results_20241109_0818_total_lr.csv
+    ├── results_20241109_0818_within_domain_knn.csv
+    └── results_20241109_0818_within_domain_lr.csv
 
 
 ```
