@@ -16,7 +16,6 @@ A more detailed vision for this work is described in this paper: https://www.cli
 **Repository Directory Structure**
 
 ```python
-.
 ├── README.md
 ├── data
 │   ├── interim
@@ -29,12 +28,10 @@ A more detailed vision for this work is described in this paper: https://www.cli
 │       ├── gdp_data.csv
 │       └── population
 │           └── API_SP.POP.TOTL_DS2_en_csv_v2_31753.csv
-├── models
-│   └── model.py
 ├── notebooks
-│   ├── DataPreprocessing.ipynb
-│   ├── Model.ipynb
-│   └── Plots.ipynb
+│   ├── 01_DataPreprocessing.ipynb
+│   ├── 02_Model.ipynb
+│   └── 03_Plots.ipynb
 ├── reports
 └── results
     ├── results_20241108_2123_all_domain.csv
