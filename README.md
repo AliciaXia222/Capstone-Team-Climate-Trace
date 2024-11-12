@@ -48,8 +48,11 @@ A more detailed vision for this work is described in this paper: https://www.cli
 
 
 ```
+## Resources
+[Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 
-# Contributors
+
+## Contributors
 [Jiechen Li](https://github.com/carrieli15)  
 [Meixiang Du](https://github.com/dumeixiang)  
 [Yulei Xia](https://github.com/AliciaXia222)  
