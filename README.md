@@ -48,3 +48,10 @@ A more detailed vision for this work is described in this paper: https://www.cli
 
 
 ```
+
+# Contributors
+[Jiechen Li](https://github.com/carrieli15)  
+[Meixiang Du](https://github.com/dumeixiang)  
+[Yulei Xia](https://github.com/AliciaXia222)  
+[Barbara Flores](https://github.com/BarbaraPFloresRios)  
+
