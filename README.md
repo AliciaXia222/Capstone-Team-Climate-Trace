@@ -25,6 +25,14 @@ This project develops a machine learning model to estimate GHG emissions based o
 
 
 ## Methods <a name="Methods"></a>
+
+### Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
+
+To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
+
+The estimation formula is:
+![Formula](/figures/formula.png)
+
 ### Identifying Features <a name="IdentifyingFeatures"></a>
 
 ![Diagram](/figures/diagram.png)
@@ -41,6 +49,8 @@ This project develops a machine learning model to estimate GHG emissions based o
 ## Results  <a name="Results"></a>
 
 ### Feature Importance <a name="Feature Importance"></a>
+
+To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD) proved to be the most significant, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
 
 ![Feature Importance](/figures/feature_importance.png)
 
