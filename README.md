@@ -31,7 +31,7 @@ The team will create new feature inputs for a machine learning model based on ch
 
 ### Feature Importance
 
-
+![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/feature_importance.png)
 
 ## we
 ![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
