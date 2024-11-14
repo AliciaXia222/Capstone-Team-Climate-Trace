@@ -4,25 +4,8 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Identifying Potential Features](#Identifying Potential Features)
-4. [Identifying Potential Features](#Identifying Potential Features)  
-5. [Data Processing and Data Sources](#Data Processing and Data Sources)   
-   3.1 [Data Provided By Client](#ClientData)  
-   2.2 ....
-6. [Feature Importance](#Feature Importance)
-7. [Feature Importance](#Feature Importance)  
+3. [Identifying Features](##Identifying Features)
 
-8. [Methodology](#Methodology)  
-   3.1 [Overview](#MethodologyOverview)  
-   3.2 [Process Diagram](#ProcessDiagram)  
-9. [Experiments](#Experiments)  
-   5.1 [Overview](#ExperimentOverview)  
-   5.2 [Models](#Models)  
-   5.3 [Metrics](#Metrics)  
-10. [Results](#Results)
-5. [Conclusion](#Conclusion)  
-7. [Resources](#Resources)  
-8. [Members](#Members)
 
 ## Abstract
 
@@ -39,10 +22,17 @@ The team will create new feature inputs for a machine learning model based on ch
 
 ## Introduction2
 
-## Identifying Potential Features
+
+![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
+
+
+## Identifying Features
+
+
+
+
 
 ## Feature Importance
-
 
 
 ## Resources
@@ -57,7 +47,7 @@ The team will create new feature inputs for a machine learning model based on ch
 [Barbara Flores](https://github.com/BarbaraPFloresRios)  
 
 
-**Contact**: Kyle Bradbury, Electrical and Computer Engineering at the Pratt School of Engineering; Nicholas School of the Environment; and Nicholas Institute for Energy Environment & Sustainability
 
+#### Project Mentor and Client: [Dr. Kyle Bradbury](https://energy.duke.edu/about/staff/kyle-bradbury)
 
 
