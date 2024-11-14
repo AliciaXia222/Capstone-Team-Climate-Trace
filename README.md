@@ -1,8 +1,27 @@
 # 🌎 Climate TRACE <br> Estimating Global Greenhouse Gas Emissions from Buildings
 
-**Contact**: Kyle Bradbury, Electrical and Computer Engineering at the Pratt School of Engineering; Nicholas School of the Environment; and Nicholas Institute for Energy Environment & Sustainability
+
+## Table of Contents
+1. [Abstract](#Abstract)
+2. [Introduction](#Introduction)  
+2. [Data Sources](#DataSources)   
+   2.1 [Data Provided By Client](#ClientData)  
+   2.2 ....
+3. [Methodology](#Methodology)  
+   3.1 [Overview](#MethodologyOverview)  
+   3.2 [Process Diagram](#ProcessDiagram)  
+5. [Experiments](#Experiments)  
+   5.1 [Overview](#ExperimentOverview)  
+   5.2 [Models](#Models)  
+   5.3 [Metrics](#Metrics)  
+6. [Results](#Results)
+5. [Conclusion](#Conclusion)  
+7. [Resources](#Resources)  
+8. [Members](#Members)
 
 ## Abstract
+
+## Introduction
 
 **Summary**:​ Globally, buildings account for 30% of end-use energy consumption and 27% of energy sector greenhouse gas emissions, and yet the building sector is lacking in low-temporal latency, high-spatial-resolution data on energy consumption and resulting emissions. Existing methods tend to either have low resolution, high latency (often a year or more), or rely on data typically unavailable at scale (such as self-reported energy consumption). We will investigate machine learning based techniques that combine various features including those derived from satellite imagery to estimate global emissions estimates both for residential and commercial buildings at a 1km2 resolution. 
 A more detailed vision for this work is described in this paper: https://www.climatechange.ai/papers/neurips2023/128/paper.pdf
@@ -12,39 +31,9 @@ A more detailed vision for this work is described in this paper: https://www.cli
 
 **Repository Directory Structure**
 
-```python
-
-├── README.md
-├── data
-│   ├── interim
-│   │   ├── HDD.csv
-│   │   └── HDD_test.csv
-│   ├── processed
-│   │   └── merged_df.csv
-│   └── raw
-│       ├── HDI_educationalIndex_incomeIndex.csv
-│       ├── download.nc
-│       ├── gdp_data.csv
-│       └── population.csv
-├── notebooks
-│   ├── 01_DataPreprocessing.ipynb
-│   ├── 02_HDDProcessing.ipynb
-│   ├── 03_Humidityrocessing.ipynb
-│   ├── 04_Model.ipynb
-│   └── 05_Plots.ipynb
-├── reports
-└── results
-    ├── results_20241109_0818_all_domain_knn.csv
-    ├── results_20241109_0818_all_domain_lr.csv
-    ├── results_20241109_0818_cross_domain_knn.csv
-    ├── results_20241109_0818_cross_domain_lr.csv
-    ├── results_20241109_0818_total_knn.csv
-    ├── results_20241109_0818_total_lr.csv
-    ├── results_20241109_0818_within_domain_knn.csv
-    └── results_20241109_0818_within_domain_lr.csv
 
 
-```
+
 ## Resources
 1. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 2. 
@@ -55,5 +44,9 @@ A more detailed vision for this work is described in this paper: https://www.cli
 [Meixiang Du](https://github.com/dumeixiang)  
 [Yulei Xia](https://github.com/AliciaXia222)  
 [Barbara Flores](https://github.com/BarbaraPFloresRios)  
+
+
+**Contact**: Kyle Bradbury, Electrical and Computer Engineering at the Pratt School of Engineering; Nicholas School of the Environment; and Nicholas Institute for Energy Environment & Sustainability
+
 
 
