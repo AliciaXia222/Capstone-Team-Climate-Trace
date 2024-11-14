@@ -1,6 +1,5 @@
 # 🌎 Estimating Global Greenhouse Gas Emissions from Buildings
 
-
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
@@ -22,7 +21,7 @@ This project develops a machine learning model to estimate greenhouse gas (GHG) 
 
 Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
 
-This project intends to develop a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates will be used to calculate GHG emissions.
+This project develops a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates will be used to calculate GHG emissions.
 
 
 ## Methods <a name="Methods"></a>
