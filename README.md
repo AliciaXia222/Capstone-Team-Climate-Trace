@@ -4,8 +4,8 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Methods](#Methods)  
-
+3. [Methods](#Methods)
+4. [Results](#Results)  
 
 ## Abstract
 
@@ -22,12 +22,12 @@ The team will create new feature inputs for a machine learning model based on ch
 
 ![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
 
-## [Methods](#Methods)  
+## Methods 
 ### Identifying Features
 
 
 
-
+## Results  
 
 ### Feature Importance
 
