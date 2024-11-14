@@ -4,10 +4,16 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Methods](#Methods)
-4. [Results](#Results)
-5. [Resources](#Resources)  
-7. [Contributors](#Contributors)
+3. [Methods](#Methods)  
+   3.1 [Identifying Features](#IdentifyingFeatures)  
+   3.2 [Experimental Design](#ExperimentalDesign) 
+4. [Results](#Results)  
+   3.1 [Identifying Features](#IdentifyingFeatures)  
+   3.2 [Model Results](#ModelResults)  
+
+
+7. [Resources](#Resources)  
+8. [Contributors](#Contributors)
 
 
 ## Abstract <a name="Abstract"></a>
@@ -28,13 +34,18 @@ The team will create new feature inputs for a machine learning model based on ch
 ## Methods <a name="Methods"></a>
 ### Identifying Features <a name="IdentifyingFeatures"></a>
 
+### Experimental Design <a name="ExperimentalDesign"></a>
+
+![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
 
 
 ## Results  <a name="Results"></a>
 
 ### Feature Importance <a name="Feature Importance"></a>
 
-![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
+![Feature Importance](/figures/feature_importance.png)
+
+### Model Results <a name="ModelResults"></a>
 
 ## Resources  <a name="Resources"></a>
 1. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
