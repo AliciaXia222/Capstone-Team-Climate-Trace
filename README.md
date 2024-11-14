@@ -27,12 +27,15 @@ This project develops a machine learning model to estimate GHG emissions based o
 ## Methods <a name="Methods"></a>
 ### Identifying Features <a name="IdentifyingFeatures"></a>
 
+![Diagram](/figures/diagram.png)
+
+
 ### Experimental Design <a name="ExperimentalDesign"></a>
 
-![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
+![Geographic Distribution of Data Points by Region](/figures/region_map.png)
 
 
-![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
+![Image](/figures/experimental_design.png)
 
 
 ## Results  <a name="Results"></a>
