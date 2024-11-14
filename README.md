@@ -8,12 +8,10 @@
    3.1 [Identifying Features](#IdentifyingFeatures)  
    3.2 [Experimental Design](#ExperimentalDesign) 
 4. [Results](#Results)  
-   3.1 [Identifying Features](#IdentifyingFeatures)  
-   3.2 [Model Results](#ModelResults)  
-
-
-7. [Resources](#Resources)  
-8. [Contributors](#Contributors)
+   4.1 [Identifying Features](#IdentifyingFeatures)  
+   4.2 [Model Results](#ModelResults)
+5. [Resources](#Resources)  
+6. [Contributors](#Contributors)
 
 
 ## Abstract <a name="Abstract"></a>
