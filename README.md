@@ -4,8 +4,12 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Methods](#Methods)
+3. [Methods](#Methods)  
+   3.1 [Identifying Features](#FeatureImportance)  
+   3.2 [Experimental Design](#Distillation)
 4. [Results](#Results)  
+   3.1 [Feature Importance](#FeatureImportance)  
+   3.2 [Model Results](#Distillation)
 
 ## Abstract
 
@@ -20,16 +24,19 @@ Our approach combines machine learning techniques with predictive variables deri
 ## Methods 
 ### Identifying Features
 
+### Experimental Design   <a name="Experimental Design "></a>
+![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
+
 
 
 ## Results  
 
-### Feature Importance
+### FeatureImportance  <a name="Feature Importance"></a>
 
 ![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/feature_importance.png)
 
-## we
-![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
+
+### Novel Method <a name="Novel"></a>
 
 ## Resources
 1. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
