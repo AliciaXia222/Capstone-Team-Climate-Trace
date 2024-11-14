@@ -1,4 +1,4 @@
-# 🌎 Climate TRACE <br> Estimating Global Greenhouse Gas Emissions from Buildings
+# 🌎 Estimating Global Greenhouse Gas Emissions from Buildings
 
 
 ## Table of Contents
@@ -15,24 +15,23 @@
 
 
 ## Abstract <a name="Abstract"></a>
+This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
+
 
 ## Introduction <a name="Introduction"></a>
 
-Globally, buildings account for 30% of end-use energy consumption and 27% of energy sector greenhouse gas emissions, and yet the building sector is lacking in low-temporal latency, high-spatial-resolution data on energy consumption and resulting emissions. Existing methods tend to either have low resolution, high latency (often a year or more), or rely on data typically unavailable at scale (such as self-reported energy consumption). We will investigate machine learning based techniques that combine various features including those derived from satellite imagery to estimate global emissions estimates both for residential and commercial buildings at a 1km2 resolution. 
-A more detailed vision for this work is described in this paper: https://www.climatechange.ai/papers/neurips2023/128/paper.pdf
+Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
 
+This project intends to develop a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates will be used to calculate GHG emissions.
 
-The team will create new feature inputs for a machine learning model based on characteristics such as temperature, humidity, economic data, population, and other factors related to building energy consumption. These features will be used to estimate energy use intensity, the key factor in determining a building's emissions intensity. These results will be compared to ground truth data and the performance evaluated. The team will also develop uncertainty estimates on their predictions to contextualize findings for the decision makers that will use the resulting data.
-
-
-
-
-![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
 
 ## Methods <a name="Methods"></a>
 ### Identifying Features <a name="IdentifyingFeatures"></a>
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
+
+![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
+
 
 ![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
 
