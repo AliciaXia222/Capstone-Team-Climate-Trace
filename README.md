@@ -4,7 +4,7 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Identifying Features](##Identifying Features)
+3. [Methods](#Methods)  
 
 
 ## Abstract
@@ -18,22 +18,23 @@ A more detailed vision for this work is described in this paper: https://www.cli
 The team will create new feature inputs for a machine learning model based on characteristics such as temperature, humidity, economic data, population, and other factors related to building energy consumption. These features will be used to estimate energy use intensity, the key factor in determining a building's emissions intensity. These results will be compared to ground truth data and the performance evaluated. The team will also develop uncertainty estimates on their predictions to contextualize findings for the decision makers that will use the resulting data.
 
 
-## Introduction
-
-## Introduction2
 
 
 ![Geographic Distribution of Data Points by Region](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/region_map.png)
 
-
-## Identifying Features
-
-
+## [Methods](#Methods)  
+### Identifying Features
 
 
 
-## Feature Importance
 
+
+### Feature Importance
+
+
+
+## we
+![Image](https://raw.githubusercontent.com/AliciaXia222/Capstone-Team-Climate-Trace/refs/heads/main/figures/experimental_design.png)
 
 ## Resources
 1. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
