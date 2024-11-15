@@ -54,7 +54,7 @@ Because we will predict energy use intensity from building, it mainly includes d
 
 ## Results  <a name="Results"></a>
 
-### Feature Importance <a name="Feature Importance"></a>
+### Feature Importance <a name="FeatureImportance"></a>
 
 To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD), defined as a measure of heating demand based on temperature, proved to be the most significant factor, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
 
