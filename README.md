@@ -4,10 +4,10 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
 3. [Methods](#Methods)  
-   3.1 [Feature Engineering](#Feature Engineering)
-   3.2 [Nearest Reference Mapping]
-   3.3 [Supervised Machine Learning]
-   3.4 [Meta Model(Stacking)]
+   3.1 [Feature Engineering](#feature-engineering)
+   3.2 [Nearest Reference Mapping](#nearest-reference-mapping)
+   3.3 [Supervised Machine Learning](#supervised-machine-learning)
+   3.4 [Meta Model(Stacking)](#meta-model-stacking)
 5. [Experiments] 
    3.2 [Experimental Design](#ExperimentalDesign) 
 6. [Conclusion](#Results)  
