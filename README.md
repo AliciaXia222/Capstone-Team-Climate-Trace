@@ -14,6 +14,7 @@
 
 
 ## Abstract <a name="Abstract"></a>
+
 This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
 
 
@@ -41,8 +42,14 @@ Because we will predict energy use intensity from building, it mainly includes d
 2. Population [World Bank Group](https://data.worldbank.org/indicator/SP.POP.TOTL): This dataset provides population data for various countries and regions from 1960 to 2023. It includes the country/region name, indicator name which is population total, and the population figures for each year, we only keep the population in 2023 to align closely with our main goal.
 3. GDP [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): This dataset contains human development, health, education and income within and across 160+ countries from 1990 to 2022, we used it as our main resource to extract several features one is GDP. We kept year of 2022 as our GDP variable.
 4. Human Development Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): 
+5. Urbanization Rate [World Bank](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022): 
+6. Educational Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/edindex/)
+8. Paris Agreement [United Nations Climate Change](https://unfccc.int/process-and-meetings/the-paris-agreement)
+9. Temperature []()
+10. Humidity []()
+11. Latitude []()
+12. Longitude []()
 ![Diagram](/figures/diagram.png)
-
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
 
