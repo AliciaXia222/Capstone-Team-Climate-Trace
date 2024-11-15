@@ -4,14 +4,17 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
 3. [Methods](#Methods)  
-   3.1 [Identifying Features](#IdentifyingFeatures)
-4. [Experiments] 
+   3.1 [Feature Engineering]
+   3.2 [Nearest Reference Mapping]
+   3.3 [Supervised Machine Learning]
+   3.4 [Meta Model(Stacking)]
+5. [Experiments] 
    3.2 [Experimental Design](#ExperimentalDesign) 
-5. [Conclusion](#Results)  
+6. [Conclusion](#Results)  
    4.1 [Feature Importance](#FeatureImportance)  
    4.2 [Model Results](#ModelResults)
-6. [Resources](#Resources)  
-7. [Contributors](#Contributors)
+7. [Resources](#Resources)  
+8. [Contributors](#Contributors)
 
 
 ## Abstract <a name="Abstract"></a>
