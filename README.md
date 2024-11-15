@@ -4,13 +4,14 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
 3. [Methods](#Methods)  
-   3.1 [Identifying Features](#IdentifyingFeatures)  
+   3.1 [Identifying Features](#IdentifyingFeatures)
+4. [Experiments] 
    3.2 [Experimental Design](#ExperimentalDesign) 
-4. [Results](#Results)  
+5. [Conclusion](#Results)  
    4.1 [Feature Importance](#FeatureImportance)  
    4.2 [Model Results](#ModelResults)
-5. [Resources](#Resources)  
-6. [Contributors](#Contributors)
+6. [Resources](#Resources)  
+7. [Contributors](#Contributors)
 
 
 ## Abstract <a name="Abstract"></a>
