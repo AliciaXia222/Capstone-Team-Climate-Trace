@@ -3,13 +3,14 @@
 ## Table of Contents
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
-3. [Methods](#Methods)  
+3. [Data Description](#Data-Description)
+4. [Methods](#Methods)  
    3.1 [Feature Engineering](#feature-engineering)
    3.2 [Nearest Reference Mapping](#nearest-reference-mapping)
    3.3 [Supervised Machine Learning](#supervised-machine-learning)
    3.4 [Meta Model(Stacking)](#meta-model-stacking)
 5. [Experiments] 
-   3.2 [Experimental Design](#ExperimentalDesign) 
+   4.1 [Experimental Design](#ExperimentalDesign) 
 6. [Conclusion](#Results)  
    4.1 [Feature Importance](#FeatureImportance)  
    4.2 [Model Results](#ModelResults)
@@ -30,13 +31,6 @@ Our project focuses on emissions from the building sector. Buildings contribute 
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
-## Methods <a name="Methods"></a>
-
-### Feature Engineering
-
-### Nearest Reference Mapping
-
-### Supervised Machine Learning
 ### Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
