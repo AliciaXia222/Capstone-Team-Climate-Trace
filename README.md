@@ -37,9 +37,9 @@ The estimation formula is:
 ### Identifying Features <a name="IdentifyingFeatures"></a>
 
 Because we will predict energy use intensity from building, it mainly includes direct emissions, which primarily results from onsite fossil fuel combustion used for space heating, water heating, and cooking. To describe these factors through data, we found below datasets from open resources match our need. 
-1. EUI: Our ground truth data of energy use intensity provided by client. It includes 482 lines of data 
-2. Population [from World Bank Group](https://data.worldbank.org/indicator/SP.POP.TOTL): This dataset provides population data for various countries and regions from 1960 to 1963. It includes the country/region name, indicator name which is population total, and the population figures for each year.
-3. GDP[Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): This dataset 
+1. EUI [Google Drive](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC): Our ground truth data of energy use intensity provided by client. It includes 482 lines of data and two main clumns, one is "residential EUI" which indicates the EUI calculated from residential building area, the other one is "non-residential EUI" which indicates the EUI calculated by non-residential building area.
+2. Population [World Bank Group](https://data.worldbank.org/indicator/SP.POP.TOTL): This dataset provides population data for various countries and regions from 1960 to 2023. It includes the country/region name, indicator name which is population total, and the population figures for each year, we only keep the population in 2023 to align closely with our main goal.
+3. GDP [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): This dataset contains human development, health, education and income within and across 160+ countries from 1990 to 2022, we used it as our main resource to extract several features one is GDP. We kept year of 2022 as our GDP variable.
 4. Human Development Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): 
 ![Diagram](/figures/diagram.png)
 
