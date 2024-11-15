@@ -43,12 +43,13 @@ Because we will predict energy use intensity from building, it mainly includes d
 3. GDP [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): This dataset contains human development, health, education and income within and across 160+ countries from 1990 to 2022, we used it as our main resource to extract several features one is GDP. We kept year of 2022 as our GDP variable.
 4. Human Development Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/shdi/): 
 5. Urbanization Rate [World Bank](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022): 
-6. Educational Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/edindex/)
-8. Paris Agreement [United Nations Climate Change](https://unfccc.int/process-and-meetings/the-paris-agreement)
-9. Temperature []()
-10. Humidity []()
-11. Latitude []()
-12. Longitude []()
+6. Educational Index [Global Data Lab](https://globaldatalab.org/shdi/metadata/edindex/):
+8. Paris Agreement [United Nations Climate Change](https://unfccc.int/process-and-meetings/the-paris-agreement):
+9. Temperature [Copernicus](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview):
+10. Humidity [Copernicus](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview):
+11. Latitude [GeoNames geographical database](https://download.geonames.org/export/dump/):
+12. Longitude [GeoNames geographical database](https://download.geonames.org/export/dump/):
+
 ![Diagram](/figures/diagram.png)
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
