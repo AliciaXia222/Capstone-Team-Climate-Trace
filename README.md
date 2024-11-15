@@ -7,7 +7,7 @@
    3.1 [Identifying Features](#IdentifyingFeatures)  
    3.2 [Experimental Design](#ExperimentalDesign) 
 4. [Results](#Results)  
-   4.1 [Identifying Features](#IdentifyingFeatures)  
+   4.1 [Feature Importance](#FeatureImportance)  
    4.2 [Model Results](#ModelResults)
 5. [Resources](#Resources)  
 6. [Contributors](#Contributors)
@@ -56,7 +56,7 @@ Because we will predict energy use intensity from building, it mainly includes d
 
 ### Feature Importance <a name="Feature Importance"></a>
 
-To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD) proved to be the most significant, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
+To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD), defined as a measure of heating demand based on temperature, proved to be the most significant factor, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
 
 ![Feature Importance](/figures/feature_importance.jpeg)
 
