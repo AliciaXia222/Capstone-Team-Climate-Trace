@@ -4,7 +4,7 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
 3. [Methods](#Methods)  
-   3.1 [Feature Engineering]
+   3.1 [Feature Engineering](#Feature Engineering)
    3.2 [Nearest Reference Mapping]
    3.3 [Supervised Machine Learning]
    3.4 [Meta Model(Stacking)]
@@ -39,7 +39,7 @@ To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Us
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### Identifying Features <a name="IdentifyingFeatures"></a>
+### Feature Engineering <a name="FeatureEngineering"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
