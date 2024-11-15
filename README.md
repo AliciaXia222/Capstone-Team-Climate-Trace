@@ -33,6 +33,8 @@ This project is focused on developing a machine learning model to estimate GHG e
 ## Methods <a name="Methods"></a>
 
 ### Feature Engineering
+
+### Nearest Reference Mapping
 ### Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
