@@ -20,12 +20,12 @@
 9. [Contributors](#Contributors)
 
 
-## Abstract <a name="Abstract"></a>
+## 1.Abstract <a name="Abstract"></a>
 
 This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
 
 
-## Introduction <a name="Introduction"></a>
+## 2.Introduction <a name="Introduction"></a>
 
 Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
 
@@ -33,16 +33,16 @@ Our project focuses on emissions from the building sector. Buildings contribute 
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
-## Data Description <a name="Data-Description"></a>
+## 3.Data Description <a name="Data-Description"></a>
 
-### Building Emissions Estimation(Target Variable) <a name="Building-Emissions-Estimation"></a>
+### 3.1Building Emissions Estimation(Target Variable) <a name="Building-Emissions-Estimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### Feature Description <a name="Feature-Description"></a>
+### 3.2Feature Description <a name="Feature-Description"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
@@ -78,9 +78,9 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 
 ![Diagram](/figures/diagram.png)
 
-## Methods <a name="Methods"></a>
+## 4.Methods <a name="Methods"></a>
 
-### Feature Engineering <a name="Feature-Engineering"></a>
+### 4.1 Feature Engineering <a name="Feature-Engineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
 1. **Heading Degree Days Calculation:**  
