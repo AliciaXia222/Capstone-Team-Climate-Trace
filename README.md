@@ -146,6 +146,7 @@ We aim to assess our model's generalization by comparing its performance within 
 
 ## 8. Results  <a name="Results"></a>
 
+
 ### Feature Importance <a name="FeatureImportance"></a>
 
 To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD), defined as a measure of heating demand based on temperature, proved to be the most significant factor, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
@@ -153,6 +154,16 @@ To identify the most influential variables in building energy consumption and th
 ![Feature Importance](/figures/feature_importance.png)
 
 ### Model Results <a name="ModelResults"></a>
+
+| Target                 | Strategy       | Model | Features                                     | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
+|------------------------|----------------|-------|---------------------------------------------|------|--------|-------|-------|--------|--------|
+| Non-residential EUI   | Within-Domain  | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1437 | -0.07  | 21.12 | 31.00 | 10.36  | 10.09  |
+| Non-residential EUI   | Cross-Domain   | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3469 | -10.48 | 35.51 | 52.19 | 20.88  | 20.57  |
+| Non-residential EUI   | All-Domain     | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1290 | 0.12   | 18.94 | 29.86 | 9.56   | 9.26   |
+| Residential EUI       | Within-Domain  | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1044 | 0.32   | 20.22 | 27.75 | 15.40  | 15.37  |
+| Residential EUI       | Cross-Domain   | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 2493 | -1.74  | 36.94 | 47.34 | 31.88  | 30.87  |
+| Residential EUI       | All-Domain     | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1042 | 0.30   | 20.14 | 27.35 | 15.31  | 15.37  |
+
 
 ## 9. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
 This section provides an overview of the repository's structure, explaining the purpose of each directory and file. It also includes instructions for navigating and using the code.
