@@ -2,21 +2,21 @@
 
 ## Table of Contents
 1. [Abstract](#Abstract)
-2. [Motivation](#Motivation)
+2. [Problem Statement and Project Motivation](#ProblemStatement)
 3. [Introduction](#Introduction)
 4. [Background](#Background)
 5. [Data Description](#Data-Description)
    3.1 Building Emissions Estimation(#Building-Emissions-Estimation)
    3.2 Feature Description(#Feature-Description)
 6. [Methods](#Methods)  
-   4.1 [Feature Engineering](#feature-engineering)
-   4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
-   4.3 [Supervised Machine Learning](#supervised-machine-learning)
+   6.1 [Feature Engineering](#feature-engineering)
+   6.2 [Nearest Reference Mapping](#nearest-reference-mapping)
+   6.3 [Supervised Machine Learning](#supervised-machine-learning)
 7. [Experiments](#Experiments) 
-   6.1 [Experimental Design](#ExperimentalDesign) 
+   7.1 [Experimental Design](#ExperimentalDesign) 
 8. [Conclusion](#Results)  
-   6.1 [Model Results](#ModelResults)
-   6.2 [Feature Importance](#FeatureImportance)  
+   8.1 [Model Results](#ModelResults)
+   8.2 [Feature Importance](#FeatureImportance)  
 9. [Resources](#Resources)  
 10. [Contributors](#Contributors)
 
@@ -25,8 +25,14 @@
 
 This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
 
+## 2.Problem Statement and Project Motivation <a name="ProblemStatement"></a>
 
-## 2.Introduction <a name="Introduction"></a>
+The building sector lacks timely, high-resolution, and low-latency data on energy consumption and greenhouse gas (GHG) emissions, limiting efforts to address its significant contribution to global emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap severely restricts policymakers’ ability to focus their efforts effectively.
+
+To bridge this gap, our project seeks to develop a methodology to estimate global onsite building emissions with high spatial resolution, specifically using a 1-kilometer-by-1-kilometer grid. This effort focuses on developing a machine learning-based approach to predict energy consumption and GHG emissions in near real-time, sharing open-source methodologies to ensure replicability and broader adoption, and validating models to assess uncertainty and reliability for global application.
+
+
+## 3.Introduction <a name="Introduction"></a>
 
 Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
 
@@ -34,11 +40,11 @@ Our project focuses on emissions from the building sector. Buildings contribute 
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
-## 2.Background <a name="Background"></a>
+## 4.Background <a name="Background"></a>
 
 Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
-## 3.Data Description <a name="Data-Description"></a>
+## 5.Data Description <a name="Data-Description"></a>
 
 ### 3.1Building Emissions Estimation(Target Variable) <a name="Building-Emissions-Estimation"></a>
 
