@@ -23,18 +23,18 @@
 11. [Contributors](#Contributors) 
 
 
-## 1.Abstract <a name="Abstract"></a>
+## 1. Abstract <a name="Abstract"></a>
 
 This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
 
-## 2.Problem Statement and Project Motivation <a name="ProblemStatement"></a>
+## 2. Problem Statement and Project Motivation <a name="ProblemStatement"></a>
 
 The building sector lacks timely, high-resolution, and low-latency data on energy consumption and greenhouse gas (GHG) emissions, limiting efforts to address its significant contribution to global emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap severely restricts policymakers’ ability to focus their efforts effectively.
 
 To bridge this gap, our project seeks to develop a methodology to estimate global onsite building emissions with high spatial resolution, specifically using a 1-kilometer-by-1-kilometer grid. This effort focuses on developing a machine learning-based approach to predict energy consumption and GHG emissions in near real-time, sharing open-source methodologies to ensure replicability and broader adoption, and validating models to assess uncertainty and reliability for global application.
 
 
-## 3.Introduction <a name="Introduction"></a>
+## 3. Introduction <a name="Introduction"></a>
 
 Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
 
@@ -42,11 +42,11 @@ Our project focuses on emissions from the building sector. Buildings contribute 
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
-## 4.Background <a name="Background"></a>
+## 4. Background <a name="Background"></a>
 
 Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
-## 5.Data Description <a name="DataDescription"></a>
+## 5. Data Description <a name="DataDescription"></a>
 
 ### 5.1 Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
@@ -91,7 +91,7 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 
 ![Diagram](/figures/diagram.png)
 
-## 6.Methods <a name="Methods"></a>
+## 6. Methods <a name="Methods"></a>
 
 ### 6.1 Feature Engineering <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
@@ -154,9 +154,97 @@ To identify the most influential variables in building energy consumption and th
 
 ### Model Results <a name="ModelResults"></a>
 
+## 9. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
+This section provides an overview of the repository's structure, explaining the purpose of each directory and file. It also includes instructions for navigating and using the code.
+
+### Directory Structure
+
+```python
+├── README.md
+├── data
+│   ├── 01_raw
+│   │   ├── HDI_educationalIndex_incomeIndex.csv
+│   │   ├── gdp_data.csv
+│   │   └── population.csv
+│   ├── 02_interim
+│   │   ├── CDD.csv
+│   │   └── HDD.csv
+│   └── 03_processed
+│       ├── merged_df.csv
+│       └── merged_df_HDD.csv
+├── figures
+│   ├── diagram.png
+│   ├── experimental_design.png
+│   ├── feature_importance.jpeg
+│   ├── formula.png
+│   └── region_map.png
+├── notebooks
+│   ├── 01_DataPreprocessing.ipynb
+│   ├── 02_HDDProcessing.ipynb
+│   ├── 03_Humidityrocessing.ipynb
+│   ├── 04_FeatureImportance.ipynb
+│   ├── 05_Experiments.ipynb
+│   ├── 06_Model.ipynb
+│   ├── 07_Plots.ipynb
+│   └── HDDPreprocessing.ipynb
+└── results
+    ├── results_20241114_1231_all_domain_knn.csv
+    ├── results_20241114_1231_all_domain_lr.csv
+    ├── results_20241114_1231_cross_domain_knn.csv
+```
 
 
-## 9. Resources  <a name="Resources"></a>
+---
+
+
+1. **`data/`**  
+   - Contains all datasets used in the project. It is organized into subfolders:
+     - `01_raw/`: Raw, unprocessed datasets like HDI, GDP, and population data.  
+     - `02_interim/`: Intermediate processed files such as HDD and CDD values.  
+     - `03_processed/`: Fully processed datasets ready for modeling (e.g., `merged_df.csv`).  
+
+2. **`figures/`**  
+   - Contains visual resources such as diagrams, maps, and other illustrations used in presentations and documentation.  
+
+3. **`notebooks/`**  
+   - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
+     - **01_DataPreprocessing.ipynb**: Combines raw data into a single dataset.  
+     - **02_HDDProcessing.ipynb**: Calculates Heating Degree Days (HDD) using global temperature data.  
+     - **03_HumidityProcessing.ipynb**: Computes humidity values.  
+     - **04_FeatureImportance.ipynb**: Analyzes feature importance.  
+     - **05_Experiments.ipynb**: Contains experimental setups and evaluations.  
+     - **06_Model.ipynb**: Implements machine learning models and saves results.  
+     - **07_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+
+4. **`results/`**  
+   - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).  
+
+5. **`README.md`**  
+   - The entry point of the repository, providing an overview, key results, and links to all major components.  
+
+
+
+#### Usage Instructions  
+
+1. **Setup**:  
+   Clone the repository and ensure all dependencies are installed. Use `requirements.txt` if available.  
+
+2. **Data Processing**:  
+   - Start with `01_DataPreprocessing.ipynb` to merge raw datasets.  
+   - Use `02_HDDProcessing.ipynb` and `03_HumidityProcessing.ipynb` to compute additional features.  
+
+3. **Modeling**:  
+   - Open `06_Model.ipynb` to train models and evaluate performance across domains.  
+
+4. **Results Analysis**:  
+   - Use the `results/` directory to analyze model outputs and metrics.  
+
+5. **Figures and Visuals**:  
+   - All generated plots and diagrams are stored in `figures/` for easy reference in presentations or reports.  
+
+
+
+## 10. Resources  <a name="Resources"></a>
 1. [Greet Janssens-Maenhout, Monica Crippa, Diego Guizzardi, Marilena Muntean, Edwin Schaaf, Frank Dentener, Peter Bergamaschi, Valerio Pagliari, Jos G. J. Olivier, Jeroen A. H. W. Peters, John A. van Aardenne, Suvi Monni, Ulrike Doering, A. M. Roxana Petrescu, Efisio Solazzo, and Gabriel D. Oreggioni. (July 2019). EDGARv4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012.](https://essd.copernicus.org/articles/11/959/2019/)
 2. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 3. [Marshall Burke*, Anne Driscoll, David B. Lobell, Stefano Ermon. (2021). Using satellite imagery to understand and promote sustainable development.](https://www.science.org/doi/full/10.1126/science.abe8628)
@@ -168,7 +256,6 @@ To identify the most influential variables in building energy consumption and th
 9. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. The Innovation, 3(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182)
 
 
-## 10. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
 
 
 ## 11. Contributors  <a name="Contributors"></a>
