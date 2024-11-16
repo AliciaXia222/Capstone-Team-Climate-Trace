@@ -47,14 +47,14 @@ Existing estimates of anthropogenic CO2 emissions are provided by several source
 
 ## 5.Data Description <a name="DataDescription"></a>
 
-### 5.1 1Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
+### 5.1 Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### 5.2 Feature Description <a name="Feature-Description"></a>
+### 5.2 Feature Description <a name="FeatureDescription"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
@@ -90,9 +90,9 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 
 ![Diagram](/figures/diagram.png)
 
-## 4.Methods <a name="Methods"></a>
+## 6.Methods <a name="Methods"></a>
 
-### 4.1 Feature Engineering <a name="Feature-Engineering"></a>
+### 6.1 Feature Engineering <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
 1. **Heading Degree Days Calculation:**  
@@ -107,13 +107,13 @@ Feature engineering is essential to transform raw data into meaningful represent
 4. **Clustering Features:**  
    Apply clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.
 
-### 4.2 Nearest Reference Mapping <a name="Nearest-Reference-Mapping"></a>
+### 6.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
 
 Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. 
 
 In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
 
-### 4.3 Supervised Machine Learning <a name="supervised-machine-learning"></a>  
+### 6.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
 
 In this project, we will employ a range of supervised machine learning models to predict and analyze the target variable. The following models will be utilized:
