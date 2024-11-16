@@ -19,7 +19,8 @@
    8.1 [Feature Importance](#FeatureImportance)  
    8.2 [Model Results](#ModelResults)  
 9. [Resources](#Resources)
-10. [Contributors](#Contributors) 
+10. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+11. [Contributors](#Contributors) 
 
 
 ## 1.Abstract <a name="Abstract"></a>
@@ -134,13 +135,16 @@ In this project, we will employ a range of supervised machine learning models to
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
+Given the challenge of regional variations in global data, we will validate our predictions at the regional level across 5 regions using 3 strategies to identify biases and improve model robustness.
 
 ![Geographic Distribution of Data Points by Region](/figures/region_map.png)
 
 ![Image](/figures/experimental_design.png)
 
+We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
-## Results  <a name="Results"></a>
+
+## 8. Results  <a name="Results"></a>
 
 ### Feature Importance <a name="FeatureImportance"></a>
 
@@ -150,7 +154,9 @@ To identify the most influential variables in building energy consumption and th
 
 ### Model Results <a name="ModelResults"></a>
 
-## Resources  <a name="Resources"></a>
+
+
+## 9. Resources  <a name="Resources"></a>
 1. [Greet Janssens-Maenhout, Monica Crippa, Diego Guizzardi, Marilena Muntean, Edwin Schaaf, Frank Dentener, Peter Bergamaschi, Valerio Pagliari, Jos G. J. Olivier, Jeroen A. H. W. Peters, John A. van Aardenne, Suvi Monni, Ulrike Doering, A. M. Roxana Petrescu, Efisio Solazzo, and Gabriel D. Oreggioni. (July 2019). EDGARv4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012.](https://essd.copernicus.org/articles/11/959/2019/)
 2. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 3. [Marshall Burke*, Anne Driscoll, David B. Lobell, Stefano Ermon. (2021). Using satellite imagery to understand and promote sustainable development.](https://www.science.org/doi/full/10.1126/science.abe8628)
@@ -162,10 +168,10 @@ To identify the most influential variables in building energy consumption and th
 9. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. The Innovation, 3(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182)
 
 
+## 10. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
 
 
-
-## Contributors  <a name="Contributors"></a>
+## 11. Contributors  <a name="Contributors"></a>
 [Jiechen Li](https://github.com/carrieli15)  
 [Meixiang Du](https://github.com/dumeixiang)  
 [Yulei Xia](https://github.com/AliciaXia222)  
