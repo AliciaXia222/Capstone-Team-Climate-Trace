@@ -4,20 +4,21 @@
 1. [Abstract](#Abstract)
 2. [Motivation](#Motivation)
 3. [Introduction](#Introduction)
-4. [Data Description](#Data-Description)
+4. [Background](#Background)
+5. [Data Description](#Data-Description)
    3.1 Building Emissions Estimation(#Building-Emissions-Estimation)
    3.2 Feature Description(#Feature-Description)
-5. [Methods](#Methods)  
+6. [Methods](#Methods)  
    4.1 [Feature Engineering](#feature-engineering)
    4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
    4.3 [Supervised Machine Learning](#supervised-machine-learning)
-6. [Experiments](#Experiments) 
+7. [Experiments](#Experiments) 
    6.1 [Experimental Design](#ExperimentalDesign) 
-7. [Conclusion](#Results)  
+8. [Conclusion](#Results)  
    6.1 [Model Results](#ModelResults)
    6.2 [Feature Importance](#FeatureImportance)  
-8. [Resources](#Resources)  
-9. [Contributors](#Contributors)
+9. [Resources](#Resources)  
+10. [Contributors](#Contributors)
 
 
 ## 1.Abstract <a name="Abstract"></a>
@@ -32,6 +33,10 @@ Global warming is one of the most critical challenges of our time, and addressin
 Our project focuses on emissions from the building sector. Buildings contribute between 6% and 9% of global emissions when considering only direct emissions, which primarily result from onsite fossil fuel combustion used for space heating, water heating, and cooking. Emissions from lighting, consumer electronics, and most air conditioning are excluded, as these are typically electric and accounted for separately within Climate TRACE.
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
+
+## 2.Background <>
+
+Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
 ## 3.Data Description <a name="Data-Description"></a>
 
@@ -143,6 +148,33 @@ To identify the most influential variables in building energy consumption and th
 2. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 3. [Marshall Burke*, Anne Driscoll, David B. Lobell, Stefano Ermon. (2021). Using satellite imagery to understand and promote sustainable development.](https://www.science.org/doi/full/10.1126/science.abe8628)
 4. [Xinyu Dou, Yilong Wang, Philippe Ciais, Frédéric Chevallier, Steven J. Davis, Monica Crippa, Greet Janssens-Maenhout, Diego Guizzardi, Efisio Solazzo, Feifan Yan, Da Huo, Bo Zheng, Biqing Zhu, Duo Cui, Piyu Ke, Taochun Sun, Hengqi Wang, Qiang Zhang, Pierre Gentine, Zhu Deng, and Zhu Liu. (2022). Near-realtime global gridded daily CO2 emissions.](https://www.sciencedirect.com/science/article/pii/S2666675821001077)
+5. Tomohiro Oda, Shamil Maksyutov, and Robert J. Andres. The Open-source Data Inventory for
+Anthropogenic CO2, version 2016 (ODIAC2016): a global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. Earth System Science Data, 10(1):87–107, January 2018. ISSN 1866-3508. doi: 10.5194/essd-10-87-2018. URL
+https://essd.copernicus.org/articles/10/87/2018/. 235 citations (Crossref) [2023-02-24]
+Publisher: Copernicus GmbH.
+6. Erin E. McDuffie, Steven J. Smith, Patrick O’Rourke, Kushal Tibrewal, Chandra Venkataraman, Eloise A.
+Marais, Bo Zheng, Monica Crippa, Michael Brauer, and Randall V. Martin. A global anthropogenic
+emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): an
+application of the Community Emissions Data System (CEDS). Earth System Science Data, 12(4):
+3413–3442, December 2020. ISSN 1866-3508. doi: 10.5194/essd-12-3413-2020. URL https://
+essd.copernicus.org/articles/12/3413/2020/. 100 citations (Crossref) [2023-02-24] Publisher:
+Copernicus GmbH.
+7. Greet Janssens-Maenhout, Monica Crippa, Diego Guizzardi, Marilena Muntean, Edwin Schaaf, Frank
+Dentener, Peter Bergamaschi, Valerio Pagliari, Jos G. J. Olivier, Jeroen A. H. W. Peters, John A. van
+Aardenne, Suvi Monni, Ulrike Doering, A. M. Roxana Petrescu, Efisio Solazzo, and Gabriel D. Oreggioni.
+EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. Earth
+System Science Data, 11(3):959–1002, July 2019. ISSN 1866-3508. doi: 10.5194/essd-11-959-2019. URL
+https://essd.copernicus.org/articles/11/959/2019/. 245 citations (Crossref) [2023-02-24]
+Publisher: Copernicus GmbH.
+8. the Global Carbon Grid [8], and the Global Gridded
+Daily CO2 Emissions Dataset (GRACED)[9]. While GRACED data is published near-monthly, most
+other key data are produced with a year or more of latency.
+9. Xinyu Dou, Yilong Wang, Philippe Ciais, Frédéric Chevallier, Steven J. Davis, Monica Crippa, Greet
+Janssens-Maenhout, Diego Guizzardi, Efisio Solazzo, Feifan Yan, Da Huo, Bo Zheng, Biqing Zhu, Duo Cui,
+Piyu Ke, Taochun Sun, Hengqi Wang, Qiang Zhang, Pierre Gentine, Zhu Deng, and Zhu Liu. Near-realtime global gridded daily CO2 emissions. The Innovation, 3(1):100182, January 2022. ISSN 2666-6758.
+doi: 10.1016/j.xinn.2021.100182. URL https://www.sciencedirect.com/science/article/pii/
+S2666675821001077. 12 citations (Crossref) [2023-02-24]
+
 
 
 ## Contributors  <a name="Contributors"></a>
