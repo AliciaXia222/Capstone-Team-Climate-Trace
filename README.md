@@ -1,45 +1,25 @@
 # 🌎 Estimating Global Greenhouse Gas Emissions from Buildings
 
 ## Table of Contents
-1. [Abstract](#Abstract)
-2. [Problem Statement and Project Motivation](#ProblemStatement)
-3. [Introduction](#Introduction)
-4. [Background](#Background)
-5. [Data Description](#Data-Description)
-   3.1 Building Emissions Estimation(#Building-Emissions-Estimation)
-   3.2 Feature Description(#Feature-Description)
-6. [Methods](#Methods)  
-   6.1 [Feature Engineering](#feature-engineering)
-   6.2 [Nearest Reference Mapping](#nearest-reference-mapping)
-   6.3 [Supervised Machine Learning](#supervised-machine-learning)
-7. [Experiments](#Experiments) 
-   7.1 [Experimental Design](#ExperimentalDesign) 
-8. [Conclusion](#Results)  
-   8.1 [Model Results](#ModelResults)
-   8.2 [Feature Importance](#FeatureImportance)  
-9. [Resources](#Resources)  
-10. [Contributors](#Contributors)
 
-
-≈
 1. [Abstract](#Abstract)
 2. [Problem Statement and Project Motivation](#ProblemStatement)
 3. [Introduction](#Introduction)
 4. [Background](#Background)  
-5. [Data Descriptio](#DataDescriptio)  
+5. [Data Description](#DataDescription)  
    5.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
    5.2 [Feature Description](#FeatureDescription)  
 6. [Methods](#Methods)  
-   6.1 [Overview](#Overview)  
-   6.2 [Knowledge Distillation](#Distillation)  
-   6.3 [Anchor Method](#Anchor)  
-7. [Methods](#Methods)  
-   7.1 [Overview](#Overview)  
-8. [Methods](#Methods)  
-   8.1 [Overview](#Overview)  
-   8.2 [Knowledge Distillation](#Distillation)  
-9. [Package](#Package)
-10. [Conclusion](#Conclusion) 
+   6.1 [Feature Engineering](#FeatureEngineering)  
+   6.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
+   6.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
+7. [Experiments](#Experiments)  
+   7.1 [Experimental Design](#ExperimentalDesign)  
+8. [Conclusion](#Conclusion)  
+   8.1 [Feature Importance](#FeatureImportance)  
+   8.2 [Model Results](#ModelResults)  
+9. [Resources](#Resources)
+10. [Contributors](#Contributors) 
 
 
 ## 1.Abstract <a name="Abstract"></a>
@@ -65,16 +45,16 @@ This project is focused on developing a machine learning model to estimate GHG e
 
 Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
-## 5.Data Description <a name="Data-Description"></a>
+## 5.Data Description <a name="DataDescription"></a>
 
-### 3.1Building Emissions Estimation(Target Variable) <a name="Building-Emissions-Estimation"></a>
+### 5.1 1Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### 3.2Feature Description <a name="Feature-Description"></a>
+### 5.2 Feature Description <a name="Feature-Description"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
