@@ -155,6 +155,20 @@ To identify the most influential variables in building energy consumption and th
 
 ### Model Results <a name="ModelResults"></a>
 
+#### Linear Regression
+
+| Target                 | Strategy       | Model             | Features                                     | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
+|------------------------|----------------|-------------------|---------------------------------------------|------|--------|-------|-------|--------|--------|
+| Non-residential EUI   | Within-Domain  | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3635 | -0.90  | 36.53 | 47.15 | 19.88  | 16.94  |
+| Non-residential EUI   | Cross-Domain   | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 4238 | -12.85 | 50.06 | 60.41 | 31.89  | 31.10  |
+| Non-residential EUI   | All-Domain     | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3531 | -2.09  | 40.34 | 47.89 | 21.20  | 20.24  |
+| Residential EUI       | Within-Domain  | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1811 | -0.09  | 24.09 | 33.87 | 20.62  | 17.97  |
+| Residential EUI       | Cross-Domain   | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 2613 | -1.92  | 40.81 | 48.45 | 40.59  | 34.98  |
+| Residential EUI       | All-Domain     | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1486 | -0.98  | 28.58 | 35.90 | 25.75  | 23.31  |
+
+#### KNN
+
+
 | Target                 | Strategy       | Model | Features                                     | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
 |------------------------|----------------|-------|---------------------------------------------|------|--------|-------|-------|--------|--------|
 | Non-residential EUI   | Within-Domain  | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1437 | -0.07  | 21.12 | 31.00 | 10.36  | 10.09  |
