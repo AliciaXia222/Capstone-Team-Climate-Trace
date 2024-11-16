@@ -79,17 +79,25 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 ![Diagram](/figures/diagram.png)
 
 ## Methods <a name="Methods"></a>
-   4.1 [Feature Engineering](#feature-engineering)
-   4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
-   4.3 [Supervised Machine Learning](#supervised-machine-learning)
-### Feature Engineering <a name="Feature Engineering"></a>
 
+### Feature Engineering <a name="Feature-Engineering"></a>
+Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
+1. **Heading Degree Days Calculation:**  
+   Calculated using temperature data to derive features relevant to [specific context, e.g., environmental or seasonal analysis].  
+
+2. **Comfort Index Calculation:**  
+   Derived using temperature and humidity data to represent [specific metric, e.g., human comfort or environmental conditions].  
+
+3. **Cross-Feature Interaction:**  
+   Combined multiple features to create new interaction terms that capture relationships between variables.  
+
+4. **Clustering Features:**  
+   Applied clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.   
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
 
 ![Geographic Distribution of Data Points by Region](/figures/region_map.png)
-
 
 ![Image](/figures/experimental_design.png)
 
