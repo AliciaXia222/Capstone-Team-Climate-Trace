@@ -3,44 +3,58 @@
 ## Table of Contents
 
 1. [Abstract](#Abstract)
-2. [Problem Statement and Project Motivation](#ProblemStatement)
-3. [Introduction](#Introduction)
-4. [Background](#Background)  
-5. [Data Description](#DataDescription)  
+2. [Introduction](#Introduction)  
+   6.1 [Project Motivation](#ProjectMotivation)  
+   6.2 [Problem Statement](#NearestReferenceMapping)  
+   6.3 [Goals](#Goals)  
+4. [Problem Statement and Project Motivation](#ProblemStatement)
+5. [Background](#Background)  
+6. [Data Description](#DataDescription)  
    5.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
    5.2 [Feature Description](#FeatureDescription)  
-6. [Methods](#Methods)  
+7. [Methods](#Methods)  
    6.1 [Feature Engineering](#FeatureEngineering)  
    6.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
    6.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
-7. [Experiments](#Experiments)  
+8. [Experiments](#Experiments)  
    7.1 [Experimental Design](#ExperimentalDesign)  
-8. [Conclusion](#Conclusion)  
+9. [Conclusion](#Conclusion)  
    8.1 [Feature Importance](#FeatureImportance)  
    8.2 [Model Results](#ModelResults)  
-9. [Resources](#Resources)
-10. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-11. [Contributors](#Contributors) 
+10. [Resources](#Resources)
+11. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+12. [Contributors](#Contributors) 
 
 
 ## 1. Abstract <a name="Abstract"></a>
 
-This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area data, will be used in the next stage of this project to predict direct GHG emissions from buildings, providing a timely, high-resolution method for global emissions estimation. This current work presents preliminary EUI estimation techniques, while future steps will focus on refining the model by incorporating additional features to enhance its performance, ultimately seeking to estimate global direct greenhouse gas emissions from buildings.
+This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation. This current work outlines preliminary EUI estimation techniques, while future iterations will refine the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
 
-## 2. Problem Statement and Project Motivation <a name="ProblemStatement"></a>
+## 2. Introduction <a name="Introduction"></a>
 
-The building sector lacks timely, high-resolution, and low-latency data on energy consumption and greenhouse gas (GHG) emissions, limiting efforts to address its significant contribution to global emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap severely restricts policymakers’ ability to focus their efforts effectively.
+### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
 
-To bridge this gap, our project seeks to develop a methodology to estimate global onsite building emissions with high spatial resolution, specifically using a 1-kilometer-by-1-kilometer grid. This effort focuses on developing a machine learning-based approach to predict energy consumption and GHG emissions in near real-time, sharing open-source methodologies to ensure replicability and broader adoption, and validating models to assess uncertainty and reliability for global application.
+Global warming is one of the most critical challenges of our time, and to address it effectively, we need more detailed information on where and when greenhouse gas emissions occur. This data is crucial for setting actionable emissions reduction goals and enabling policymakers to make informed decisions. Given this situation, Climate TRACE, a non-profit coalition of organizations, is building a timely, open, and accessible inventory of global emissions sources, currently covering around 83% of global emissions.
+
+Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. Indirect emissions from lighting, consumer electronics, and air conditioning are excluded, as they are typically electric and accounted for separately in the Climate TRACE database.
+
+Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated data, often delayed by over a year, or on self-reported data that is scarce or unavailable globally.
+
+### 2.2  Problem Statement  <a name="ProjectStatement"></a>
+
+Specifically, we can define our problem statement as follows:
+
+***The building sector lacks timely, high-resolution data on direct greenhouse gas (GHG) emissions, limiting the ability to accurately track and reduce emissions from building energy use.***
+
+### 2.3  Goals  <a name="Goals"></a>
+
+The goal of this project is to develop a machine learning model to estimate greenhouse gas (GHG) emissions based on building energy consumption. The model will predict energy use intensity (EUI) using climatic, geographical, and socioeconomic variables. These EUI estimates, along with building area data, will be used to calculate direct GHG building emissions.
+
+In the first semester, the focus has been on developing the Energy Use Intensity (EUI) estimation technique, using globally available features to predict EUI. By selecting these key features, the goal has been to generate the first iteration of EUI predictions. The target for this stage is to achieve a Mean Absolute Percentage Error (MAPE) in the range of 30-40%. While this is the ideal range for this milestone, it is possible that we may not meet this target at this stage. Refining and improving this technique will be the focus for the second semester.
+
+In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
 
 
-## 3. Introduction <a name="Introduction"></a>
-
-Global warming is one of the most critical challenges of our time, and addressing it requires accurately identifying the main sources of greenhouse gas (GHG) emissions. Climate TRACE, a global non-profit coalition, has made significant progress in independently tracking emissions with a high level of detail, covering approximately 83% of global emissions. However, the building sector, which represents a substantial portion of global energy consumption and GHG emissions, lacks timely, high-resolution, low-latency data on energy use and related emissions. Current methods are often outdated, with data available only after a year or more, or rely on self-reported information that is not available on a global scale. This data gap limits policymakers’ ability to focus their efforts effectively.
-
-Our project focuses on emissions from the building sector. Buildings contribute between 6% and 9% of global emissions when considering only direct emissions, which primarily result from onsite fossil fuel combustion used for space heating, water heating, and cooking. Emissions from lighting, consumer electronics, and most air conditioning are excluded, as these are typically electric and accounted for separately within Climate TRACE.
-
-This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
 ## 4. Background <a name="Background"></a>
 
