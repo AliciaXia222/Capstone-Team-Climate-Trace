@@ -155,6 +155,8 @@ To identify the most influential variables in building energy consumption and th
 
 ### Model Results <a name="ModelResults"></a>
 
+As part of the initial iterations of the model, the following results were obtained using Linear Regression and KNN. These models serve as baseline models, providing a starting point for future improvements and model refinements.
+
 #### Linear Regression
 
 | Target                 | Strategy       | Model             | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
