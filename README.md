@@ -185,6 +185,8 @@ This section provides an overview of the repository's structure, explaining the 
 ### Directory Structure
 
 ```python
+
+├── LICENSE
 ├── README.md
 ├── data
 │   ├── 01_raw
@@ -200,22 +202,31 @@ This section provides an overview of the repository's structure, explaining the 
 ├── figures
 │   ├── diagram.png
 │   ├── experimental_design.png
-│   ├── feature_importance.jpeg
+│   ├── feature_importance.png
 │   ├── formula.png
 │   └── region_map.png
 ├── notebooks
 │   ├── 01_DataPreprocessing.ipynb
-│   ├── 02_HDDProcessing.ipynb
-│   ├── 03_Humidityrocessing.ipynb
+│   ├── 02_HDDPreprocessing.ipynb
+│   ├── 03_HumidityPreprocessing.ipynb
 │   ├── 04_FeatureImportance.ipynb
 │   ├── 05_Experiments.ipynb
 │   ├── 06_Model.ipynb
-│   ├── 07_Plots.ipynb
-│   └── HDDPreprocessing.ipynb
-└── results
-    ├── results_20241114_1231_all_domain_knn.csv
-    ├── results_20241114_1231_all_domain_lr.csv
-    ├── results_20241114_1231_cross_domain_knn.csv
+│   └── 07_Plots.ipynb
+├── results
+│   ├── results_20241114_1231_all_domain_knn.csv
+│   ├── results_20241114_1231_all_domain_lr.csv
+│   ├── results_20241114_1231_cross_domain_knn.csv
+│   ├── results_20241114_1231_cross_domain_lr.csv
+│   ├── results_20241114_1231_total_knn.csv
+│   ├── results_20241114_1231_total_lr.csv
+│   ├── results_20241114_1231_within_domain_knn.csv
+│   └── results_20241114_1231_within_domain_lr.csv
+└── slide_decks
+    └── Climate_TRACE_Presentation.pdf
+
+
+
 ```
 
 
