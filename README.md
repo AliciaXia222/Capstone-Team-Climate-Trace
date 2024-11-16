@@ -5,17 +5,16 @@
 2. [Introduction](#Introduction)
 3. [Data Description](#Data-Description)
 4. [Methods](#Methods)  
-   3.1 [Feature Engineering](#feature-engineering)
-   3.2 [Nearest Reference Mapping](#nearest-reference-mapping)
-   3.3 [Supervised Machine Learning](#supervised-machine-learning)
-   3.4 [Meta Model(Stacking)](#meta-model-stacking)
+   4.1 [Feature Engineering](#feature-engineering)
+   4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
+   4.3 [Supervised Machine Learning](#supervised-machine-learning)
 5. [Experiments] 
-   4.1 [Experimental Design](#ExperimentalDesign) 
+   5.1 [Experimental Design](#ExperimentalDesign) 
 6. [Conclusion](#Results)  
-   4.1 [Feature Importance](#FeatureImportance)  
-   4.2 [Model Results](#ModelResults)
-7. [Resources](#Resources)  
-8. [Contributors](#Contributors)
+   6.1 [Model Results](#ModelResults)
+   6.2 [Feature Importance](#FeatureImportance)  
+8. [Resources](#Resources)  
+9. [Contributors](#Contributors)
 
 
 ## Abstract <a name="Abstract"></a>
