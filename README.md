@@ -21,6 +21,27 @@
 10. [Contributors](#Contributors)
 
 
+≈
+1. [Abstract](#Abstract)
+2. [Problem Statement and Project Motivation](#ProblemStatement)
+3. [Introduction](#Introduction)
+4. [Background](#Background)  
+5. [Data Descriptio](#DataDescriptio)  
+   5.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
+   5.2 [Feature Description](#FeatureDescription)  
+6. [Methods](#Methods)  
+   6.1 [Overview](#Overview)  
+   6.2 [Knowledge Distillation](#Distillation)  
+   6.3 [Anchor Method](#Anchor)  
+7. [Methods](#Methods)  
+   7.1 [Overview](#Overview)  
+8. [Methods](#Methods)  
+   8.1 [Overview](#Overview)  
+   8.2 [Knowledge Distillation](#Distillation)  
+9. [Package](#Package)
+10. [Conclusion](#Conclusion) 
+
+
 ## 1.Abstract <a name="Abstract"></a>
 
 This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
