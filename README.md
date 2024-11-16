@@ -148,32 +148,13 @@ To identify the most influential variables in building energy consumption and th
 2. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 3. [Marshall Burke*, Anne Driscoll, David B. Lobell, Stefano Ermon. (2021). Using satellite imagery to understand and promote sustainable development.](https://www.science.org/doi/full/10.1126/science.abe8628)
 4. [Xinyu Dou, Yilong Wang, Philippe Ciais, Frédéric Chevallier, Steven J. Davis, Monica Crippa, Greet Janssens-Maenhout, Diego Guizzardi, Efisio Solazzo, Feifan Yan, Da Huo, Bo Zheng, Biqing Zhu, Duo Cui, Piyu Ke, Taochun Sun, Hengqi Wang, Qiang Zhang, Pierre Gentine, Zhu Deng, and Zhu Liu. (2022). Near-realtime global gridded daily CO2 emissions.](https://www.sciencedirect.com/science/article/pii/S2666675821001077)
-5. Tomohiro Oda, Shamil Maksyutov, and Robert J. Andres. The Open-source Data Inventory for
-Anthropogenic CO2, version 2016 (ODIAC2016): a global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. Earth System Science Data, 10(1):87–107, January 2018. ISSN 1866-3508. doi: 10.5194/essd-10-87-2018. URL
-https://essd.copernicus.org/articles/10/87/2018/. 235 citations (Crossref) [2023-02-24]
-Publisher: Copernicus GmbH.
-6. Erin E. McDuffie, Steven J. Smith, Patrick O’Rourke, Kushal Tibrewal, Chandra Venkataraman, Eloise A.
-Marais, Bo Zheng, Monica Crippa, Michael Brauer, and Randall V. Martin. A global anthropogenic
-emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): an
-application of the Community Emissions Data System (CEDS). Earth System Science Data, 12(4):
-3413–3442, December 2020. ISSN 1866-3508. doi: 10.5194/essd-12-3413-2020. URL https://
-essd.copernicus.org/articles/12/3413/2020/. 100 citations (Crossref) [2023-02-24] Publisher:
-Copernicus GmbH.
-7. Greet Janssens-Maenhout, Monica Crippa, Diego Guizzardi, Marilena Muntean, Edwin Schaaf, Frank
-Dentener, Peter Bergamaschi, Valerio Pagliari, Jos G. J. Olivier, Jeroen A. H. W. Peters, John A. van
-Aardenne, Suvi Monni, Ulrike Doering, A. M. Roxana Petrescu, Efisio Solazzo, and Gabriel D. Oreggioni.
-EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. Earth
-System Science Data, 11(3):959–1002, July 2019. ISSN 1866-3508. doi: 10.5194/essd-11-959-2019. URL
-https://essd.copernicus.org/articles/11/959/2019/. 245 citations (Crossref) [2023-02-24]
-Publisher: Copernicus GmbH.
-8. the Global Carbon Grid [8], and the Global Gridded
-Daily CO2 Emissions Dataset (GRACED)[9]. While GRACED data is published near-monthly, most
-other key data are produced with a year or more of latency.
-9. Xinyu Dou, Yilong Wang, Philippe Ciais, Frédéric Chevallier, Steven J. Davis, Monica Crippa, Greet
-Janssens-Maenhout, Diego Guizzardi, Efisio Solazzo, Feifan Yan, Da Huo, Bo Zheng, Biqing Zhu, Duo Cui,
-Piyu Ke, Taochun Sun, Hengqi Wang, Qiang Zhang, Pierre Gentine, Zhu Deng, and Zhu Liu. Near-realtime global gridded daily CO2 emissions. The Innovation, 3(1):100182, January 2022. ISSN 2666-6758.
-doi: 10.1016/j.xinn.2021.100182. URL https://www.sciencedirect.com/science/article/pii/
-S2666675821001077. 12 citations (Crossref) [2023-02-24]
+5.[Oda, T., Maksyutov, S., & Andres, R. J. (2018). The Open-source Data Inventory for Anthropogenic CO2, version 2016 (ODIAC2016): A global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. Earth System Science Data, 10(1), 87–107.](https://doi.org/10.5194/essd-10-87-2018)
+6. [McDuffie, E. E., Smith, S. J., O’Rourke, P., Tibrewal, K., Venkataraman, C., Marais, E. A., Zheng, B., Crippa, M., Brauer, M., & Martin, R. V. (2020). A global anthropogenic emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): An application of the Community Emissions Data System (CEDS). Earth System Science Data, 12(4), 3413–3442.] (https://doi.org/10.5194/essd-12-3413-2020)
+7. [Janssens-Maenhout, G., Crippa, M., Guizzardi, D., Muntean, M., Schaaf, E., Dentener, F., Bergamaschi, P., Pagliari, V., Olivier, J. G. J., Peters, J. A. H. W., van Aardenne, J. A., Monni, S., Doering, U., Petrescu, A. M. R., Solazzo, E., & Oreggioni, G. D. (2019). EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. Earth System Science Data, 11(3), 959–1002.] (https://doi.org/10.5194/essd-11-959-2019)
+8. [Tong, D., Zhang, Q., Davis, S. J., Liu, F., Zheng, B., Geng, G., Xue, T., Li, M., Hong, C., Lu, Z., Streets, D. G., Guan, D., & He, K. (2018). Targeted emission reductions from global super-polluting power plant units. Nature Sustainability, 1(1), 59–68.] (https://doi.org/10.1038/s41893-017-0003-y)
+9.[Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. The Innovation, 3(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182)
+
+
 
 
 
