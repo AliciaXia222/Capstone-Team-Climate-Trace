@@ -2,8 +2,9 @@
 
 ## Table of Contents
 1. [Abstract](#Abstract)
-2. [Introduction](#Introduction)
-3. [Data Description](#Data-Description)
+2. [Motivation](#Motivation)
+3. [Introduction](#Introduction)
+4. [Data Description](#Data-Description)
    3.1 Building Emissions Estimation(#Building-Emissions-Estimation)
    3.2 Feature Description(#Feature-Description)
 5. [Methods](#Methods)  
@@ -11,7 +12,7 @@
    4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
    4.3 [Supervised Machine Learning](#supervised-machine-learning)
 6. [Experiments](#Experiments) 
-   5.1 [Experimental Design](#ExperimentalDesign) 
+   6.1 [Experimental Design](#ExperimentalDesign) 
 7. [Conclusion](#Results)  
    6.1 [Model Results](#ModelResults)
    6.2 [Feature Importance](#FeatureImportance)  
@@ -76,6 +77,14 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 11. **Longitude [GeoNames](https://download.geonames.org/export/dump/)**: This dataset provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
 
 ![Diagram](/figures/diagram.png)
+
+## Methods <a name="Methods"></a>
+   4.1 [Feature Engineering](#feature-engineering)
+   4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
+   4.3 [Supervised Machine Learning](#supervised-machine-learning)
+### Feature Engineering <a name="Feature Engineering"></a>
+
+
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
 
