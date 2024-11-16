@@ -157,26 +157,26 @@ To identify the most influential variables in building energy consumption and th
 
 #### Linear Regression
 
-| Target                 | Strategy       | Model             | Features                                     | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
-|------------------------|----------------|-------------------|---------------------------------------------|------|--------|-------|-------|--------|--------|
-| Non-residential EUI   | Within-Domain  | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3635 | -0.90  | 36.53 | 47.15 | 19.88  | 16.94  |
-| Non-residential EUI   | Cross-Domain   | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 4238 | -12.85 | 50.06 | 60.41 | 31.89  | 31.10  |
-| Non-residential EUI   | All-Domain     | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3531 | -2.09  | 40.34 | 47.89 | 21.20  | 20.24  |
-| Residential EUI       | Within-Domain  | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1811 | -0.09  | 24.09 | 33.87 | 20.62  | 17.97  |
-| Residential EUI       | Cross-Domain   | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 2613 | -1.92  | 40.81 | 48.45 | 40.59  | 34.98  |
-| Residential EUI       | All-Domain     | Linear Regression | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1486 | -0.98  | 28.58 | 35.90 | 25.75  | 23.31  |
+| Target                 | Strategy       | Model             | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
+|------------------------|----------------|-------------------|------|--------|-------|-------|--------|--------|
+| Non-residential EUI   | Within-Domain  | Linear Regression | 3635 | -0.90  | 36.53 | 47.15 | 19.88  | 16.94  |
+| Non-residential EUI   | Cross-Domain   | Linear Regression | 4238 | -12.85 | 50.06 | 60.41 | 31.89  | 31.10  |
+| Non-residential EUI   | All-Domain     | Linear Regression | 3531 | -2.09  | 40.34 | 47.89 | 21.20  | 20.24  |
+| Residential EUI       | Within-Domain  | Linear Regression | 1811 | -0.09  | 24.09 | 33.87 | 20.62  | 17.97  |
+| Residential EUI       | Cross-Domain   | Linear Regression | 2613 | -1.92  | 40.81 | 48.45 | 40.59  | 34.98  |
+| Residential EUI       | All-Domain     | Linear Regression | 1486 | -0.98  | 28.58 | 35.90 | 25.75  | 23.31  |
 
 #### KNN
 
+| Target                 | Strategy       | Model | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
+|------------------------|----------------|-------|------|--------|-------|-------|--------|--------|
+| Non-residential EUI   | Within-Domain  | KNN   | 1437 | -0.07  | 21.12 | 31.00 | 10.36  | 10.09  |
+| Non-residential EUI   | Cross-Domain   | KNN   | 3469 | -10.48 | 35.51 | 52.19 | 20.88  | 20.57  |
+| Non-residential EUI   | All-Domain     | KNN   | 1290 | 0.12   | 18.94 | 29.86 | 9.56   | 9.26   |
+| Residential EUI       | Within-Domain  | KNN   | 1044 | 0.32   | 20.22 | 27.75 | 15.40  | 15.37  |
+| Residential EUI       | Cross-Domain   | KNN   | 2493 | -1.74  | 36.94 | 47.34 | 31.88  | 30.87  |
+| Residential EUI       | All-Domain     | KNN   | 1042 | 0.30   | 20.14 | 27.35 | 15.31  | 15.37  |
 
-| Target                 | Strategy       | Model | Features                                     | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
-|------------------------|----------------|-------|---------------------------------------------|------|--------|-------|-------|--------|--------|
-| Non-residential EUI   | Within-Domain  | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1437 | -0.07  | 21.12 | 31.00 | 10.36  | 10.09  |
-| Non-residential EUI   | Cross-Domain   | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 3469 | -10.48 | 35.51 | 52.19 | 20.88  | 20.57  |
-| Non-residential EUI   | All-Domain     | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1290 | 0.12   | 18.94 | 29.86 | 9.56   | 9.26   |
-| Residential EUI       | Within-Domain  | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1044 | 0.32   | 20.22 | 27.75 | 15.40  | 15.37  |
-| Residential EUI       | Cross-Domain   | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 2493 | -1.74  | 36.94 | 47.34 | 31.88  | 30.87  |
-| Residential EUI       | All-Domain     | KNN   | HDD, CDD, GDP, URB, Lat, Long, Paris, HDI, EDU, Income | 1042 | 0.30   | 20.14 | 27.35 | 15.31  | 15.37  |
 
 
 ## 9. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
