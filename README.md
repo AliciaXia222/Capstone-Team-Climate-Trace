@@ -25,7 +25,7 @@
 
 ## 1. Abstract <a name="Abstract"></a>
 
-This project develops a machine learning model to estimate greenhouse gas (GHG) emissions from building energy consumption. By predicting energy use intensity (EUI) using variables such as heating degree days (HDD), humidity, Human Development Index (HDI), educational index, income index, and GDP per capita, the model will generate estimates of energy consumption for both residential and non-residential buildings. These EUI estimates, along with global building floor area data provided by our client, will be used to calculate GHG emissions, offering a timely, high-resolution approach to estimating emissions at a global scale.
+This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area data, will be used in the next phase to predict direct GHG emissions from buildings, providing a timely, high-resolution method for global emissions estimation. This current work presents preliminary EUI estimation techniques, while future phases of the project will refine the model by incorporating additional features and improvements to enhance its performance and scalability, ultimately focused on estimating global direct greenhouse gas emissions from buildings.
 
 ## 2. Problem Statement and Project Motivation <a name="ProblemStatement"></a>
 
