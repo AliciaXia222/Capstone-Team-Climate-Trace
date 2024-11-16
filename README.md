@@ -4,13 +4,15 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)
 3. [Data Description](#Data-Description)
-4. [Methods](#Methods)  
+   3.1 Building Emissions Estimation(#Building-Emissions-Estimation)
+   3.2 Feature Description(#Feature-Description)
+5. [Methods](#Methods)  
    4.1 [Feature Engineering](#feature-engineering)
    4.2 [Nearest Reference Mapping](#nearest-reference-mapping)
    4.3 [Supervised Machine Learning](#supervised-machine-learning)
-5. [Experiments](#Experiments) 
+6. [Experiments](#Experiments) 
    5.1 [Experimental Design](#ExperimentalDesign) 
-6. [Conclusion](#Results)  
+7. [Conclusion](#Results)  
    6.1 [Model Results](#ModelResults)
    6.2 [Feature Importance](#FeatureImportance)  
 8. [Resources](#Resources)  
@@ -30,14 +32,16 @@ Our project focuses on emissions from the building sector. Buildings contribute 
 
 This project is focused on developing a machine learning model to estimate GHG emissions based on building energy consumption. The model will predict energy use intensity (EUI) using predictive variables such as temperature, humidity, and socioeconomic data, along with global building floor area data from Climate TRACE. These EUI estimates, along with building area data, will be used to calculate direct GHG emissions, providing building emissions data in 1-kilometer-by-1-kilometer grid cells.
 
-### Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
+## Data Description <a name="Data-Description"></a>
+
+### Building Emissions Estimation(Target Variable) <a name="Building-Emissions-Estimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### Feature Engineering <a name="FeatureEngineering"></a>
+### Feature Description <a name="Feature-Description"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
