@@ -84,16 +84,42 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
 1. **Heading Degree Days Calculation:**  
-   Calculated using temperature data to derive features relevant to [specific context, e.g., environmental or seasonal analysis].  
+   Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).  
 
 2. **Comfort Index Calculation:**  
-   Derived using temperature and humidity data to represent [specific metric, e.g., human comfort or environmental conditions].  
+   Derived using temperature and humidity data to quantify and evaluate human thermal comfort, which is influenced by environmental factors like temperature and humidity.
 
 3. **Cross-Feature Interaction:**  
    Combined multiple features to create new interaction terms that capture relationships between variables.  
 
 4. **Clustering Features:**  
-   Applied clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.   
+   Apply clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.
+
+### 4.2 Nearest Reference Mapping <a name="Nearest-Reference-Mapping"></a>
+
+Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. 
+
+In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
+
+### 4.3 Supervised Machine Learning <a name="supervised-machine-learning"></a>  
+
+
+In this project, we will employ a range of supervised machine learning models to predict and analyze the target variable. The following models will be utilized:
+
+1. **Linear Regression:**  
+   We will use Linear Regression to model the relationship between the input features and the target variable. This model is suitable for capturing linear relationships and will serve as a baseline for comparison with more complex models.
+
+2. **K-Nearest Neighbors (KNN):**  
+   KNN is a non-parametric model that classifies a data point based on the majority class or average value of its nearest neighbors. It is particularly useful for capturing local patterns in the data and will provide a comparison to Linear Regression in terms of flexibility.
+
+3. **Ensemble Models:**
+   - **XGBoost:**  
+     XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
+   
+   - **CatBoost:**  
+     CatBoost is another gradient boosting algorithm known for its handling of categorical features without the need for explicit preprocessing. It is expected to provide competitive results, particularly in datasets with mixed types of variables.
+
+The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
 ### Experimental Design <a name="ExperimentalDesign"></a>
 
