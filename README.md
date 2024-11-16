@@ -4,26 +4,25 @@
 
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)  
-   6.1 [Project Motivation](#ProjectMotivation)  
-   6.2 [Problem Statement](#NearestReferenceMapping)  
-   6.3 [Goals](#Goals)  
-4. [Problem Statement and Project Motivation](#ProblemStatement)
-5. [Background](#Background)  
-6. [Data Description](#DataDescription)  
-   5.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
-   5.2 [Feature Description](#FeatureDescription)  
-7. [Methods](#Methods)  
-   6.1 [Feature Engineering](#FeatureEngineering)  
-   6.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
-   6.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
-8. [Experiments](#Experiments)  
-   7.1 [Experimental Design](#ExperimentalDesign)  
-9. [Conclusion](#Conclusion)  
-   8.1 [Feature Importance](#FeatureImportance)  
-   8.2 [Model Results](#ModelResults)  
-10. [Resources](#Resources)
-11. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-12. [Contributors](#Contributors) 
+   2.1 [Project Motivation](#ProjectMotivation)  
+   2.2 [Problem Statement](#NearestReferenceMapping)  
+   2.3 [Goals](#Goals)  
+3. [Background](#Background)  
+4. [Data Description](#DataDescription)  
+   4.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
+   4.2 [Feature Description](#FeatureDescription)  
+5. [Methods](#Methods)  
+   5.1 [Feature Engineering](#FeatureEngineering)  
+   5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
+   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
+6. [Experiments](#Experiments)  
+   6.1 [Experimental Design](#ExperimentalDesign)  
+7. [Conclusion](#Conclusion)  
+   7.1 [Feature Importance](#FeatureImportance)  
+   7.2 [Model Results](#ModelResults)  
+8. [Resources](#Resources)
+9. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+10. [Contributors](#Contributors) 
 
 
 ## 1. Abstract <a name="Abstract"></a>
@@ -55,21 +54,20 @@ In the first semester, the focus has been on developing the Energy Use Intensity
 In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
 
 
-
-## 4. Background <a name="Background"></a>
+## 3. Background <a name="Background"></a>
 
 Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
-## 5. Data Description <a name="DataDescription"></a>
+## 4. Data Description <a name="DataDescription"></a>
 
-### 5.1 Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
+### 4.1 Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### 5.2 Feature Description <a name="FeatureDescription"></a>
+### 4.2 Feature Description <a name="FeatureDescription"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
@@ -105,9 +103,9 @@ Since we aim to predict energy use intensity (EUI) for buildings, the focus is p
 
 ![Diagram](/figures/diagram.png)
 
-## 6. Methods <a name="Methods"></a>
+## 5. Methods <a name="Methods"></a>
 
-### 6.1 Feature Engineering <a name="FeatureEngineering"></a>
+### 5.1 Feature Engineering <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
 1. **Heading Degree Days Calculation:**  
@@ -122,13 +120,13 @@ Feature engineering is essential to transform raw data into meaningful represent
 4. **Clustering Features:**  
    Apply clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.
 
-### 6.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
+### 5.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
 
 Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. 
 
 In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
 
-### 6.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
+### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
 
 In this project, we will employ a range of supervised machine learning models to predict and analyze the target variable. The following models will be utilized:
@@ -148,6 +146,7 @@ In this project, we will employ a range of supervised machine learning models to
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
+# 
 ### Experimental Design <a name="ExperimentalDesign"></a>
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across 5 regions using 3 strategies to identify biases and improve model robustness.
 
