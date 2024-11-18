@@ -18,10 +18,10 @@
    5.4 [Experimental Design](#ExperimentalDesign)
 6. [Experiments](#Experiments)  
    6.1 [Feature Importance](#FeatureImportance)  
-   6.2 [Model Results](#ModelResults)
+   6.2 [Models](#Models)
 7. [Conclusion](#Conclusion)  
-8. [Resources](#Resources)
-9. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+9. [Resources](#Resources)
 10. [Contributors](#Contributors) 
 
 
@@ -164,7 +164,7 @@ To identify the most influential variables in building energy consumption and th
 
 ![Feature Importance](/figures/feature_importance.png)
 
-### 6.2 Experiment 1: Linear Regression <a name="ModelResults"></a>
+### 6.2 Models <a name="Models"></a>
 
 As part of the initial iterations of the model, the following results were obtained using Linear Regression and KNN. These models serve as baseline models, providing a starting point for future improvements and model refinements.
 
