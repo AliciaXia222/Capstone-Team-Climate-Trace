@@ -14,12 +14,12 @@
 5. [Methods](#Methods)  
    5.1 [Feature Engineering](#FeatureEngineering)  
    5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
-   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
+   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)
+   5.4 [Experimental Design](#ExperimentalDesign)  
 6. [Experiments](#Experiments)  
-   6.1 [Experimental Design](#ExperimentalDesign)  
+   6.1 [Feature Importance](#FeatureImportance)  
+   6.2 [Model Results](#ModelResults)
 7. [Conclusion](#Conclusion)  
-   7.1 [Feature Importance](#FeatureImportance)  
-   7.2 [Model Results](#ModelResults)  
 8. [Resources](#Resources)
 9. [Repository Structure and Usage](#RepositoryStructureAndUsage)
 10. [Contributors](#Contributors) 
@@ -190,6 +190,7 @@ As part of the initial iterations of the model, the following results were obtai
 | Residential EUI       | Cross-Domain   | KNN   | 2493 | -1.74  | 36.94 | 47.34 | 31.88  | 30.87  |
 | Residential EUI       | All-Domain     | KNN   | 1042 | 0.30   | 20.14 | 27.35 | 15.31  | 15.37  |
 
+## 7. Conclusion <a name="RepositoryStructureAndUsage "></a>
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
