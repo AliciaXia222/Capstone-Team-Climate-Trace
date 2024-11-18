@@ -39,7 +39,7 @@ Building direct emissions are responsible for between 6% and 9% of global GHG em
 
 Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated data, often delayed by over a year, or on self-reported data that is scarce or unavailable globally.
 
-### 2.2  Problem Statement  <a name="ProjectStatement"></a>
+### 2.2  Problem Statement  <a name="ProblemStatement"></a>
 
 Specifically, we can define our problem statement as follows:
 
@@ -146,8 +146,7 @@ In this project, we will employ a range of supervised machine learning models to
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
-# 
-### Experimental Design <a name="ExperimentalDesign"></a>
+### 5.4 Experimental Design <a name="ExperimentalDesign"></a>
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across 5 regions using 3 strategies to identify biases and improve model robustness.
 
 ![Geographic Distribution of Data Points by Region](/figures/region_map.png)
@@ -156,17 +155,16 @@ Given the challenge of regional variations in global data, we will validate our 
 
 We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
+## 6. Experiments <a name="Experiments"></a>
 
-## 8. Results  <a name="Results"></a>
 
-
-### Feature Importance <a name="FeatureImportance"></a>
+### 6.1 Feature Importance <a name="FeatureImportance"></a>
 
 To identify the most influential variables in building energy consumption and their greenhouse gas emissions, we used a linear regression model, which allows us to directly assess the relevance of each variable in predicting energy use intensity (EUI). Among all the features, Heating Degree Days (HDD), defined as a measure of heating demand based on temperature, proved to be the most significant factor, highlighting the importance of temperature in energy consumption. This suggests that, in future iterations of the model, it would be useful to explore temperature-related variables, such as average temperature, along with humidity, to improve the estimation of emissions in the building sector.
 
 ![Feature Importance](/figures/feature_importance.png)
 
-### Model Results <a name="ModelResults"></a>
+### 6.2 Experiment 1: Linear Regression <a name="ModelResults"></a>
 
 As part of the initial iterations of the model, the following results were obtained using Linear Regression and KNN. These models serve as baseline models, providing a starting point for future improvements and model refinements.
 
@@ -194,7 +192,7 @@ As part of the initial iterations of the model, the following results were obtai
 
 
 
-## 9. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
+## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage "></a>
 This section provides an overview of the repository's structure, explaining the purpose of each directory and file. It also includes instructions for navigating and using the code.
 
 ### Directory Structure
@@ -295,7 +293,7 @@ This section provides an overview of the repository's structure, explaining the 
 
 
 
-## 10. Resources  <a name="Resources"></a>
+## 9. Resources  <a name="Resources"></a>
 1. [Greet Janssens-Maenhout, Monica Crippa, Diego Guizzardi, Marilena Muntean, Edwin Schaaf, Frank Dentener, Peter Bergamaschi, Valerio Pagliari, Jos G. J. Olivier, Jeroen A. H. W. Peters, John A. van Aardenne, Suvi Monni, Ulrike Doering, A. M. Roxana Petrescu, Efisio Solazzo, and Gabriel D. Oreggioni. (July 2019). EDGARv4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012.](https://essd.copernicus.org/articles/11/959/2019/)
 2. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf)
 3. [Marshall Burke*, Anne Driscoll, David B. Lobell, Stefano Ermon. (2021). Using satellite imagery to understand and promote sustainable development.](https://www.science.org/doi/full/10.1126/science.abe8628)
@@ -309,7 +307,7 @@ This section provides an overview of the repository's structure, explaining the 
 
 
 
-## 11. Contributors  <a name="Contributors"></a>
+## 10. Contributors  <a name="Contributors"></a>
 [Jiechen Li](https://github.com/carrieli15)  
 [Meixiang Du](https://github.com/dumeixiang)  
 [Yulei Xia](https://github.com/AliciaXia222)  
