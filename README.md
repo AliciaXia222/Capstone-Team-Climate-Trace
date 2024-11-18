@@ -8,9 +8,9 @@
    2.2 [Problem Statement](#ProblemStatement)  
    2.3 [Goals](#Goals)  
 3. [Background](#Background)  
-4. [Data Description](#DataDescription)  
-   4.1 [Building Emissions Estimation](#BuildingEmissionsEstimation)  
-   4.2 [Feature Description](#FeatureDescription)  
+4. [Data and Features Overview](#DataAndFeaturesOverview)  
+   4.1 [GHG Estimation](#GHGEstimation)  
+   4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
 5. [Methods](#Methods)  
    5.1 [Feature Engineering](#FeatureEngineering)  
    5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
@@ -58,16 +58,16 @@ In the second semester, the objective will be to refine the model by incorporati
 
 Existing estimates of anthropogenic CO2 emissions are provided by several sources, including the Open-source Data Inventory for Anthropogenic CO2 [5], the Community Emissions Data System [6], the Emissions Database for Global Atmospheric Research (EDGAR) [7], the Global Carbon Grid [8], and the Global Gridded Daily CO2 Emissions Dataset (GRACED) [9]. While GRACED data is updated near-monthly, most of the other key datasets have a production latency of a year or more. Furthermore, the highest resolution available across these datasets is 0.1 decimal degrees, which corresponds to approximately 11 km near the equator. Additionally, only a few of these models provide a breakdown of emissions into residential and commercial subsectors, or offer separate emissions estimates for individual greenhouse gases.
 
-## 4. Data Description <a name="DataDescription"></a>
+## 4. Data and Features Overview <a name="DataAndFeaturesOverview"></a>
 
-### 4.1 Building Emissions Estimation <a name="BuildingEmissionsEstimation"></a>
+### 4.1 GHG Estimation <a name="GHGEstimation"></a>
 
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
 ![Formula](/figures/formula.png)
 
-### 4.2 Feature Description <a name="FeatureDescription"></a>
+### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
 
 Since we aim to predict energy use intensity (EUI) for buildings, the focus is primarily on direct emissions. These emissions largely result from onsite fossil fuel combustion used for space heating, water heating, and cooking. To represent these factors through data, we identified the following datasets from open resources that align with our requirements:
 
