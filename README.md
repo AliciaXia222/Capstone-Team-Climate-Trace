@@ -71,39 +71,39 @@ The estimation formula is:
 
 In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
 
-1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**: This serves as our ground truth data for energy use intensity, provided by the client. It contains 482 rows and two key columns:  
-   - *Residential EUI*: Calculated based on the area of residential buildings.  
-   - *Non-Residential EUI*: Calculated based on the area of non-residential buildings.  
+1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**:
+EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
 
-2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: This dataset provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
+   - Residential EUI:  Indicates the energy consumption of residential buildings, expressed in kWh/m²/year.
+   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year. 
 
-3. **[Humidity](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Humidity was measured using the dew point temperature at 2 meters above ground. The dew point is a reliable measure of how "dry" or "humid" conditions feel, making it preferable over relative humidity for capturing human comfort levels.
+3. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
 
-4. **[Latitude](https://download.geonames.org/export/dump/)**: This dataset provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
+4. **[Humidity](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Humidity was measured using the dew point temperature at 2 meters above ground. The dew point is a reliable measure of how "dry" or "humid" conditions feel, making it preferable over relative humidity for capturing human comfort levels.
 
-5. **[Longitude](https://download.geonames.org/export/dump/)**: This dataset provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
+5. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
 
-6. **[Population](https://data.worldbank.org/indicator/SP.POP.TOTL)**: This dataset includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
+6. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
 
-7. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: This dataset contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+7. **[Population](https://data.worldbank.org/indicator/SP.POP.TOTL)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
 
-8. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
+8. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+
+9. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
    - *Health*: A long and healthy life.  
    - *Knowledge*: Access to education.  
    - *Standard of Living*: A decent standard of living.  
    We extracted data for the year 2022 to maintain consistency with other datasets.
 
-9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
+10. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
 
-10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
+11. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
    - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
    - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
 
-11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable (`Paris_Agreement`) to indicate whether a country is a signatory.
+11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
 
-
-![Diagram](/figures/diagram.png)
 
 ## 5. Methods <a name="Methods"></a>
 
