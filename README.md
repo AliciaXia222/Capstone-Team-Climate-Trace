@@ -5,7 +5,7 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)  
    2.1 [Project Motivation](#ProjectMotivation)  
-   2.2 [Problem Statement](#NearestReferenceMapping)  
+   2.2 [Problem Statement](#ProblemStatement)  
    2.3 [Goals](#Goals)  
 3. [Background](#Background)  
 4. [Data Description](#DataDescription)  
