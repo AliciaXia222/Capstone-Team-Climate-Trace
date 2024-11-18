@@ -151,9 +151,22 @@ In this project, we will employ a range of supervised machine learning models to
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
 ### 5.4 Experimental Design <a name="ExperimentalDesign"></a>
-Given the challenge of regional variations in global data, we will validate our predictions at the regional level across 5 regions using 3 strategies to identify biases and improve model robustness.
+Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
+
+Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. This approach helps to account for local differences in energy use patterns and improve the model’s predictive accuracy across diverse contexts. The regions we are using are defined as follows:
+
+1. Asia & Oceania
+2. Europe
+3. Africa
+4. Central and South America
+5. Northern America
+
+The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
+
 
 ![Geographic Distribution of Data Points by Region](/figures/region_map.png)
+
+The strategies we will be using are as follows:
 
 ![Image](/figures/experimental_design.png)
 
