@@ -69,7 +69,7 @@ The estimation formula is:
 
 ### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
 
-In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
+In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. These independent features serve as inputs to the model, and some of them are used to calculate additional derived features, such as the Heating Degree Days (HDD) and Comfort Index, which are explained further in the Feature Engineering section. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
 
 1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**:
 EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
@@ -104,23 +104,22 @@ EUI is a metric used to measure the intensity of energy use in buildings. These 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
 
-
 ## 5. Methods <a name="Methods"></a>
 
 ### 5.1 Feature Engineering <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
-1. **Heading Degree Days Calculation:**  
+1. **Heating Degree Days Calculation:**  
    Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).  
 
 2. **Comfort Index Calculation:**  
    Derived using temperature and humidity data to quantify and evaluate human thermal comfort, which is influenced by environmental factors like temperature and humidity.
 
-3. **Cross-Feature Interaction:**  
-   Combined multiple features to create new interaction terms that capture relationships between variables.  
+3. **GDP per capita:**
+We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
 
-4. **Clustering Features:**  
-   Apply clustering algorithms (e.g., k-means) to group data points and used cluster labels as additional features for modeling.
+4. **Cross-Feature Interaction:**  
+   Combined multiple features to create new interaction terms that capture relationships between variables.  
 
 ### 5.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
 
