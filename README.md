@@ -181,7 +181,7 @@ To find the most important factors in building energy use and greenhouse gas emi
 
 The model included factors like GDP per capita, urbanization rate, latitude, and subnational HDI. To make all variables comparable, we standardized the data before training the model. Heating Degree Days (HDD), which measures heating demand based on temperature, turned out to be the most important factor, showing how much temperature affects energy use.
 
-In the future, the model could include other temperature-related factors, like average temperature and humidity, which were not included in this iteration. For details on the calculations, check the [Feature Importance Notebook](main/notebooks/04_FeatureImportance.ipynb).  
+In the future, the model could include other temperature-related factors, like average temperature and humidity, which were not included in this iteration. For details on the calculations, check the [Feature Importance Notebook](/notebooks/04_FeatureImportance.ipynb).  
 
 ![Feature Importance](/figures/feature_importance.png)
 
