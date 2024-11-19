@@ -78,29 +78,33 @@ In this section, we describe both the dependent variable of our model (EUI) and 
 EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
 
    - Residential EUI:  Indicates the energy consumption of residential buildings, expressed in kWh/m²/year.
-   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year. 
+   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year.
+  
+To better understand the distribution of this variable, we can observe the following map, which visualizes how EUI is distributed across the different regions and building types.
 
-3. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
+![EUI map](/figures/eui_map.png)
 
-4. **[Humidity](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Humidity was measured using the dew point temperature at 2 meters above ground. The dew point is a reliable measure of how "dry" or "humid" conditions feel, making it preferable over relative humidity for capturing human comfort levels.
+2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
 
-5. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
+3. **[Humidity](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Humidity was measured using the dew point temperature at 2 meters above ground. The dew point is a reliable measure of how "dry" or "humid" conditions feel, making it preferable over relative humidity for capturing human comfort levels.
 
-6. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
+4. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
 
-7. **[Population](https://data.worldbank.org/indicator/SP.POP.TOTL)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
+5. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
 
-8. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+6. **[Population](https://data.worldbank.org/indicator/SP.POP.TOTL)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
 
-9. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
+7. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+
+8. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
    - *Health*: A long and healthy life.  
    - *Knowledge*: Access to education.  
    - *Standard of Living*: A decent standard of living.  
    We extracted data for the year 2022 to maintain consistency with other datasets.
 
-10. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
+9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
 
-11. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
+10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
    - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
    - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
 
