@@ -29,6 +29,10 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation. This current work outlines preliminary EUI estimation techniques, while future iterations will refine the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
 
+The linear regression model’s performance varies across strategies and regions. Preliminary results show that the model performs best within-domain, but struggles with generalization in cross-domain scenarios, with performance notably deteriorating in certain regions. These results indicate the need for further iterations to improve accuracy.
+
+Future models will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, along with incorporating additional variables like average temperature and humidity to enhance predictive performance.
+
 ## 2. Introduction <a name="Introduction"></a>
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
@@ -225,6 +229,15 @@ The following table presents the aggregated results across all regions for each 
 
 
 ## 7. Conclusion <a name="Conclusion"></a>
+
+
+The linear regression model's performance varies significantly across experimental strategies and regions. For the Within-Domain strategy, the model achieves relatively better average performance, with MAPE values ranging from 17.7% to 20.3% for both residential and non-residential EUI predictions. However, examining individual regions reveals greater variability. In Cross-Domain scenarios, performance deteriorates notably, with MAPE values increasing to 32-40%, highlighting the model's limited ability to generalize across geographical regions. The All-Domain approach yields intermediate results, suggesting that including data from multiple regions during training helps balance the model's predictive capabilities.
+
+A closer regional analysis reveals distinct performance patterns. Europe shows consistent predictions across all domains.
+
+The negative R² values across multiple scenarios highlight the limitations of the baseline linear regression model in capturing the complex relationships between features and EUI values. This suggests that further iterations are needed to improve performance.
+
+In future models, we will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, which could better capture nonlinear patterns. We will also incorporate additional variables like average temperature and humidity to enhance predictive accuracy.
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
