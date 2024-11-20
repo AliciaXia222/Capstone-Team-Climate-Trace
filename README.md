@@ -29,7 +29,7 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation. This current work outlines preliminary EUI estimation techniques, while future iterations will refine the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
 
-The linear regression model’s performance varies across strategies and regions. Preliminary results show that the model performs best within-domain, but struggles with generalization in cross-domain scenarios, with performance notably deteriorating in certain regions. These results indicate the need for further iterations to improve accuracy.
+Currently, the baseline linear regression model's performance varies across strategies and regions. Preliminary results show that the model performs best within-domain but struggles with generalization in cross-domain scenarios, with performance notably deteriorating in certain regions. These findings highlight the need for further iterations to improve accuracy.
 
 Future models will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, along with incorporating additional variables like average temperature and humidity to enhance predictive performance.
 
