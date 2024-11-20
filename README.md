@@ -292,9 +292,6 @@ This section provides an overview of the repository's structure, explaining the 
 ```
 
 
----
-
-
 1. **`data/`**  
    - Contains all datasets used in the project. It is organized into subfolders:
      - `01_raw/`: Raw, unprocessed datasets like HDI, GDP, and population data.  
