@@ -200,24 +200,25 @@ As part of the initial iterations of the model, the following results were obtai
 
 #### Linear Regression
 
-# 1. **Within Domain**:  
+1. **Within Domain**:  
 ![eui_predictions_all_domain](/figures/eui_predictions_within_domain.png)
 
-# 2. **Cross Domain**:  
+2. **Cross Domain**:  
 ![eui_predictions_cross_domain](/figures/eui_predictions_cross_domain.png)
 
-# 3. **All Domain**:  
+3. **All Domain**:  
 ![eui_predictions_all_domain](/figures/eui_predictions_all_domain.png)
 
 
-| Target                 | Strategy       | Model             | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
-|------------------------|----------------|-------------------|------|--------|-------|-------|--------|--------|
-| Non-residential EUI   | Within-Domain  | Linear Regression | 3635 | -0.90  | 36.53 | 47.15 | 19.88  | 16.94  |
-| Non-residential EUI   | Cross-Domain   | Linear Regression | 4238 | -12.85 | 50.06 | 60.41 | 31.89  | 31.10  |
-| Non-residential EUI   | All-Domain     | Linear Regression | 3531 | -2.09  | 40.34 | 47.89 | 21.20  | 20.24  |
-| Residential EUI       | Within-Domain  | Linear Regression | 1811 | -0.09  | 24.09 | 33.87 | 20.62  | 17.97  |
-| Residential EUI       | Cross-Domain   | Linear Regression | 2613 | -1.92  | 40.81 | 48.45 | 40.59  | 34.98  |
-| Residential EUI       | All-Domain     | Linear Regression | 1486 | -0.98  | 28.58 | 35.90 | 25.75  | 23.31  |
+
+| Target                      | Strategy       | Model             | MSE      | R²      | MAE    | RMSE   | MAPE   | WAPE   |
+|-----------------------------|----------------|-------------------|----------|---------|--------|--------|--------|--------|
+| Non-residential EUI          | Within-Domain  | Linear Regression | 3067.808 | -0.610  | 31.452 | 43.550 | 17.762 | 15.104 |
+| Non-residential EUI          | Cross-Domain   | Linear Regression | 5459.066 | -10.970 | 55.872 | 63.752 | 32.468 | 31.576 |
+| Non-residential EUI          | All-Domain     | Linear Regression | 3565.130 | -2.206  | 40.778 | 48.102 | 21.460 | 20.524 |
+| Residential EUI              | Within-Domain  | Linear Regression | 1793.940 | -0.080  | 23.676 | 33.578 | 20.356 | 17.716 |
+| Residential EUI              | Cross-Domain   | Linear Regression | 2443.348 | -3.336  | 40.340 | 47.638 | 40.770 | 35.654 |
+| Residential EUI              | All-Domain     | Linear Regression | 1458.518 | -0.928  | 28.292 | 35.534 | 25.416 | 23.094 |
 
 
 
