@@ -194,7 +194,7 @@ In the future, the model could include other temperature-related factors, like a
 
 ### 6.2 Models <a name="Models"></a>
 
-As part of the initial iterations of the model, the following results were obtained using Linear Regression. This model serves as a baseline, providing a starting point for future improvements and model refinements.
+As part of the initial iterations of the model, the following results were obtained using Linear Regression. In this iteration, we used features such as heating degree days, cooling degree days, GDP per capita, urbanization rate in 2022, latitude, longitude, the Paris Agreement, human development index, educational index, and income index. This model serves as a baseline, providing a starting point for future improvements and model refinements.
 
 
 
