@@ -247,6 +247,7 @@ This section provides an overview of the repository's structure, explaining the 
 
 ```python
 
+.
 ├── LICENSE
 ├── README.md
 ├── data
@@ -261,6 +262,10 @@ This section provides an overview of the repository's structure, explaining the 
 │       └── merged_df.csv
 ├── figures
 │   ├── diagram.png
+│   ├── eui_map.png
+│   ├── eui_predictions_all_domain.png
+│   ├── eui_predictions_cross_domain.png
+│   ├── eui_predictions_within_domain.png
 │   ├── experimental_design.png
 │   ├── feature_importance.png
 │   ├── formula.png
@@ -271,7 +276,6 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 03_HumidityPreprocessing.ipynb
 │   ├── 04_FeatureImportance.ipynb
 │   ├── 05_Experiments.ipynb
-│   ├── 06_Model.ipynb
 │   └── 07_Plots.ipynb
 ├── results
 │   ├── results_20241114_1231_all_domain_knn.csv
