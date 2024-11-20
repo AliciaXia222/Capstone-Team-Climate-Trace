@@ -194,9 +194,21 @@ In the future, the model could include other temperature-related factors, like a
 
 ### 6.2 Models <a name="Models"></a>
 
-As part of the initial iterations of the model, the following results were obtained using Linear Regression and KNN. These models serve as baseline models, providing a starting point for future improvements and model refinements.
+As part of the initial iterations of the model, the following results were obtained using Linear Regression. This model serves as a baseline, providing a starting point for future improvements and model refinements.
+
+
 
 #### Linear Regression
+
+# 1. **Within Domain**:  
+![eui_predictions_all_domain](/figures/eui_predictions_within_domain.png)
+
+# 2. **Cross Domain**:  
+![eui_predictions_cross_domain](/figures/eui_predictions_cross_domain.png)
+
+# 3. **All Domain**:  
+![eui_predictions_all_domain](/figures/eui_predictions_all_domain.png)
+
 
 | Target                 | Strategy       | Model             | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
 |------------------------|----------------|-------------------|------|--------|-------|-------|--------|--------|
@@ -207,16 +219,7 @@ As part of the initial iterations of the model, the following results were obtai
 | Residential EUI       | Cross-Domain   | Linear Regression | 2613 | -1.92  | 40.81 | 48.45 | 40.59  | 34.98  |
 | Residential EUI       | All-Domain     | Linear Regression | 1486 | -0.98  | 28.58 | 35.90 | 25.75  | 23.31  |
 
-#### KNN
 
-| Target                 | Strategy       | Model | MSE  | R²     | MAE   | RMSE  | MAPE   | WAPE   |
-|------------------------|----------------|-------|------|--------|-------|-------|--------|--------|
-| Non-residential EUI   | Within-Domain  | KNN   | 1437 | -0.07  | 21.12 | 31.00 | 10.36  | 10.09  |
-| Non-residential EUI   | Cross-Domain   | KNN   | 3469 | -10.48 | 35.51 | 52.19 | 20.88  | 20.57  |
-| Non-residential EUI   | All-Domain     | KNN   | 1290 | 0.12   | 18.94 | 29.86 | 9.56   | 9.26   |
-| Residential EUI       | Within-Domain  | KNN   | 1044 | 0.32   | 20.22 | 27.75 | 15.40  | 15.37  |
-| Residential EUI       | Cross-Domain   | KNN   | 2493 | -1.74  | 36.94 | 47.34 | 31.88  | 30.87  |
-| Residential EUI       | All-Domain     | KNN   | 1042 | 0.30   | 20.14 | 27.35 | 15.31  | 15.37  |
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
