@@ -214,15 +214,14 @@ The following figures display the prediction performance across different region
 
 The following table presents the aggregated results across all regions for each modeling strategy, showing average performance metrics for both residential and non-residential EUI predictions:
 
-| Target                      | Strategy       | Model             | MSE      | R²      | MAE    | RMSE   | MAPE   | WAPE   |
-|-----------------------------|----------------|-------------------|----------|---------|--------|--------|--------|--------|
-| Non-residential EUI          | Within-Domain  | Linear Regression | 3067.808 | -0.610  | 31.452 | 43.550 | 17.762 | 15.104 |
-| Non-residential EUI          | Cross-Domain   | Linear Regression | 5459.066 | -10.970 | 55.872 | 63.752 | 32.468 | 31.576 |
-| Non-residential EUI          | All-Domain     | Linear Regression | 3565.130 | -2.206  | 40.778 | 48.102 | 21.460 | 20.524 |
-| Residential EUI              | Within-Domain  | Linear Regression | 1793.940 | -0.080  | 23.676 | 33.578 | 20.356 | 17.716 |
-| Residential EUI              | Cross-Domain   | Linear Regression | 2443.348 | -3.336  | 40.340 | 47.638 | 40.770 | 35.654 |
-| Residential EUI              | All-Domain     | Linear Regression | 1458.518 | -0.928  | 28.292 | 35.534 | 25.416 | 23.094 |
-
+| Target                              | Strategy       | Model             | MSE      | R²      | MAE    | RMSE   | MAPE   | WAPE   |
+|-------------------------------------|----------------|-------------------|----------|---------|--------|--------|--------|--------|
+| Non-residential EUI (kWh/m²/year)  | Within-Domain  | Linear Regression | 3067.808 | -0.610  | 31.452 | 43.550 | 17.762 | 15.104 |
+| Residential EUI (kWh/m²/year)      | Within-Domain  | Linear Regression | 1793.940 | -0.080  | 23.676 | 33.578 | 20.356 | 17.716 |
+| Non-residential EUI (kWh/m²/year)  | Cross-Domain   | Linear Regression | 5459.066 | -10.970 | 55.872 | 63.752 | 32.468 | 31.576 |
+| Residential EUI (kWh/m²/year)      | Cross-Domain   | Linear Regression | 2443.348 | -3.336  | 40.340 | 47.638 | 40.770 | 35.654 |
+| Non-residential EUI (kWh/m²/year)  | All-Domain     | Linear Regression | 3565.130 | -2.206  | 40.778 | 48.102 | 21.460 | 20.524 |
+| Residential EUI (kWh/m²/year)      | All-Domain     | Linear Regression | 1458.518 | -0.928  | 28.292 | 35.534 | 25.416 | 23.094 |
 
 
 ## 7. Conclusion <a name="Conclusion"></a>
