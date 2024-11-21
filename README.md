@@ -12,7 +12,8 @@
 4. [Data and Features Overview](#DataAndFeaturesOverview)  
    4.1 [GHG Estimation](#GHGEstimation)  
    4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
-6. [Methods](#Methods)  
+   4.3 [Generated data](#GeneratedData)  
+5. [Methods](#Methods)  
    5.1 [Feature Engineering](#FeatureEngineering)  
    5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
@@ -127,7 +128,7 @@ To better understand the distribution of this variable, we can observe the follo
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
 
-### 4.3 Generated data
+### 4.3 Generated Data <a name="GeneratedData"></a>
 After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 ## 5. Methods <a name="Methods"></a>
