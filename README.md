@@ -7,22 +7,25 @@
    2.1 [Project Motivation](#ProjectMotivation)  
    2.2 [Problem Statement](#ProblemStatement)  
    2.3 [Goals](#Goals)  
-3. [Background](#Background)  
-4. [Data and Features Overview](#DataAndFeaturesOverview)  
+   2.4 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)
+
+   
+4. [Background](#Background)  
+5. [Data and Features Overview](#DataAndFeaturesOverview)  
    4.1 [GHG Estimation](#GHGEstimation)  
    4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
-5. [Methods](#Methods)  
+6. [Methods](#Methods)  
    5.1 [Feature Engineering](#FeatureEngineering)  
    5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
    5.4 [Experimental Design](#ExperimentalDesign)
-6. [Experiments](#Experiments)  
+7. [Experiments](#Experiments)  
    6.1 [Feature Importance](#FeatureImportance)  
    6.2 [Models](#Models)
-7. [Conclusion](#Conclusion)  
-8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-9. [Resources](#Resources)
-10. [Contributors](#Contributors) 
+8. [Conclusion](#Conclusion)  
+9. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+10. [Resources](#Resources)
+11. [Contributors](#Contributors) 
 
 
 ## 1. Abstract <a name="Abstract"></a>
@@ -59,7 +62,7 @@ In the first semester, the focus has been on developing the Energy Use Intensity
 
 In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
 
-### 2.4 Project Deliverables and Presentation Materials
+### 2.4 Project Deliverables and Presentation Materials <a name="ProjectDeliverablesAndPresentationMaterials"></a>
 
 This section provides an overview of the key deliverables and presentation materials developed throughout the project. These materials summarize the project's progress, next steps, and areas to explore in the upcoming semester, offering insights into the work completed and the outcomes achieved.
 
