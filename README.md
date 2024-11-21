@@ -59,7 +59,7 @@ In the first semester, the focus has been on developing the Energy Use Intensity
 
 In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
 
-### 2.4
+### 2.4 Project Deliverables and Presentation Materials
 
 For a visual summary of the project, check out the slide deck presentation [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Climate_TRACE_Presentation.pdf).
 
