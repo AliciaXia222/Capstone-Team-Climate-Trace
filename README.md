@@ -269,7 +269,6 @@ This section provides an overview of the repository's structure, explaining the 
 │       └── merged_df.csv
 ├── deliverables_agreement
 │   ├── Mid-Point Deliverables - Climate Trace.pdf
-│   └── asd.txt
 ├── figures
 │   ├── diagram.png
 │   ├── eui_map.png
