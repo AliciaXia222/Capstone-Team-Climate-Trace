@@ -33,6 +33,8 @@ Currently, the baseline linear regression model's performance varies across stra
 
 Future models will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, along with incorporating additional variables like average temperature and humidity to enhance predictive performance.
 
+
+
 ## 2. Introduction <a name="Introduction"></a>
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
@@ -56,6 +58,8 @@ The goal of this project is to develop a machine learning model to estimate gree
 In the first semester, the focus has been on developing the Energy Use Intensity (EUI) estimation technique, using globally available features to predict EUI. By selecting these key features, the goal has been to generate the first iteration of EUI predictions. The target for this stage is to achieve a Mean Absolute Percentage Error (MAPE) in the range of 30-40%. While this is the ideal range for this milestone, it is possible that we may not meet this target at this stage. Refining and improving this technique will be the focus for the second semester.
 
 In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
+
+For a visual summary of the project, check out the slide deck presentation [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Climate_TRACE_Presentation.pdf).
 
 
 ## 3. Background <a name="Background"></a>
