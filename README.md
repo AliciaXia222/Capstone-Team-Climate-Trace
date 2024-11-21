@@ -122,6 +122,9 @@ To better understand the distribution of this variable, we can observe the follo
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
 
+### 4.3 Generated data
+After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
+
 ## 5. Methods <a name="Methods"></a>
 
 ### 5.1 Feature Engineering <a name="FeatureEngineering"></a>
