@@ -253,7 +253,6 @@ This section provides an overview of the repository's structure, explaining the 
 ### Directory Structure
 
 ```python
-
 .
 ├── LICENSE
 ├── README.md
@@ -264,9 +263,13 @@ This section provides an overview of the repository's structure, explaining the 
 │   │   └── population.csv
 │   ├── 02_interim
 │   │   ├── CDD.csv
-│   │   └── HDD.csv
+│   │   ├── HDD.csv
+│   │   └── Humidity.csv
 │   └── 03_processed
 │       └── merged_df.csv
+├── deliverables_agreement
+│   ├── Mid-Point Deliverables - Climate Trace.pdf
+│   └── asd.txt
 ├── figures
 │   ├── diagram.png
 │   ├── eui_map.png
