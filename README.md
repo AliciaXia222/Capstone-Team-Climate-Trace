@@ -7,11 +7,9 @@
    2.1 [Project Motivation](#ProjectMotivation)  
    2.2 [Problem Statement](#ProblemStatement)  
    2.3 [Goals](#Goals)  
-   2.4 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)
-
-   
-4. [Background](#Background)  
-5. [Data and Features Overview](#DataAndFeaturesOverview)  
+   2.4 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
+3. [Background](#Background)  
+4. [Data and Features Overview](#DataAndFeaturesOverview)  
    4.1 [GHG Estimation](#GHGEstimation)  
    4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
 6. [Methods](#Methods)  
