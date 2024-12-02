@@ -218,7 +218,7 @@ As part of the initial iterations of the model, the following results were obtai
 
 
 
-#### Linear Regression
+#### Base line model: Linear Regression
 
 The following figures display the prediction performance across different regions for both residential (top row) and non-residential (bottom row) EUI. Each scatter plot compares predicted versus actual values
 
