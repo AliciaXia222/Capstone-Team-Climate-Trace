@@ -225,12 +225,18 @@ The following figures display the prediction performance across different region
 1. **Within Domain**:  
 ![eui_predictions_all_domain](/figures/eui_predictions_within_domain.png)
 
+![eui_predictions_all_domain](/figures/lr_error_distribution_plots_within_domain.png)
+
 2. **Cross Domain**:  
 ![eui_predictions_cross_domain](/figures/eui_predictions_cross_domain.png)
+
+![eui_predictions_all_domain](/figures/lr_error_distribution_plots_cross_domain.png)
+
 
 3. **All Domain**:  
 ![eui_predictions_all_domain](/figures/eui_predictions_all_domain.png)
 
+![eui_predictions_all_domain](/figures/lr_error_distribution_plots_all_domain.png)
 
 The following table presents the aggregated results across all regions for each modeling strategy, showing average performance metrics for both residential and non-residential EUI predictions:
 
