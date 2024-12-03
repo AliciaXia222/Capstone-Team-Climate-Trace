@@ -85,7 +85,7 @@ In response to these challenges, recent advancements have been made in the devel
 To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
 
 The estimation formula is:
-![Formula](/figures/formula.png)
+![Formula](/figures/01_formula.png)
 
 ### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
 
@@ -99,7 +99,7 @@ EUI is a metric used to measure the intensity of energy use in buildings. These 
   
 To better understand the distribution of this variable, we can observe the following map, which visualizes how EUI is distributed across the different regions and building types.
 
-![EUI map](/figures/eui_map.png)
+![EUI map](/figures/02_eui_map.png)
 
 2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
 
@@ -191,11 +191,11 @@ Given the challenge of regional variations in global data, we will validate our 
 The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
 
 
-![Geographic Distribution of Data Points by Region](/figures/region_map.png)
+![Geographic Distribution of Data Points by Region](/figures/03_region_map.png)
 
 The strategies we will be using are as follows:
 
-![Image](/figures/experimental_design.png)
+![Image](/figures/04_experimental_design.png)
 
 We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
@@ -210,7 +210,7 @@ The model included factors like GDP per capita, urbanization rate, latitude, and
 
 In the future, the model could include other temperature-related factors, like average temperature and humidity, which were not included in this iteration. For details on the calculations, check the [Feature Importance Notebook](/notebooks/04_FeatureImportance.ipynb).  
 
-![Feature Importance](/figures/feature_importance.png)
+![Feature Importance](/figures/05_feature_importance.png)
 
 ### 6.2 Models <a name="Models"></a>
 
@@ -223,20 +223,20 @@ As part of the initial iterations of the model, the following results were obtai
 The following figures display the prediction performance across different regions for both residential (top row) and non-residential (bottom row) EUI. Each scatter plot compares predicted versus actual values
 
 1. **Within Domain**:  
-![eui_predictions_all_domain](/figures/eui_predictions_within_domain.png)
+![eui_predictions_all_domain](/figures/lr_within_domain_eui_predictions.png)
 
-![eui_predictions_all_domain](/figures/lr_error_distribution_plots_within_domain.png)
+![eui_predictions_all_domain](/figures/lr_within_domain_error_distribution.png)
 
 2. **Cross Domain**:  
-![eui_predictions_cross_domain](/figures/eui_predictions_cross_domain.png)
+![eui_predictions_cross_domain](/figures/lr_cross_domain_eui_predictions.png)
 
-![eui_predictions_all_domain](/figures/lr_error_distribution_plots_cross_domain.png)
+![eui_predictions_all_domain](/figures/lr_cross_domain_error_distribution.png)
 
 
 3. **All Domain**:  
-![eui_predictions_all_domain](/figures/eui_predictions_all_domain.png)
+![eui_predictions_all_domain](/figures/lr_all_domain_eui_predictions.png)
 
-![eui_predictions_all_domain](/figures/lr_error_distribution_plots_all_domain.png)
+![eui_predictions_all_domain](/figures/lr_all_domain_error_distribution.png)
 
 The following table presents the aggregated results across all regions for each modeling strategy, showing average performance metrics for both residential and non-residential EUI predictions:
 
