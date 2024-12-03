@@ -240,7 +240,7 @@ def calculate_average_metrics(results_df):
 
 
 def create_error_distribution_plots(model_results, save_path=None):
-    fig, axes = plt.subplots(2, 5, figsize=(25, 10))
+    fig, axes = plt.subplots(2, 5, figsize=(23, 9))
     axes = axes.flatten()
 
     max_error = 0
