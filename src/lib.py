@@ -239,12 +239,20 @@ def calculate_average_metrics(results_df):
    }).round(3).reindex(level='Strategy', labels=strategy_order)
 
 
-def create_error_distribution_plots(model_results, save_path=None):
+def create_error_distribution_plots(model_results, save_path=None, binwidth=20):
+    """
+Create plots of the error distribution for each region and building type.
+
+Parameters:
+    model_results (dict): A dictionary containing the results for each region and building type.
+    save_path (str, optional): The path to save the plot. If not provided, the plot will be displayed.
+    binwidth (int, optional): The width of the histogram bins. Defaults to 20.
+"""
     fig, axes = plt.subplots(2, 5, figsize=(23, 9))
     axes = axes.flatten()
 
-    max_error = 0
-    max_y = 0
+    max_error = 150
+    max_y = 30
 
     for i, (region, result) in enumerate(model_results.items()):
         for j, building_type in enumerate(['residential', 'non_residential']):
@@ -254,8 +262,8 @@ def create_error_distribution_plots(model_results, save_path=None):
             
             max_error = max(max_error, abs(errors.min()), abs(errors.max()))
             
-            sns.histplot(errors, ax=ax, kde=True)
-
+            sns.histplot(errors, ax=ax, kde=True, binwidth=binwidth)
+            
             building_label = 'Non-residential' if j == 1 else 'Residential'
             ax.set_xlabel(f'Errors ({building_label})', fontsize=14)
             ax.set_ylabel('Frequency', fontsize=14)
@@ -271,5 +279,5 @@ def create_error_distribution_plots(model_results, save_path=None):
 
     if save_path:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-
-    plt.show()
+    else:
+        plt.show()
