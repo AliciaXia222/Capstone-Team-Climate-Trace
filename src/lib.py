@@ -269,7 +269,7 @@ def create_error_distribution_plots(model_results, save_path=None):
 
     plt.tight_layout()
 
-   if save_path:
+    if save_path:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    else:
-        plt.show()
+
+    plt.show()
