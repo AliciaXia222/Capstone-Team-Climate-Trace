@@ -283,44 +283,45 @@ This section provides an overview of the repository's structure, explaining the 
 │   └── 03_processed
 │       └── merged_df.csv
 ├── deliverables_agreement
-│   ├── Mid-Point Deliverables - Climate Trace.pdf
+│   └── Mid-Point Deliverables - Climate Trace.pdf
 ├── figures
-│   ├── diagram.png
-│   ├── eui_map.png
-│   ├── eui_predictions_all_domain.png
-│   ├── eui_predictions_cross_domain.png
-│   ├── eui_predictions_within_domain.png
-│   ├── experimental_design.png
-│   ├── feature_importance.png
-│   ├── formula.png
-│   └── region_map.png
+│   ├── 01_formula.png
+│   ├── 02_eui_map.png
+│   ├── 03_region_map.png
+│   ├── 04_experimental_design.png
+│   ├── 05_feature_importance.png
+│   └── model_plots
 ├── notebooks
 │   ├── 01_DataPreprocessing.ipynb
 │   ├── 02_HDDPreprocessing.ipynb
 │   ├── 03_HumidityPreprocessing.ipynb
-│   ├── 04_FeatureImportance.ipynb
-│   ├── 05_Experiments.ipynb
-│   └── 07_Plots.ipynb
+│   ├── 04_Plots.ipynb
+│   ├── 05_FeatureImportance.ipynb
+│   ├── 060_Experiments_LR.ipynb
+│   ├── 061_Experiments_KNN.ipynb
+│   ├── 062_Experiments_RF.ipynb
+│   ├── 063_Experiments_XGBoost.ipynb
+│   ├── 064_Experiments_CatBoost.ipynb
+│   ├── 070_Model_Comparison.ipynb
+│   └── catboost_info
+├── requirements.txt
 ├── results
-│   ├── results_20241114_1231_all_domain_knn.csv
-│   ├── results_20241114_1231_all_domain_lr.csv
-│   ├── results_20241114_1231_cross_domain_knn.csv
-│   ├── results_20241114_1231_cross_domain_lr.csv
-│   ├── results_20241114_1231_total_knn.csv
-│   ├── results_20241114_1231_total_lr.csv
-│   ├── results_20241114_1231_within_domain_knn.csv
-│   └── results_20241114_1231_within_domain_lr.csv
-└── slide_decks
-    └── Climate_TRACE_Presentation.pdf
+├── slide_decks
+│   └── Climate_TRACE_Presentation.pdf
+└── src
+    ├── __init__.py
+    ├── __pycache__
+    │   └── lib.cpython-311.pyc
+    └── lib.py
 
 ```
 
 
 1. **`data/`**  
    - Contains all datasets used in the project. It is organized into subfolders:
-     - `01_raw/`: Raw, unprocessed datasets like HDI, GDP, and population data.  
-     - `02_interim/`: Intermediate processed files such as HDD and CDD values.  
-     - `03_processed/`: Fully processed datasets ready for modeling (e.g., `merged_df.csv`).  
+     - **01_raw/**: Raw, unprocessed datasets like HDI, GDP, and population data.  
+     - **02_interim/**: Intermediate processed files such as HDD and CDD values.  
+     - **03_processed/**: Fully processed datasets ready for modeling (e.g., merged_df.csv).  
 
 2. **`figures/`**  
    - Contains visual resources such as diagrams, maps, and other illustrations used in presentations and documentation.  
@@ -329,21 +330,31 @@ This section provides an overview of the repository's structure, explaining the 
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
      - **01_DataPreprocessing.ipynb**: Combines raw data into a single dataset.  
      - **02_HDDProcessing.ipynb**: Calculates Heating Degree Days (HDD) using global temperature data.  
-     - **03_HumidityProcessing.ipynb**: Computes humidity values.  
-     - **04_FeatureImportance.ipynb**: Analyzes feature importance.  
-     - **05_Experiments.ipynb**: Contains experimental setups and evaluations.  
-     - **06_Model.ipynb**: Implements machine learning models and saves results.  
-     - **07_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+     - **03_HumidityProcessing.ipynb**: Computes humidity values.
+     - **04_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+     - **05_FeatureImportance.ipynb**: Analyzes feature importance.
+     - **060_Experiments_LR.ipynb**: Sets up and evaluates experiments using Logistic Regression.  
+     - **061_Experiments_KNN.ipynb**: Implements and evaluates K-Nearest Neighbors (KNN) models.  
+     - **062_Experiments_RF.ipynb**: Runs experiments using Random Forest (RF).  
+     - **063_Experiments_XGBoost.ipynb**: Executes XGBoost models for performance comparison.  
+     - **064_Experiments_CatBoost.ipynb**: Configures and evaluates CatBoost models.  
+     - **070_Model_Comparison.ipynb**: Compares the performance of different models across domains.  
 
 4. **`results/`**  
-   - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).  
+   - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).
 
-5. **`README.md`**  
+5. **`src/`**  
+   - Contains core Python scripts for the project.  
+     - **lib.py**: Provides utility functions and shared modules for data preprocessing, feature extraction, and model evaluation, used across notebooks and scripts.  
+
+6. **`requirements.txt`**  
+   - Lists all dependencies needed for the project environment, ensuring reproducibility.  
+
+7. **`README.md`**  
    - The entry point of the repository, providing an overview, key results, and links to all major components.  
 
 
-
-#### Usage Instructions  
+### Usage Instructions  
 
 1. **Setup**:  
    Clone the repository and ensure all dependencies are installed. Use `requirements.txt` if available.  
