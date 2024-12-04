@@ -239,7 +239,7 @@ def calculate_average_metrics(results_df):
    }).round(3).reindex(level='Strategy', labels=strategy_order)
 
 
-def create_error_distribution_plots(model_results, save_path=None, binwidth=20):
+def create_error_distribution_plots(model_results, save_path=None, binwidth=10):
     """
 Create plots of the error distribution for each region and building type.
 
@@ -252,7 +252,7 @@ Parameters:
     axes = axes.flatten()
 
     max_error = 150
-    max_y = 30
+    max_y = 25
 
     for i, (region, result) in enumerate(model_results.items()):
         for j, building_type in enumerate(['residential', 'non_residential']):
