@@ -249,6 +249,10 @@ The following table presents the aggregated results across all regions for each 
 | Non-residential EUI (kWh/m²/year)  | All-Domain     | Linear Regression | 3565.130 | -2.206  | 40.778 | 48.102 | 21.460 | 20.524 |
 | Residential EUI (kWh/m²/year)      | All-Domain     | Linear Regression | 1458.518 | -0.928  | 28.292 | 35.534 | 25.416 | 23.094 |
 
+#### Comparison Between Models
+
+![eui_predictions_all_domain](/figures/model_plots/Model_comparison.png)
+
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
