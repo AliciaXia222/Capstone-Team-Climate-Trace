@@ -296,18 +296,19 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 05_feature_importance.png
 │   └── model_plots
 ├── notebooks
-│   ├── 01_DataPreprocessing.ipynb
-│   ├── 02_HDDPreprocessing.ipynb
-│   ├── 03_HumidityPreprocessing.ipynb
-│   ├── 04_Plots.ipynb
-│   ├── 05_FeatureImportance.ipynb
+│   ├── 010_Download_WeatherData_API.ipynb
+│   ├── 020_WeatherData_Preprocessing.ipynb
+│   ├── 021_HumidityPreprocessing.ipynb
+│   ├── 023_HDDPreprocessing.ipynb
+│   ├── 030_DataPreprocessing.ipynb
+│   ├── 040_Plots.ipynb
+│   ├── 050_FeatureImportance.ipynb
 │   ├── 060_Experiments_LR.ipynb
 │   ├── 061_Experiments_KNN.ipynb
 │   ├── 062_Experiments_RF.ipynb
 │   ├── 063_Experiments_XGBoost.ipynb
 │   ├── 064_Experiments_CatBoost.ipynb
 │   ├── 070_Model_Comparison.ipynb
-│   └── catboost_info
 ├── requirements.txt
 ├── results
 ├── slide_decks
@@ -331,30 +332,32 @@ This section provides an overview of the repository's structure, explaining the 
    - Contains visual resources such as diagrams, maps, and other illustrations used in presentations and documentation.  
 
 3. **`notebooks/`**  
+
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
-     - **01_DataPreprocessing.ipynb**: Combines raw data into a single dataset.  
-     - **02_HDDProcessing.ipynb**: Calculates Heating Degree Days (HDD) using global temperature data.  
-     - **03_HumidityProcessing.ipynb**: Computes humidity values.
-     - **04_Plots.ipynb**: Generates visualizations for analysis and reporting.  
-     - **05_FeatureImportance.ipynb**: Analyzes feature importance.
+     - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).  
+     - **020_WeatherData_Preprocessing.ipynb**: Preprocesses weather data for model input.  
+     - **021_HumidityPreprocessing.ipynb**: Processes humidity data.  
+     - **023_HDDPreprocessing.ipynb**: Prepares Heating Degree Days (HDD) data.  
+     - **030_DataPreprocessing.ipynb**: Prepares the final dataset for model input.  
+     - **040_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+     - **050_FeatureImportance.ipynb**: Analyzes feature importance for model evaluation.  
      - **060_Experiments_LR.ipynb**: Sets up and evaluates experiments using Logistic Regression.  
      - **061_Experiments_KNN.ipynb**: Implements and evaluates K-Nearest Neighbors (KNN) models.  
      - **062_Experiments_RF.ipynb**: Runs experiments using Random Forest (RF).  
      - **063_Experiments_XGBoost.ipynb**: Executes XGBoost models for performance comparison.  
      - **064_Experiments_CatBoost.ipynb**: Configures and evaluates CatBoost models.  
-     - **070_Model_Comparison.ipynb**: Compares the performance of different models across domains.  
-
-4. **`results/`**  
+     - **070_Model_Comparison.ipynb**: Compares the performance of different models across various datasets and variables.
+5. **`results/`**  
    - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).
 
-5. **`src/`**  
+6. **`src/`**  
    - Contains core Python scripts for the project.  
      - **lib.py**: Provides utility functions and shared modules for data preprocessing, feature extraction, and model evaluation, used across notebooks and scripts.  
 
-6. **`requirements.txt`**  
+7. **`requirements.txt`**  
    - Lists all dependencies needed for the project environment, ensuring reproducibility.  
 
-7. **`README.md`**  
+8. **`README.md`**  
    - The entry point of the repository, providing an overview, key results, and links to all major components.  
 
 
