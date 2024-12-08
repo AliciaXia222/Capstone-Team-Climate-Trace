@@ -214,40 +214,27 @@ In the future, the model could include other temperature-related factors, like a
 
 As part of the initial iterations of the model, the following results were obtained using Linear Regression. In this iteration, we used features such as heating degree days, cooling degree days, GDP per capita, urbanization rate in 2022, latitude, longitude, the Paris Agreement, human development index, educational index, and income index. This model serves as a baseline, providing a starting point for future improvements and model refinements.
 
+# Model Evaluation Metrics
+
+The table below summarizes the performance of different strategies across three domains (All Domain, Cross Domain, and Within Domain) using three metrics: Mean Absolute Percentage Error (MAPE), R², and Root Mean Square Error (RMSE).
+
+# Model Performance Metrics
+
+The table below displays the performance metrics (MAPE, R², and RMSE) for different strategies across non-residential and residential domains in three scenarios: All Domain, Cross Domain, and Within Domain.
+
+| Metric | Domain        | LR (Non-Res) | LR (Res) | Lasso (Non-Res) | Lasso (Res) | Ridge (Non-Res) | Ridge (Res) | KNN (Non-Res) | KNN (Res) | RF (Non-Res) | RF (Res) | XGB (Non-Res) | XGB (Res) | CAT (Non-Res) | CAT (Res) |
+|--------|---------------|--------------|----------|-----------------|-------------|-----------------|-------------|---------------|-----------|--------------|----------|---------------|-----------|---------------|-----------|
+| **MAPE** | All Domain    | 21.00%       | 22.20%   | 20.50%          | 21.10%      | 21.00%          | 21.80%      | 9.20%         | 13.80%    | 9.20%        | 12.30%   | 9.30%         | 12.50%    | 10.20%        | 14.00%    |
+|        | Cross Domain  | 32.20%       | 35.10%   | 29.60%          | 26.20%      | 31.90%          | 32.00%      | 23.20%        | 25.80%    | 12.50%       | 22.20%   | 14.00%        | 21.60%    | 17.80%        | 20.00%    |
+|        | Within Domain | 19.10%       | 23.20%   | 13.30%          | 18.50%      | 14.60%          | 18.50%      | 10.80%        | 15.30%    | 8.10%        | 12.50%   | 7.80%         | 13.10%    | 8.10%         | 12.80%    |
+| **R²**  | All Domain    | -2.093       | -0.305   | -1.909          | 0.055       | -2.083          | -0.223      | 0.194         | 0.452     | 0.297        | 0.571    | 0.121         | 0.52      | 0.142         | 0.505     |
+|        | Cross Domain  | -11.161      | -3.017   | -7.815          | -0.652      | -10.637         | -2.187      | -15.848       | -0.917    | -0.184       | -0.07    | -0.605        | -0.093    | -1.751        | 0.137     |
+|        | Within Domain | -0.800       | -0.109   | 0.005           | 0.250       | -0.108          | 0.204       | 0.072         | 0.401     | 0.303        | 0.532    | 0.414         | 0.362     | 0.348         | 0.483     |
+| **RMSE**| All Domain    | 47.5         | 30.2     | 47.0            | 27.5        | 47.5            | 29.6        | 27.4          | 24.8      | 28.1         | 22.2     | 32.6          | 24.1      | 31.2          | 23.3      |
+|        | Cross Domain  | 65.0         | 39.3     | 61.1            | 30.7        | 64.3            | 36.9        | 57.8          | 36.2      | 37.7         | 32.3     | 42.3          | 33.7      | 47.2          | 30.7      |
+|        | Within Domain | 46.7         | 36.1     | 33.9            | 29.2        | 36.9            | 30.0        | 31.7          | 25.9      | 27.5         | 23.2     | 24.9          | 25.6      | 27.0          | 23.6      |
 
 
-#### Base line model: Linear Regression
-
-The following figures display the prediction performance across different regions for both residential (top row) and non-residential (bottom row) EUI. Each scatter plot compares predicted versus actual values
-
-1. **Within Domain**:  
-![eui_predictions_all_domain](/figures/model_plots/lr_within_domain_eui_predictions.png)
-
-![eui_predictions_all_domain](/figures/model_plots/lr_within_domain_error_distribution.png)
-
-2. **Cross Domain**:  
-![eui_predictions_cross_domain](/figures/model_plots/lr_cross_domain_eui_predictions.png)
-
-![eui_predictions_all_domain](/figures/model_plots/lr_cross_domain_error_distribution.png)
-
-
-3. **All Domain**:  
-![eui_predictions_all_domain](/figures/model_plots/lr_all_domain_eui_predictions.png)
-
-![eui_predictions_all_domain](/figures/model_plots/lr_all_domain_error_distribution.png)
-
-The following table presents the aggregated results across all regions for each modeling strategy, showing average performance metrics for both residential and non-residential EUI predictions:
-
-| Target                              | Strategy       | Model             | MSE      | R²      | MAE    | RMSE   | MAPE   | WAPE   |
-|-------------------------------------|----------------|-------------------|----------|---------|--------|--------|--------|--------|
-| Non-residential EUI (kWh/m²/year)  | Within-Domain  | Linear Regression | 3067.808 | -0.610  | 31.452 | 43.550 | 17.762 | 15.104 |
-| Residential EUI (kWh/m²/year)      | Within-Domain  | Linear Regression | 1793.940 | -0.080  | 23.676 | 33.578 | 20.356 | 17.716 |
-| Non-residential EUI (kWh/m²/year)  | Cross-Domain   | Linear Regression | 5459.066 | -10.970 | 55.872 | 63.752 | 32.468 | 31.576 |
-| Residential EUI (kWh/m²/year)      | Cross-Domain   | Linear Regression | 2443.348 | -3.336  | 40.340 | 47.638 | 40.770 | 35.654 |
-| Non-residential EUI (kWh/m²/year)  | All-Domain     | Linear Regression | 3565.130 | -2.206  | 40.778 | 48.102 | 21.460 | 20.524 |
-| Residential EUI (kWh/m²/year)      | All-Domain     | Linear Regression | 1458.518 | -0.928  | 28.292 | 35.534 | 25.416 | 23.094 |
-
-#### Comparison Between Models
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
