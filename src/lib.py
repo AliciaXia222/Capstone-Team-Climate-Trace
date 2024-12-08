@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 import numpy as np
 import seaborn as sns
+from sklearn.preprocessing import StandardScaler
 
 
 def get_train_test_split(merged_df, region, strategy, features):
@@ -58,9 +59,15 @@ def get_trained_model(X_train, X_test, y_train, y_test, model):
     Returns:
         Dictionary containing test values, predictions and trained model
     """
-    model.fit(X_train, y_train)
+    # Add scaling
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    
+    # Train model with scaled data
+    model.fit(X_train_scaled, y_train)
     y_pred = pd.Series(
-        model.predict(X_test), 
+        model.predict(X_test_scaled), 
         index=y_test.index,
         name=y_test.name   
     )
