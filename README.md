@@ -249,7 +249,7 @@ The following table presents the aggregated results across all regions for each 
 
 #### Comparison Between Models
 
-![eui_predictions_all_domain](/figures/model_plots/Model_comparison.png)
+![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
 
 ## 7. Conclusion <a name="Conclusion"></a>
