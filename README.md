@@ -135,15 +135,18 @@ After feature engineering and merging our datasets, we've generated the final da
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
 
 1. **Heating Degree Days Calculation:**  
-   Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).  
+   Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+   
+2. **Cooling Degree Days Calculation:**  
+   Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 71.6°F (22°C). 
 
-2. **Comfort Index Calculation:**  
+3. **Comfort Index Calculation:**  
    Derived using temperature and humidity data to quantify and evaluate human thermal comfort, which is influenced by environmental factors like temperature and humidity.
 
-3. **GDP per Capita Calculation:**
+4. **GDP per Capita Calculation:**
 We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
 
-4. **Cross-Feature Interaction:**  
+5. **Cross-Feature Interaction:**  
    Combined multiple features to create new interaction terms that capture relationships between variables.  
 
 ### 5.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
