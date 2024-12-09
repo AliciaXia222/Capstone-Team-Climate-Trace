@@ -217,20 +217,17 @@ In this section, we evaluate the performance of several machine learning models 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique. By analyzing these results, we can determine which model performs best across different scenarios, guiding our final decision on the most effective approach for predicting EUI. In addition to MAPE, R², and RMSE, other evaluation metrics can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv).
 
    - **MAPE**  
-
    The MAPE across validation strategies revealed that predictions for non-residential buildings generally demonstrated superior predictive capability compared to residential buildings. Ensemble models (Random Forest, XGBoost, and CatBoost) consistently outperformed traditional approaches. We can observe that the within-domain strategy delivered better results, while the cross-domain strategy presented more challenges, with the all-domain strategy serving as an intermediate point. One of the challenges that arises is how to improve generalization in order to reduce the gap between these strategies, ultimately enhancing model performance across different regions. On average, we achieved the target of a MAPE below 30-40%, although it is important to note that some individual predictions fell outside this range, as will be discussed further later.
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
 
    - **R²**  
-
    The R² analysis reveals significant challenges in model performance across different strategies. For within-domain validation, ensemble models showed moderate positive R² values (0.22-0.52), with Random Forest achieving the best performance. However, cross-domain validation resulted in consistently negative R² values across all models. This suggests that the relationships between features and EUI are highly complex and region-dependent. The all-domain strategy showed intermediate results, with ensemble models maintaining slightly positive R² values (0.11-0.47) while linear models continued to perform poorly. These results, especially the negative R² values, indicate that the relationship between our features and EUI is strongly non-linear and varies significantly across different geographical regions, highlighting the importance of using more sophisticated modeling approaches and potentially developing region-specific models.
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
 
    - **RMSE** 
-
    The RMSE analysis further supports the patterns observed in previous metrics. Within-domain, ensemble models achieved the lowest errors. Cross-domain validation revealed substantially higher errors, particularly for linear models (RMSE ranging from 59.4 to 62.6 for non-residential). The magnitude of these errors decreased in all-domain validation, though ensemble models maintained their superior performance. 
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_rmse.png)
