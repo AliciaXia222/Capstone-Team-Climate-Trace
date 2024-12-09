@@ -29,13 +29,13 @@
 
 ## 1. Abstract <a name="Abstract"></a>
 
-This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation. This current work outlines preliminary EUI estimation techniques, while future iterations will refine the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
+This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation.
 
-Currently, the baseline linear regression model's performance varies across strategies and regions. Preliminary results show that the model performs best within-domain but struggles with generalization in cross-domain scenarios, with performance notably deteriorating in certain regions. These findings highlight the need for further iterations to improve accuracy.
+This current work outlines preliminary EUI estimation techniques, with the primary focus on minimizing the Mean Absolute Percentage Error (MAPE) with a target range of less than 30-40%. Other performance metrics, such as R², Mean Squared Error (MSE), Mean Absolute Error (MAE), and Weighted Absolute Percentage Error (WAPE), were also considered. Future iterations will refine and expand the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
 
-Future models will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, along with incorporating additional variables like average temperature and humidity to enhance predictive performance.
+Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall, with a MAPE averaging less than 25% across different strategies. However, R² was generally low across all models. Additionally, results varied across regions, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
 
-
+Next steps could include evaluating additional variables, such as weather-related variables and even satellite image data, to further improve the model's performance and robustness.
 
 ## 2. Introduction <a name="Introduction"></a>
 
