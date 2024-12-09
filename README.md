@@ -257,13 +257,9 @@ The following figures display the prediction performance across different region
 ## 7. Conclusion <a name="Conclusion"></a>
 
 
-The linear regression model's performance varies significantly across experimental strategies and regions. For the Within-Domain strategy, the model achieves relatively better average performance, with MAPE values ranging from 17.7% to 20.3% for both residential and non-residential EUI predictions. However, examining individual regions reveals greater variability. In Cross-Domain scenarios, performance deteriorates notably, with MAPE values increasing to 32-40%, highlighting the model's limited ability to generalize across geographical regions. The All-Domain approach yields intermediate results, suggesting that including data from multiple regions during training helps balance the model's predictive capabilities.
+Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall, with a MAPE averaging less than 25% in various scenarios. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
 
-A closer regional analysis reveals distinct performance patterns. Europe shows consistent predictions across all domains.
-
-The negative R² values across multiple scenarios highlight the limitations of the baseline linear regression model in capturing the complex relationships between features and EUI values. This suggests that further iterations are needed to improve performance.
-
-In future models, we will test techniques such as K-Nearest Neighbors (KNN), Random Forest, and CatBoost, which could better capture nonlinear patterns. We will also incorporate additional variables like average temperature and humidity to enhance predictive accuracy.
+Next steps could include evaluating additional variables, such as weather-related variables and even satellite image data, to further improve the model's performance and robustness.
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
