@@ -316,12 +316,14 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 03_region_map.png
 │   ├── 04_experimental_design.png
 │   ├── 05_feature_importance.png
+│   ├── 06_avg_rf.png
 │   └── model_plots
 ├── notebooks
 │   ├── 010_Download_WeatherData_API.ipynb
 │   ├── 020_WeatherData_Preprocessing.ipynb
 │   ├── 021_HumidityPreprocessing.ipynb
 │   ├── 023_HDDPreprocessing.ipynb
+│   ├── 024_CDDPreprocessing.ipynb
 │   ├── 030_DataPreprocessing.ipynb
 │   ├── 040_Plots.ipynb
 │   ├── 050_FeatureImportance.ipynb
@@ -357,8 +359,9 @@ This section provides an overview of the repository's structure, explaining the 
 
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
      - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).  
-     - **020_WeatherData_Preprocessing.ipynb**: Preprocesses weather data for model input.  
+     - **021_HumidityPreprocessing.ipynb**: Prepares humidity data for modeling.  
      - **023_HDDPreprocessing.ipynb**: Prepares Heating Degree Days (HDD) data.  
+     - **024_CDDPreprocessing.ipynb**: Prepares Cooling Degree Days (CDD) data.  
      - **030_DataPreprocessing.ipynb**: Prepares the final dataset for model input.  
      - **040_Plots.ipynb**: Generates visualizations for analysis and reporting.  
      - **050_FeatureImportance.ipynb**: Analyzes feature importance for model evaluation.  
