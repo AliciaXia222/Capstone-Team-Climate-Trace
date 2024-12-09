@@ -271,7 +271,10 @@ To better understand the Random Forest model's performance across different vali
 ![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_error_distribution.png)
 
 
-The performance analysis across regions reveals notable geographical patterns. Central and South America showed consistently strong performance across all validation strategies, with MAPE values as low as 3.2% for non-residential buildings in within-domain validation. Asia & Oceania also demonstrated robust performance, particularly for non-residential buildings (MAPE 6.4% within-domain, R² 0.85). In contrast, Europe showed higher variability, with MAPE ranging from 14.5% to 19.5% across strategies. Northern America exhibited mixed results, with better performance for residential buildings but challenges in non-residential predictions (R² -0.38 within-domain). Africa demonstrated moderate performance with stable MAPE values, though R² values suggest room for improvement in capturing variance. These regional differences highlight the importance of considering local characteristics in EUI predictions and suggest potential benefits from region-specific model tuning.
+The regional analysis shows that Asia & Oceania consistently demonstrates one of the best overall performances across validation strategies, with low MAPE (18.2% residential, 6.4% non-residential) and strong R² values (0.69 residential, 0.85 non-residential) in within-domain validation. This performance remains relatively stable in cross-domain validation (MAPE 35.3% residential, 13.7% non-residential; R² 0.44 residential, 0.52 non-residential), outperforming other regions. 
+
+Central and South America also stands out with strong performance in both within-domain (MAPE 4.2% residential, 3.2% non-residential; R² 0.85 residential, 0.46 non-residential) and cross-domain validation (MAPE 10.6% residential, 5.4% non-residential; R² -0.05 residential, -0.47 non-residential), though with more variable R² values. 
+
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
