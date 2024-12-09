@@ -391,8 +391,10 @@ This section provides an overview of the repository's structure, explaining the 
    Clone the repository and ensure all dependencies are installed. Use `requirements.txt` 
 
 2. **Data Processing**:  
-   - Start with `01_DataPreprocessing.ipynb` to merge raw datasets.  
-   - Use `02_HDDProcessing.ipynb` and `03_HumidityProcessing.ipynb` to compute additional features.  
+   - Start with `010_Download_WeatherData_API.ipynb` to download raw weather data from the Copernicus Climate Data Store.  
+   - Use `020_WeatherData_Preprocessing.ipynb` to preprocess the weather data for model input.  
+   - Process specific features with `021_HumidityPreprocessing.ipynb`, `023_HDDPreprocessing.ipynb`, and `024_CDDPreprocessing.ipynb` to compute humidity, Heating Degree Days (HDD), and Cooling Degree Days (CDD) data.  
+   - Finalize the dataset with `030_DataPreprocessing.ipynb` before moving to modeling.
 
 3. **Modeling**:  
    - Open `06_Model.ipynb` to train models and evaluate performance across domains.  
@@ -402,7 +404,6 @@ This section provides an overview of the repository's structure, explaining the 
 
 5. **Figures and Visuals**:  
    - All generated plots and diagrams are stored in `figures/` for easy reference in presentations or reports.  
-
 
 
 ## 9. Resources  <a name="Resources"></a>
