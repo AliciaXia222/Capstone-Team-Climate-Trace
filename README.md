@@ -218,9 +218,10 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
    - **MAPE**  
 
+The MAPE across validation strategies revealed that predictions for non-residential buildings generally demonstrated superior predictive capability compared to residential buildings. Ensemble models (Random Forest, XGBoost, and CatBoost) consistently outperformed traditional approaches. We can observe that the within-domain strategy delivered better results, while the cross-domain strategy presented more challenges, with the all-domain strategy serving as an intermediate point. One of the challenges that arises is how to improve generalization in order to reduce the gap between these strategies, ultimately enhancing model performance across different regions. On average, we achieved the target of a MAPE below 30-40%, although it is important to note that some individual predictions fell outside this range, as will be discussed further later.
+
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
-The MAPE across validation strategies revealed that predictions for non-residential buildings generally demonstrated superior predictive capability compared to residential buildings. Ensemble models (Random Forest, XGBoost, and CatBoost) consistently outperformed traditional approaches. We can observe that the within-domain strategy delivered better results, while the cross-domain strategy presented more challenges, with the all-domain strategy serving as an intermediate point. One of the challenges that arises is how to improve generalization in order to reduce the gap between these strategies, ultimately enhancing model performance across different regions. On average, we achieved the target of a MAPE below 30-40%, although it is important to note that some individual predictions fell outside this range, as will be discussed further later.
 
    - **R²**  
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
