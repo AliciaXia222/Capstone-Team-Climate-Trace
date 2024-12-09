@@ -220,6 +220,8 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
+The MAPE analysis across validation strategies revealed that predictions for non-residential buildings generally demonstrated superior predictive capability compared to residential buildings. Ensemble models (Random Forest, XGBoost, and CatBoost) consistently outperformed traditional approaches. 
+
    - **R²**  
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
 
