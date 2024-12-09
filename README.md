@@ -209,8 +209,7 @@ In the future, the model could include other temperature-related factors, like a
 
 ### 6.2 Models <a name="Models"></a>
 
-As part of the initial iterations of the model, the following results were obtained using Linear Regression. In this iteration, we used features such as heating degree days, cooling degree days, GDP per capita, urbanization rate in 2022, latitude, longitude, the Paris Agreement, human development index, educational index, and income index. This model serves as a baseline, providing a starting point for future improvements and model refinements.
-
+In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv). The findings and recommendations for model improvement will be further explored in the [Results & Analysis slide deck](LINK).
 
 #### Comparison Between Models
 
