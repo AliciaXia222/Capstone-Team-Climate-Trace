@@ -141,10 +141,7 @@ Feature engineering is essential to transform raw data into meaningful represent
    Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C). 
 
 3. **GDP per Capita Calculation:**
-We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
-
-4. **Cross-Feature Interaction:**  
-   Combined multiple features to create new interaction terms that capture relationships between variables.  
+We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes. 
 
 ### 5.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
 
