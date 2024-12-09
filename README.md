@@ -216,7 +216,8 @@ As part of the initial iterations of the model, the following results were obtai
 
 The table below displays the performance metrics (MAPE, R², and RMSE) for different strategies across non-residential and residential domains in three scenarios: All Domain, Cross Domain, and Within Domain.
 
-
+[DETAIL](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv)
+ 
    - **MAPE**  
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
