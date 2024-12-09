@@ -231,11 +231,14 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
    - **RMSE** 
 
-   The RMSE analysis further supports the patterns observed in previous metrics. Within-domain, ensemble models achieved the lowest errors, with Random Forest showing RMSE values of 29.3 for non-residential and 23.6 for residential buildings. Cross-domain validation revealed substantially higher errors, particularly for linear models (RMSE ranging from 59.4 to 62.6 for non-residential). The magnitude of these errors decreased in all-domain validation, though ensemble models maintained their superior performance. Notably, residential predictions consistently showed lower RMSE values across all strategies and models, suggesting better predictive stability for residential buildings despite their higher percentage errors (MAPE). This contrast between absolute and percentage errors indicates the need to consider both metrics when evaluating model performance.
+   The RMSE analysis further supports the patterns observed in previous metrics. Within-domain, ensemble models achieved the lowest errors. Cross-domain validation revealed substantially higher errors, particularly for linear models (RMSE ranging from 59.4 to 62.6 for non-residential). The magnitude of these errors decreased in all-domain validation, though ensemble models maintained their superior performance. 
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_rmse.png)
 
 #### Best Model Overall: Random Forest
+
+Based on our evaluation across metrics, we selected Random Forest as our primary model for EUI prediction. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types. It achieved MAPE values below 15% for non-residential and 21% for residential in within-domain validation, maintained positive R² values (0.22-0.52 within-domain), and showed stable RMSE values (29.3 non-residential, 23.6 residential within-domain). This consistent performance, along with its ability to handle non-linear relationships and maintain stability in cross-domain scenarios, makes Random Forest the most reliable choice for global EUI prediction.
+
 ![eui_predictions_all_domain](/figures/06_avg_rf.png)
 
 
