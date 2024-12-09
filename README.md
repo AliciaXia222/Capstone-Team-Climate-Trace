@@ -275,13 +275,17 @@ The regional analysis shows that Asia & Oceania consistently demonstrates one of
 
 Central and South America also stands out with strong performance in both within-domain (MAPE 4.2% residential, 3.2% non-residential; R² 0.85 residential, 0.46 non-residential) and cross-domain validation (MAPE 10.6% residential, 5.4% non-residential; R² -0.05 residential, -0.47 non-residential), though with more variable R² values. 
 
+Other regions show more variable performance, with Europe, Northern America and Africa having higher error rates and less consistent R² values (Africa showing MAPE of 7.6-8.2% but poor R² values near zero in most validation strategies). 
+
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
+Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 21% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
 
-Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall, with a MAPE averaging less than 25% in various scenarios. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
+Regional analysis uncovered important patterns in model performance. Asia & Oceania and Central/South America demonstrated the strongest results, while Europe and Northern America showed more variable predictions. Africa presented an interesting case with low error rates but poor explanatory power. The significant performance differences between within-domain and cross-domain validation highlight the strong influence of regional characteristics on EUI predictions.
 
-Next steps could include evaluating additional variables, such as weather-related variables and even satellite image data, to further improve the model's performance and robustness.
+The technical insights gained suggest strongly non-linear relationships between features and EUI, reinforcing the necessity of sophisticated modeling approaches. Temperature-related features emerged as crucial predictors, while the regional variations in performance indicate the potential benefit of region-specific model tuning.
+Looking forward, several opportunities exist for model improvement. These include incorporating additional features such as detailed weather variables and satellite imagery data, developing separate models for residential and non-residential buildings, and exploring techniques to improve cross-domain generalization while maintaining low MAPE values
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
