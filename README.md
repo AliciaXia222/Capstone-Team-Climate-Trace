@@ -35,8 +35,6 @@ This current work outlines preliminary EUI estimation techniques, with the prima
 
 Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall, with a MAPE averaging less than 25% in various scenarios. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
 
-Next steps could include evaluating additional variables, such as weather-related variables and even satellite image data, to further improve the model's performance and robustness.
-
 ## 2. Introduction <a name="Introduction"></a>
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
