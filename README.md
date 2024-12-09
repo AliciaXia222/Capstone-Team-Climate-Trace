@@ -238,6 +238,25 @@ The table below displays the performance metrics (MAPE, R², and RMSE) for diffe
 #### Best Model Overall: Random Forest
 ![eui_predictions_all_domain](/figures/06_avg_rf.png)
 
+
+The following figures display the prediction performance across different regions for both residential (top row) and non-residential (bottom row) EUI. Each scatter plot compares predicted versus actual values
+
+1. **Within Domain**:  
+![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_eui_predictions.png)
+
+![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_error_distribution.png)
+
+2. **Cross Domain**:  
+![eui_predictions_cross_domain](/figures/model_plots/rf_cross_domain_eui_predictions.png)
+
+![eui_predictions_all_domain](/figures/model_plots/rf_cross_domain_error_distribution.png)
+
+
+3. **All Domain**:  
+![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_eui_predictions.png)
+
+![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_error_distribution.png)
+
 ## 7. Conclusion <a name="Conclusion"></a>
 
 
