@@ -163,10 +163,10 @@ In this project, we will employ a range of supervised machine learning models to
 2. **K-Nearest Neighbors (KNN):**  
    KNN is a non-parametric model that classifies a data point based on the majority class or average value of its nearest neighbors. It is particularly useful for capturing local patterns in the data and will provide a comparison to Linear Regression in terms of flexibility.
 
-3. **Random Forest:**
-   Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
+3. **Ensemble Models:**
 
-4. **Ensemble Models:**
+   - **Random Forest:**
+     Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
    - **XGBoost:**  
      XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
    
