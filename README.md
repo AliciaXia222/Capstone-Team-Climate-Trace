@@ -214,11 +214,8 @@ In the future, the model could include other temperature-related factors, like a
 
 As part of the initial iterations of the model, the following results were obtained using Linear Regression. In this iteration, we used features such as heating degree days, cooling degree days, GDP per capita, urbanization rate in 2022, latitude, longitude, the Paris Agreement, human development index, educational index, and income index. This model serves as a baseline, providing a starting point for future improvements and model refinements.
 
-# Model Evaluation Metrics
 
-The table below summarizes the performance of different strategies across three domains (All Domain, Cross Domain, and Within Domain) using three metrics: Mean Absolute Percentage Error (MAPE), R², and Root Mean Square Error (RMSE).
-
-# Model Performance Metrics
+#### Comparison Between Models
 
 The table below displays the performance metrics (MAPE, R², and RMSE) for different strategies across non-residential and residential domains in three scenarios: All Domain, Cross Domain, and Within Domain.
 
