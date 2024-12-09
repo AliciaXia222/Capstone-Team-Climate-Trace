@@ -230,6 +230,7 @@ The following graphs display the average performance metrics for MAPE, R², and 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
 
    - **RMSE** 
+
    The RMSE analysis further supports the patterns observed in previous metrics. Within-domain, ensemble models achieved the lowest errors, with Random Forest showing RMSE values of 29.3 for non-residential and 23.6 for residential buildings. Cross-domain validation revealed substantially higher errors, particularly for linear models (RMSE ranging from 59.4 to 62.6 for non-residential). The magnitude of these errors decreased in all-domain validation, though ensemble models maintained their superior performance. Notably, residential predictions consistently showed lower RMSE values across all strategies and models, suggesting better predictive stability for residential buildings despite their higher percentage errors (MAPE). This contrast between absolute and percentage errors indicates the need to consider both metrics when evaluating model performance.
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_rmse.png)
