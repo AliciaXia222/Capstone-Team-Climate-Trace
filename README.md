@@ -99,9 +99,9 @@ To better understand the distribution of this variable, we can observe the follo
 
 ![EUI map](/figures/02_eui_map.png)
 
-2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Provides daily temperature statistics, offering insights into climate-related factors that influence energy use.
+2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
 
-3. **[Dewpoint Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: The temperature at which air at 2m above the surface becomes saturated, indicating humidity levels.  
+3. **[Dewpoint Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: The temperature at which air at 2m above the surface becomes saturated, indicating humidity levels. Measured in kelvin. 
 
 4. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
 
