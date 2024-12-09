@@ -216,21 +216,16 @@ As part of the initial iterations of the model, the following results were obtai
 
 The table below displays the performance metrics (MAPE, R², and RMSE) for different strategies across non-residential and residential domains in three scenarios: All Domain, Cross Domain, and Within Domain.
 
-| Metric | Domain        | LR (Non-Res) | LR (Res) | Lasso (Non-Res) | Lasso (Res) | Ridge (Non-Res) | Ridge (Res) | KNN (Non-Res) | KNN (Res) | RF (Non-Res) | RF (Res) | XGB (Non-Res) | XGB (Res) | CAT (Non-Res) | CAT (Res) |
-|--------|---------------|--------------|----------|-----------------|-------------|-----------------|-------------|---------------|-----------|--------------|----------|---------------|-----------|---------------|-----------|
-| **MAPE** | All Domain    | 21.00%       | 22.20%   | 20.50%          | 21.10%      | 21.00%          | 21.80%      | 9.20%         | 13.80%    | 9.20%        | 12.30%   | 9.30%         | 12.50%    | 10.20%        | 14.00%    |
-|        | Cross Domain  | 32.20%       | 35.10%   | 29.60%          | 26.20%      | 31.90%          | 32.00%      | 23.20%        | 25.80%    | 12.50%       | 22.20%   | 14.00%        | 21.60%    | 17.80%        | 20.00%    |
-|        | Within Domain | 19.10%       | 23.20%   | 13.30%          | 18.50%      | 14.60%          | 18.50%      | 10.80%        | 15.30%    | 8.10%        | 12.50%   | 7.80%         | 13.10%    | 8.10%         | 12.80%    |
-| **R²**  | All Domain    | -2.093       | -0.305   | -1.909          | 0.055       | -2.083          | -0.223      | 0.194         | 0.452     | 0.297        | 0.571    | 0.121         | 0.52      | 0.142         | 0.505     |
-|        | Cross Domain  | -11.161      | -3.017   | -7.815          | -0.652      | -10.637         | -2.187      | -15.848       | -0.917    | -0.184       | -0.07    | -0.605        | -0.093    | -1.751        | 0.137     |
-|        | Within Domain | -0.800       | -0.109   | 0.005           | 0.250       | -0.108          | 0.204       | 0.072         | 0.401     | 0.303        | 0.532    | 0.414         | 0.362     | 0.348         | 0.483     |
-| **RMSE**| All Domain    | 47.5         | 30.2     | 47.0            | 27.5        | 47.5            | 29.6        | 27.4          | 24.8      | 28.1         | 22.2     | 32.6          | 24.1      | 31.2          | 23.3      |
-|        | Cross Domain  | 65.0         | 39.3     | 61.1            | 30.7        | 64.3            | 36.9        | 57.8          | 36.2      | 37.7         | 32.3     | 42.3          | 33.7      | 47.2          | 30.7      |
-|        | Within Domain | 46.7         | 36.1     | 33.9            | 29.2        | 36.9            | 30.0        | 31.7          | 25.9      | 27.5         | 23.2     | 24.9          | 25.6      | 27.0          | 23.6      |
 
-
+   - **MAPE**  
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
+
+   - **R²**  
+![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
+
+  - **RMSE**  
+![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_rmse.png)
 
 #### Best Model Overall: Random Forest
 ![eui_predictions_all_domain](/figures/06_avg_rf.png)
