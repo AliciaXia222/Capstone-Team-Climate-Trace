@@ -235,6 +235,8 @@ The table below displays the performance metrics (MAPE, R², and RMSE) for diffe
 
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_mape.png)
 
+#### Best Model Overall: Random Forest
+![eui_predictions_all_domain](/figures/06_avg_rf.png)
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
