@@ -224,6 +224,9 @@ The MAPE across validation strategies revealed that predictions for non-resident
 
 
    - **R²**  
+
+The R² analysis reveals significant challenges in model performance across different strategies. For within-domain validation, ensemble models showed moderate positive R² values (0.22-0.52), with Random Forest achieving the best performance. However, cross-domain validation resulted in consistently negative R² values across all models. This suggests that the relationships between features and EUI are highly complex and region-dependent. The all-domain strategy showed intermediate results, with ensemble models maintaining slightly positive R² values (0.11-0.47) while linear models continued to perform poorly. These results, especially the negative R² values, indicate that the relationship between our features and EUI is strongly non-linear and varies significantly across different geographical regions, highlighting the importance of using more sophisticated modeling approaches and potentially developing region-specific models.
+
 ![eui_predictions_all_domain](/figures/model_plots/00_model_comparison_r2.png)
 
   - **RMSE**  
