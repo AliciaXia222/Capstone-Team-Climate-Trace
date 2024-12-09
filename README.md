@@ -239,19 +239,28 @@ The table below displays the performance metrics (MAPE, R², and RMSE) for diffe
 The following figures display the prediction performance across different regions for both residential (top row) and non-residential (bottom row) EUI. Each scatter plot compares predicted versus actual values
 
 1. **Within Domain**:  
+
+   - **Actual EUI vs. Predicted EUI**  
 ![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_eui_predictions.png)
 
+   - **Error Distribution Plot**  
 ![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_error_distribution.png)
 
 2. **Cross Domain**:  
+
+   - **Actual EUI vs. Predicted EUI** 
 ![eui_predictions_cross_domain](/figures/model_plots/rf_cross_domain_eui_predictions.png)
 
+   - **Error Distribution Plot**  
 ![eui_predictions_all_domain](/figures/model_plots/rf_cross_domain_error_distribution.png)
 
 
 3. **All Domain**:  
+
+   - **Actual EUI vs. Predicted EUI** 
 ![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_eui_predictions.png)
 
+   - **Error Distribution Plot**  
 ![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_error_distribution.png)
 
 ## 7. Conclusion <a name="Conclusion"></a>
