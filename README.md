@@ -33,7 +33,7 @@ This project develops a machine learning model to estimate direct greenhouse gas
 
 This current work outlines preliminary EUI estimation techniques, with the primary focus on minimizing the Mean Absolute Percentage Error (MAPE) with a target range of less than 30-40%. Other performance metrics, such as R², Mean Squared Error (MSE), Mean Absolute Error (MAE), and Weighted Absolute Percentage Error (WAPE), were also considered. Future iterations will refine and expand the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
 
-Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall, with a MAPE averaging less than 25% in various scenarios. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
+Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall and a MAPE averaging less than 25% across different cross-validation strategies. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
 
 ## 2. Introduction <a name="Introduction"></a>
 
