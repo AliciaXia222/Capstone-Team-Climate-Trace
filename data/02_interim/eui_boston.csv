@@ -1,4 +1,4 @@
-latitude,longitude,Residential EUI (kWh/m²/year),Non-Residential EUI (kWh/m²/year),Residential Area,Non Residential Area
+latitude,longitude,Residential EUI (kWh/m2/year),Non-residential EUI (kWh/m2/year),Residential Area (ft²),Non-residential Area (ft²)
 42.3555,-71.0565,,211.36646634293487,,236688.0
 42.3555,-71.0565,175.36431385287668,,135344.0,
 42.3555,-71.0565,,117.56594230481457,,255383.0
