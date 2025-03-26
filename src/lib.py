@@ -253,7 +253,7 @@ Create plots of the error distribution for each region and building type.
 Parameters:
     model_results (dict): A dictionary containing the results for each region and building type.
     save_path (str, optional): The path to save the plot. If not provided, the plot will be displayed.
-    binwidth (int, optional): The width of the histogram bins. Defaults to 20.
+    binwidth (int, optional): The width of the histogram bins. Defaults to 10.
 """
     fig, axes = plt.subplots(2, 5, figsize=(23, 9))
     axes = axes.flatten()
@@ -267,9 +267,23 @@ Parameters:
             data = result[building_type]
             errors = data['y_test'] - data['y_pred']
             
+            # Add a small amount of noise if there is very little variation
+            if len(np.unique(errors)) <= 5:
+                errors = errors + np.random.normal(0, 0.01, size=errors.shape)
+            
             max_error = max(max_error, abs(errors.min()), abs(errors.max()))
             
-            sns.histplot(errors, ax=ax, kde=True, binwidth=binwidth)
+            # Ensure binwidth is positive
+            binwidth = max(1, binwidth)
+            
+            # Calculate range and ensure it's positive (at least 0.1)
+            range_value = max(0.1, errors.max() - errors.min())
+            
+            # Calculate number of bins and ensure it's at least 1
+            bins = max(1, int(range_value / binwidth))
+            
+            # Use the calculated number of bins
+            sns.histplot(errors, ax=ax, kde=True, bins=bins)
             
             building_label = 'Non-residential' if j == 1 else 'Residential'
             ax.set_xlabel(f'Errors ({building_label})', fontsize=14)
@@ -288,3 +302,107 @@ Parameters:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
     else:
         plt.show()
+
+
+## GRID SEARCH 
+def grid_search_best_params(merged_df, regions, features, model_class, param_grid, feature_abbreviations):
+    """
+    Performs grid search to find the best hyperparameters for a given model by evaluating
+    multiple parameter combinations across different strategies, regions, and building types.
+    Uses cross-validation on training data only.
+    
+    Parameters:
+        merged_df: DataFrame with input data
+        regions: list of geographic regions to evaluate
+        features: list of feature names for model training
+        model_class: scikit-learn model class to use
+        param_grid: dictionary of parameters to search, with parameter names as keys and lists of values as values
+        feature_abbreviations: dict mapping feature names to abbreviations
+        
+    Returns:
+        tuple: (best_params, best_score) where:
+            - best_params: dictionary with the best parameter combination
+            - best_score: float representing the best average MAPE score (lower is better)
+    """
+    import itertools
+    import numpy as np
+    from sklearn.model_selection import KFold
+    from sklearn.preprocessing import StandardScaler
+    
+    train_df = merged_df.copy()
+    train_df = train_df[train_df['is_train'] == 1]
+    
+    # Generate all parameter combinations
+    param_names = list(param_grid.keys())
+    param_values = list(param_grid.values())
+    param_combinations = list(itertools.product(*param_values))
+    
+    strategies = ['within_domain', 'cross_domain', 'all_domain']
+    
+    # Initialize variables to track best parameters
+    best_score = float('inf')
+    best_params = None
+    
+    # Create KFold cross-validator
+    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    
+    # Iterate through each parameter combination
+    for combo_idx, param_combo in enumerate(param_combinations):
+        current_params = dict(zip(param_names, param_combo))
+        print(f"Evaluating combination {combo_idx+1}/{len(param_combinations)}: {current_params}")
+        
+        # Store CV MAPE scores for this parameter combination
+        all_cv_mapes = []
+        
+        # For each fold in the cross-validation
+        for train_idx, val_idx in kf.split(train_df):
+            # Split the training data into train and validation for this fold
+            cv_train_df = train_df.iloc[train_idx].copy()
+            cv_val_df = train_df.iloc[val_idx].copy()
+            
+            # Set is_train flags for train_and_evaluate_models to work properly
+            cv_train_df['is_train'] = 1
+            cv_val_df['is_train'] = 0
+            
+            # Combine the CV train and validation sets
+            cv_merged_df = pd.concat([cv_train_df, cv_val_df])
+            
+            # Evaluate each strategy using train_and_evaluate_models
+            for strategy in strategies:
+                # Initialize model with current parameters
+                model = model_class(**current_params)
+                
+                # Use existing function to train and evaluate the model
+                results = train_and_evaluate_models(
+                    merged_df=cv_merged_df,
+                    regions=regions,
+                    features=features,
+                    model=model,
+                    strategy=strategy
+                )
+                
+                # Collect MAPE scores for each region and building type
+                for region in regions:
+                    for building_type in ['residential', 'non_residential']:
+                        # Some combinations might not have data, so check if the region exists
+                        if region in results and building_type in results[region]:
+                            data = results[region][building_type]
+                            # Calculate MAPE
+                            mape = np.mean(np.abs((data['y_test'] - data['y_pred']) / data['y_test'])) * 100
+                            all_cv_mapes.append(mape)
+        
+        # Calculate average MAPE across all folds, strategies, regions and building types
+        if all_cv_mapes:
+            avg_mape = np.mean(all_cv_mapes)
+            print(f"Average MAPE across all strategies/regions/building types: {avg_mape:.2f}%")
+            
+            # Update best parameters if current combination is better
+            if avg_mape < best_score:
+                best_score = avg_mape
+                best_params = current_params
+    
+    print("\n=== Best Parameters ===")
+    print(best_params)
+    print(f"Average CV MAPE: {best_score:.2f}%")
+    
+    return best_params, best_score
