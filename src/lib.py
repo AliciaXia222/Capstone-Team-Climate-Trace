@@ -563,7 +563,8 @@ def create_model_comparison(comparison_table, metric, save_path=None, y_limits=N
 def grid_search_best_params(merged_df, regions, features, model_class, param_grid, feature_abbreviations):
     """
     Performs grid search to find the best hyperparameters for a given model by evaluating
-    multiple parameter combinations across different strategies, regions, and building types.
+    multiple parameter combinations across different strategies and building types.
+    Maximizes performance on cross_domain strategy only, but tracks all strategies.
     Uses cross-validation on training data only.
     
     Parameters:
@@ -575,15 +576,17 @@ def grid_search_best_params(merged_df, regions, features, model_class, param_gri
         feature_abbreviations: dict mapping feature names to abbreviations
         
     Returns:
-        tuple: (best_params, best_score) where:
-            - best_params: dictionary with the best parameter combination
-            - best_score: float representing the best average MAPE score (lower is better)
+        tuple: (best_params, best_score, all_results) where:
+            - best_params: dictionary with the best parameter combination for cross_domain
+            - best_score: float representing the best average MAPE score for cross_domain (lower is better)
+            - all_results: dictionary with results for all parameter combinations, strategies and building types
     """
     import itertools
     import numpy as np
+    import pandas as pd
     from sklearn.model_selection import KFold
-    from sklearn.preprocessing import StandardScaler
     
+    # Filter training data only
     train_df = merged_df.copy()
     train_df = train_df[train_df['is_train'] == 1]
     
@@ -593,10 +596,14 @@ def grid_search_best_params(merged_df, regions, features, model_class, param_gri
     param_combinations = list(itertools.product(*param_values))
     
     strategies = ['within_domain', 'cross_domain', 'all_domain']
+    building_types = ['residential', 'non_residential']
     
-    # Initialize variables to track best parameters
-    best_score = float('inf')
-    best_params = None
+    # Initialize variables to track best parameters for cross_domain
+    best_cross_domain_score = float('inf')
+    best_cross_domain_params = None
+    
+    # Dictionary to store all results
+    all_results = {}
     
     # Create KFold cross-validator
     kf = KFold(n_splits=5, shuffle=True, random_state=42)
@@ -606,8 +613,13 @@ def grid_search_best_params(merged_df, regions, features, model_class, param_gri
         current_params = dict(zip(param_names, param_combo))
         print(f"Evaluating combination {combo_idx+1}/{len(param_combinations)}: {current_params}")
         
-        # Store CV MAPE scores for this parameter combination
-        all_cv_mapes = []
+        # Store building type specific MAPE scores (averaged across regions)
+        # Structure: {strategy: {building_type: [mape values across folds and regions]}}
+        strategy_bt_mapes = {
+            strategy: {
+                bt: [] for bt in building_types
+            } for strategy in strategies
+        }
         
         # For each fold in the cross-validation
         for train_idx, val_idx in kf.split(train_df):
@@ -636,28 +648,157 @@ def grid_search_best_params(merged_df, regions, features, model_class, param_gri
                     strategy=strategy
                 )
                 
-                # Collect MAPE scores for each region and building type
+                # Collect MAPE scores for each building type (across all regions)
                 for region in regions:
-                    for building_type in ['residential', 'non_residential']:
-                        # Some combinations might not have data, so check if the region exists
-                        if region in results and building_type in results[region]:
-                            data = results[region][building_type]
-                            # Calculate MAPE
-                            mape = np.mean(np.abs((data['y_test'] - data['y_pred']) / data['y_test'])) * 100
-                            all_cv_mapes.append(mape)
+                    if region in results:
+                        for building_type in building_types:
+                            if building_type in results[region]:
+                                data = results[region][building_type]
+                                # Calculate MAPE
+                                mape = np.mean(np.abs((data['y_test'] - data['y_pred']) / data['y_test'])) * 100
+                                strategy_bt_mapes[strategy][building_type].append(mape)
         
-        # Calculate average MAPE across all folds, strategies, regions and building types
-        if all_cv_mapes:
-            avg_mape = np.mean(all_cv_mapes)
-            print(f"Average MAPE across all strategies/regions/building types: {avg_mape:.2f}%")
+        # Calculate average MAPE across all folds and regions for each strategy and building type
+        combo_results = {}
+        for strategy in strategies:
+            strategy_results = {'overall': 0.0, 'count': 0}
             
-            # Update best parameters if current combination is better
-            if avg_mape < best_score:
-                best_score = avg_mape
-                best_params = current_params
+            for building_type in building_types:
+                mape_values = strategy_bt_mapes[strategy][building_type]
+                if mape_values:
+                    avg_mape = np.mean(mape_values)
+                    strategy_results[building_type] = avg_mape
+                    
+                    # Add to strategy overall
+                    strategy_results['overall'] += avg_mape
+                    strategy_results['count'] += 1
+            
+            # Calculate strategy overall average if we have data
+            if strategy_results['count'] > 0:
+                strategy_results['overall'] = strategy_results['overall'] / strategy_results['count']
+                print(f"Strategy '{strategy}' - Overall Average MAPE: {strategy_results['overall']:.2f}%")
+            
+            combo_results[strategy] = strategy_results
+        
+        # Store all results for this parameter combination
+        param_key = '_'.join([f"{k}={v}" for k, v in current_params.items()])
+        all_results[param_key] = combo_results
+        
+        # Update best parameters for cross_domain if current combination is better
+        if 'cross_domain' in combo_results and combo_results['cross_domain']['count'] > 0:
+            cross_domain_mape = combo_results['cross_domain']['overall']
+            if cross_domain_mape < best_cross_domain_score:
+                best_cross_domain_score = cross_domain_mape
+                best_cross_domain_params = current_params
     
-    print("\n=== Best Parameters ===")
-    print(best_params)
-    print(f"Average CV MAPE: {best_score:.2f}%")
+    print("\n=== Best Parameters for cross_domain strategy ===")
+    print(best_cross_domain_params)
+    print(f"Cross-domain Average CV MAPE: {best_cross_domain_score:.2f}%")
     
-    return best_params, best_score
+    return best_cross_domain_params, best_cross_domain_score, all_results
+
+def convert_results_to_dataframe(all_results, features=None):
+    """
+    Converts the grid search results dictionary to a pandas DataFrame.
+    This version creates a simplified structure with a single column for parameters
+    and an optional column for features used.
+    
+    Parameters:
+        all_results: dictionary with results of all parameter combinations
+        features: list of feature names used in the grid search (optional)
+        
+    Returns:
+        pandas DataFrame with flattened results
+    """
+    import pandas as pd
+    import json
+    
+    # Create a list to store flattened results
+    flattened_results = []
+    
+    # Iterate through each parameter combination
+    for param_idx, (param_key, strategy_results) in enumerate(all_results.items()):
+        # Add combination index for reference
+        base_params = {'combination_idx': param_idx}
+        
+        # Extract parameters from the key and store as a dictionary string
+        try:
+            # First attempt to parse the param_key into a proper dictionary
+            param_dict = {}
+            param_parts = param_key.split('_')
+            for part in param_parts:
+                if '=' in part:
+                    name, value = part.split('=', 1)  # Split on first '=' only
+                    
+                    # Try to convert to appropriate data type
+                    if value.isdigit():
+                        param_dict[name] = int(value)
+                    elif value.replace('.', '', 1).isdigit() and value.count('.') <= 1:
+                        param_dict[name] = float(value)
+                    elif value.lower() in ['true', 'false']:
+                        param_dict[name] = value.lower() == 'true'
+                    elif value.lower() in ['none', 'null']:
+                        param_dict[name] = None
+                    else:
+                        param_dict[name] = value
+            
+            # Convert the dictionary to a string representation
+            base_params['params'] = str(param_dict)
+        except:
+            # If parsing fails, use the raw param_key
+            base_params['params'] = param_key
+        
+        # Add features column if provided
+        if features is not None:
+            base_params['features'] = str(features)
+        
+        # For each strategy in this parameter combination
+        for strategy, strategy_data in strategy_results.items():
+            if isinstance(strategy_data, dict):
+                # Get overall strategy MAPE
+                strategy_overall_mape = strategy_data.get('overall')
+                
+                # Create a base row with strategy info
+                base_row = {
+                    'strategy': strategy,
+                    **base_params
+                }
+                
+                if strategy_overall_mape is not None:
+                    base_row['mape_overall'] = strategy_overall_mape
+                
+                # Add a row for the strategy overall
+                overall_row = base_row.copy()
+                overall_row['building_type'] = 'all'
+                flattened_results.append(overall_row)
+                
+                # For each building type in this strategy
+                for bt, bt_mape in strategy_data.items():
+                    if bt not in ['overall', 'count'] and isinstance(bt_mape, (int, float)):
+                        # Add a row for this specific building type
+                        bt_row = base_row.copy()
+                        bt_row['building_type'] = bt
+                        bt_row['mape'] = bt_mape
+                        flattened_results.append(bt_row)
+    
+    # Convert to DataFrame
+    results_df = pd.DataFrame(flattened_results)
+    
+    # Sort columns for better readability if DataFrame is not empty
+    if not results_df.empty:
+        # Define column order
+        id_cols = ['strategy', 'building_type']
+        metric_cols = [col for col in results_df.columns if 'mape' in col.lower()]
+        info_cols = ['params']
+        if 'features' in results_df.columns:
+            info_cols.append('features')
+        ref_cols = ['combination_idx']
+        
+        # Combine all columns in the desired order
+        sorted_cols = id_cols + metric_cols + info_cols + ref_cols
+        
+        # Only include columns that exist in the DataFrame
+        existing_cols = [col for col in sorted_cols if col in results_df.columns]
+        results_df = results_df[existing_cols]
+    
+    return results_df
