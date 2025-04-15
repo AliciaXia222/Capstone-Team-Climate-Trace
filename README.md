@@ -130,15 +130,19 @@ To better understand the distribution of this variable, we can observe the follo
 After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 ## 5. Methods <a name="Methods"></a>
+Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 
-### 5.1 Feature Engineering <a name="FeatureEngineering"></a>
-Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
+### 5.1 Feature Map  <a name="FeatureEngineering"></a>
+We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
 
-1. **Heating Degree Days Calculation:**  
-   Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+### 5.2 Feature Engineering  <a name="FeatureEngineering"></a>
+Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques: 
+
+1. **Geographic information techniques:**
    
-2. **Cooling Degree Days Calculation:**  
-   Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C). 
+    - **Heating Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculate HDD to measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+    - **Cooling Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+   Note: Temperature, DewPoint Temperature are also developed with similar techniques.
 
 3. **GDP per Capita Calculation:**
 We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes. 
