@@ -13,7 +13,7 @@
    4.1 [GHG Estimation](#GHGEstimation)  
    4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
    4.3 [Generated data](#GeneratedData)  
-5. [Methods](#Methods)  
+5. [Methodology](#Methodology)  
    5.1 [Feature Engineering](#FeatureEngineering)  
    5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
@@ -129,11 +129,39 @@ To better understand the distribution of this variable, we can observe the follo
 ### 4.3 Generated Data <a name="GeneratedData"></a>
 After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
-## 5. Methods <a name="Methods"></a>
+## 5. Methodology <a name="Methodology"></a>
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 
-### 5.1 Feature Map  <a name="FeatureEngineering"></a>
+### 5.1 Feature Map  <a name="FeatureMap"></a>
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
+
+1. **[Imagi Embedding]**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
+
+2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
+
+3. **[Dewpoint Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: The temperature at which air at 2m above the surface becomes saturated, indicating humidity levels. Measured in kelvin. 
+
+4. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
+
+5. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
+
+6. **[Population](https://globaldatalab.org/shdi/metadata/pop/)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
+
+7. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+
+8. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
+   - *Health*: A long and healthy life.  
+   - *Knowledge*: Access to education.  
+   - *Standard of Living*: A decent standard of living.  
+   We extracted data for the year 2022 to maintain consistency with other datasets.
+
+9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
+
+10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
+   - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
+   - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
+
+11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
 ### 5.2 Feature Engineering  <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques: 
@@ -143,23 +171,23 @@ Feature engineering is essential to transform raw data into meaningful represent
     - **Heating Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculate HDD to measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
     - **Cooling Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
    
-Note: Temperature, DewPoint Temperature are also developed with similar techniques.
+Note:Temperature, DewPoint Temperature are also developed with similar techniques.
 
 2. **Image Embedding Retreval Method:**
    
    - Retrieve satellite images from Sentinel-2 for the locations of interest.
    - Employ Clay (a pretrained Vision Transformer MAE model specialized in satellite images) to generate embeddings.
    - Apply dimension reduction(PCA) and/or classification methods(Fuzzy Classter;KNN;GMM) to optimize the representational ability of embeddings.
-   - Flow the processed embeddings into the main model pipeline.
+   - These derived features encode spatial, visual, and structural patterns for downstream prediction task.
      
-Note: Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
+Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
 
 3. **Standard Statistical Techniques:**
    
    - **Nearest Reference Mapping:** Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
    - **GDP per Capita Calculation:** We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
    - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity. 
-Note: HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
+Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
 ### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
