@@ -3,14 +3,14 @@
 ## Table of Contents
 
 1. [Abstract](#Abstract)
-2. 2. [Introduction](#Introduction)  
+2. [Introduction](#Introduction)  
    2.1 [Project Motivation](#ProjectMotivation)  
    2.2 [Problem Statement](#ProblemStatement)  
    2.3 [GHG Estimation Formula](#GHGEstimation)    
    2.4 [Goals](#Goals)  
    2.5 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)
 3. [Background](#Background)
-4. 4. [Methodology](#Methodology)   
+4. [Methodology](#Methodology)   
    4.1 [Overall Framework](#OverallFramework)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)
