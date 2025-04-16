@@ -15,8 +15,8 @@
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)
 5. [Model and Onwards](#ModelandOnwards)  
-   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)    
-   5.4 [Experimental Design](#ExperimentalDesign)
+   5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
+   5.2 [Experimental Design](#ExperimentalDesign)
 6. [Experiments](#Experiments)    
    6.1 [Feature Importance](#FeatureImportance)    
    6.2 [Models](#Models)
@@ -105,7 +105,7 @@ Overall, we develop feature map to define the solution search boundaries, employ
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
 ![feature map](/figures/methodology-2.jpg)
 
-1. **[Imagi Embedding](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
+1. **[Image Embedding](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
 
 2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
 
@@ -165,7 +165,7 @@ Feature engineering is essential to transform raw data into meaningful represent
 
 #### Model and Onwards <a name="ModelandOnwards"></a>
 
-### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
+### 5.1 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
 In this project, we will employ a range of supervised machine learning models to predict and analyze the target variable. The following models will be utilized:
 
@@ -187,7 +187,7 @@ In this project, we will employ a range of supervised machine learning models to
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
-### 5.4 Experimental Design <a name="ExperimentalDesign"></a>
+### 5.2 Experimental Design <a name="ExperimentalDesign"></a>
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
 
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. This approach helps to account for local differences in energy use patterns and improve the model’s predictive accuracy across diverse contexts. The regions we are using are defined as follows:
@@ -318,40 +318,143 @@ This section provides an overview of the repository's structure, explaining the 
 │   │   ├── gdp_data.csv
 │   │   └── population.csv
 │   ├── 02_interim
-│   │   ├── CDD.csv
-│   │   ├── HDD.csv
-│   │   └── Humidity.csv
+│   │   ├── CDD_scalematched.csv
+│   │   ├── HDD_scalematched.csv
+│   │   ├── eui_boston.csv
+│   │   ├── eui_california.csv
+│   │   ├── eui_chicago.csv
+│   │   ├── eui_miami.csv
+│   │   ├── eui_nyc.csv
+│   │   ├── eui_philadephia.csv
+│   │   ├── eui_seattle.csv
+│   │   ├── eui_usa_cities_grouped_df.csv
+│   │   ├── humidity_backup.csv
+│   │   ├── image_results.csv
+│   │   ├── population_density.csv
+│   │   └── temperature_dewpoint_precipitation_2023.csv
 │   └── 03_processed
-│       └── merged_df.csv
+│   │   ├── merged_df.csv
+│   │   ├── train_test_split_new_data.csv
+│       └── train_test_split_original_data.csv
 ├── deliverables_agreement
-│   └── Mid-Point Deliverables - Climate Trace.pdf
+│   │   ├── Capstone_Spring_Semester_Plan.pdf
+│       └── Mid-Point Deliverables - Climate Trace.pdf
 ├── figures
+│   ├── model_plots
+│   │   ├── 00_model_comparison_mape.png
+│   │   ├── 00_model_comparison_r2.png
+│   │   ├── 00_model_comparison_rmse.png
+│   │   ├── cat_all_domain_error_distribution.png
+│   │   ├── cat_all_domain_eui_predictions.png
+│   │   ├── cat_cross_domain_error_distribution.png
+│   │   ├── cat_cross_domain_eui_predictions.png
+│   │   ├── cat_within_domain_error_distribution.png
+│   │   ├── cat_within_domain_eui_predictions.png
+│   │   ├── knn_all_domain_error_distribution.png
+│   │   ├── knn_all_domain_eui_predictions.png
+│   │   ├── knn_cross_domain_error_distribution.png
+│   │   ├── knn_cross_domain_eui_predictions.png
+│   │   ├── knn_within_domain_error_distribution.png
+│   │   ├── knn_within_domain_eui_predictions.png
+│   │   ├── lasso_all_domain_error_distribution.png
+│   │   ├── lasso_all_domain_eui_predictions.png
+│   │   ├── lasso_cross_domain_error_distribution.png
+│   │   ├── lasso_cross_domain_eui_predictions.png
+│   │   ├── lasso_within_domain_error_distribution.png
+│   │   ├── lasso_within_domain_eui_predictions.png
+│   │   ├── lr_all_domain_error_distribution.png
+│   │   ├── lr_all_domain_eui_predictions.png
+│   │   ├── lr_cross_domain_error_distribution.png
+│   │   ├── lr_cross_domain_eui_predictions.png
+│   │   ├── lr_within_domain_error_distribution.png
+│   │   ├── lr_within_domain_eui_predictions.png
+│   │   ├── rf_all_domain_error_distribution.png
+│   │   ├── rf_all_domain_eui_predictions.png
+│   │   ├── rf_cross_domain_error_distribution.png
+│   │   ├── rf_cross_domain_eui_predictions.png
+│   │   ├── rf_within_domain_error_distribution.png
+│   │   ├── rf_within_domain_eui_predictions.png
+│   │   ├── ridge_all_domain_error_distribution.png
+│   │   ├── ridge_all_domain_eui_predictions.png
+│   │   ├── ridge_cross_domain_error_distribution.png
+│   │   ├── ridge_cross_domain_eui_predictions.png
+│   │   ├── ridge_within_domain_error_distribution.png
+│   │   ├── ridge_within_domain_eui_predictions.png
+│   │   ├── xgb_all_domain_error_distribution.png
+│   │   ├── xgb_all_domain_eui_predictions.png
+│   │   ├── xgb_cross_domain_error_distribution.png
+│   │   ├── xgb_cross_domain_eui_predictions.png
+│   │   ├── xgb_within_domain_error_distribution.png
+│   │   └── xgb_within_domain_eui_predictions.png
 │   ├── 01_formula.png
 │   ├── 02_eui_map.png
 │   ├── 03_region_map.png
 │   ├── 04_experimental_design.png
 │   ├── 05_feature_importance.png
 │   ├── 06_avg_rf.png
-│   └── model_plots
+│   ├── methodology-1.jpg
+│   ├── methodology-2.jpg
+│   ├── methodology-3.jpg
+│   ├── methodology-4.jpg
+│   └── methodology-5.jpg
 ├── notebooks
+│   ├── catboost_info
+│   │   ├── learn
+│   │   │   └── events.out.tfevents
+│   │   ├── catboost_training.json
+│   │   ├── learn_error.tsv
+│   │   └── time_left.tsv
 │   ├── 010_Download_WeatherData_API.ipynb
+│   ├── 011_EUIBostonProcessing.ipynb
+│   ├── 012_EUISeattleProcessing.ipynb
+│   ├── 014_EUICaliforniaProcessing.ipynb
+│   ├── 015_EUINYCProcessing.ipynb
+│   ├── 016_EUIChicagoProcessing.ipynb
+│   ├── 017_EUIPhiladelphiaProcessing.ipynb
+│   ├── 018_EUIMiamiProcessing.ipynb
+│   ├── 019_MergeEUI.ipynb
 │   ├── 020_WeatherData_Preprocessing.ipynb
 │   ├── 021_HumidityPreprocessing.ipynb
 │   ├── 023_HDDPreprocessing.ipynb
 │   ├── 024_CDDPreprocessing.ipynb
+│   ├── 025_Population.ipynb
 │   ├── 030_DataPreprocessing.ipynb
 │   ├── 040_Plots.ipynb
 │   ├── 050_FeatureImportance.ipynb
 │   ├── 060_Experiments_LR.ipynb
 │   ├── 061_Experiments_KNN.ipynb
 │   ├── 062_Experiments_RF.ipynb
+│   ├── 062_Experiments_RF_GridSearch.ipynb
 │   ├── 063_Experiments_XGBoost.ipynb
+│   ├── 063_Experiments_XGBoost_GridSearch.ipynb
 │   ├── 064_Experiments_CatBoost.ipynb
+│   ├── 064_Experiments_CatBoost_GridSearch.ipynb
 │   ├── 070_Model_Comparison.ipynb
+│   └── iamge-embeddingv2.ipynb
 ├── requirements.txt
 ├── results
+│   ├── gridsearch
+│   │   ├── 20250326_1249_rf_grid_search_results.csv
+│   │   └── 20250326_1522_cat_grid_search_results.csv
+│   ├── .result.txt
+│   ├── 20250325_2018_lasso_average_results.csv
+│   ├── 20250325_2018_lasso_detailed_results.csv
+│   ├── 20250325_2018_lr_average_results.csv
+│   ├── 20250325_2018_lr_detailed_results.csv
+│   ├── 20250325_2018_ridge_average_results.csv
+│   ├── 20250325_2018_ridge_detailed_results.csv
+│   ├── 20250325_2047_knn_average_results.csv
+│   ├── 20250325_2047_knn_detailed_results.csv
+│   ├── 20250325_2109_cat_average_results.csv
+│   ├── 20250325_2109_cat_detailed_results.csv
+│   ├── 20250326_1551_xgb_average_results.csv
+│   ├── 20250326_1551_xgb_detailed_results.csv
+│   ├── 20250403_1440_rf_average_results.csv
+│   ├── 20250403_1440_rf_detailed_results.csv
+│   └── comparison_average_results.csv
 ├── slide_decks
-│   └── Climate_TRACE_Presentation.pdf
+│   ├── Climate_TRACE_Presentation.pdf
+│   └── Final_Climate Trace_Presentation.pdf
 └── src
     ├── __init__.py
     ├── __pycache__
