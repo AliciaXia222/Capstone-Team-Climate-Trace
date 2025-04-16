@@ -45,11 +45,11 @@ Analysis showed that ensemble and tree-based models, including Random Forest, XG
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
 
-Global warming is one of the most critical challenges of our time, and to address it effectively, we need more detailed information on where and when greenhouse gas emissions occur. This data is crucial for setting actionable emissions reduction goals and enabling policymakers to make informed decisions. Given this situation, Climate TRACE, a non-profit coalition of organizations, is building a timely, open, and accessible inventory of global emissions sources, currently covering around 83% of global emissions.
+In 2024, global carbon dioxide (CO₂) emissions reached a record 41.6 billion metric tons, equivalent to covering nearly 1.5 million football fields with a one-meter-thick layer of CO₂ ([Live Science, 2024](#livescience2024)). Global warming is one of the most critical challenges of our time, and to address it effectively, we need more detailed information on where and when GHG emissions occur. This data is crucial for setting actionable emissions reduction goals and enabling policymakers to make informed decisions. Given this situation, Climate TRACE, a non-profit coalition of organizations, is building a timely, open, and accessible inventory of global emissions sources that currently covers around 83% of global emissions.
 
-Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. Indirect emissions from lighting, consumer electronics, and air conditioning are excluded, as they are typically electric and accounted for separately in the Climate TRACE database.
+Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. In contrast, indirect emissions from lighting, consumer electronics, and air conditioning are excluded as they typically result from electricity use and are accounted for separately in the Climate TRACE database.
 
-Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated data, often delayed by over a year, or on self-reported data that is scarce or unavailable globally.
+Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated or spatially limited data, and emissions inventories remain incomplete—52 countries lack emissions data after 2012, with even larger gaps at the subnational and local levels ([Climate TRACE, 2023](#climatetrace2023) ; [Luers et al., 2022](#luers2022)）. In addition, available data is often spatially coarse or inconsistently reported, further limiting the effectiveness of climate action at local scales.
 
 ### 2.2  Problem Statement  <a name="ProblemStatement"></a>
 
@@ -409,18 +409,23 @@ This section provides an overview of the repository's structure, explaining the 
 
 ## 9. Resources  <a name="Resources"></a>
 
-1. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. *The Innovation, 3*(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182) <a name="dou2022"></a>
+1. [Climate TRACE. (2023). *More than 70,000 of the highest-emitting greenhouse gas sources in the world are now tracked by Climate TRACE*.](https://climatetrace.org/news/more-than-70000-of-the-highest-emitting-greenhouse-gas) <a name="climatetrace2023"></a>
 
-2. [Janssens-Maenhout, G., Crippa, M., Guizzardi, D., Muntean, M., Schaaf, E., Dentener, F., Bergamaschi, P., Pagliari, V., Olivier, J. G. J., Peters, J. A. H. W., van Aardenne, J. A., Monni, S., Doering, U., Petrescu, A. M. R., Solazzo, E., & Oreggioni, G. D. (2019). EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. *Earth System Science Data, 11*(3), 959–1002.](https://doi.org/10.5194/essd-11-959-2019) <a name="janssens2019"></a>
+2. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. *The Innovation, 3*(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182) <a name="dou2022"></a>
 
-3. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery. *Climate Change AI*.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf) <a name="markakis2023"></a>
+3. [Janssens-Maenhout, G., Crippa, M., Guizzardi, D., Muntean, M., Schaaf, E., Dentener, F., Bergamaschi, P., Pagliari, V., Olivier, J. G. J., Peters, J. A. H. W., van Aardenne, J. A., Monni, S., Doering, U., Petrescu, A. M. R., Solazzo, E., & Oreggioni, G. D. (2019). EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. *Earth System Science Data, 11*(3), 959–1002.](https://doi.org/10.5194/essd-11-959-2019) <a name="janssens2019"></a>
 
-4. [McDuffie, E. E., Smith, S. J., O’Rourke, P., Tibrewal, K., Venkataraman, C., Marais, E. A., Zheng, B., Crippa, M., Brauer, M., & Martin, R. V. (2020). A global anthropogenic emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): An application of the Community Emissions Data System (CEDS). *Earth System Science Data, 12*(4), 3413–3442.](https://doi.org/10.5194/essd-12-3413-2020) <a name="mcduffie2020"></a>
+4. [Live Science. (2024, March 5). *Global carbon emissions reach new record high in 2024*.](https://www.livescience.com/planet-earth/climate-change/global-carbon-emissions-reach-new-record-high-in-2024-with-no-end-in-sight-scientists-say) <a name="livescience2024"></a>
 
-5. [Oda, T., Maksyutov, S., & Andres, R. J. (2018). The Open-source Data Inventory for Anthropogenic CO2, version 2016 (ODIAC2016): A global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. *Earth System Science Data, 10*(1), 87–107.](https://doi.org/10.5194/essd-10-87-2018) <a name="oda2018"></a>
+5. [Luers, A., Yona, L., Field, C. B., Jackson, R. B., Mach, K. J., Cashore, B. W., Elliott, C., Gifford, L., Honigsberg, C., Klaassen, L., & Matthews, H. D. (2022). *Make greenhouse-gas accounting reliable—Build interoperable systems*. *Nature, 607*(7920), 653–656.](https://pubmed.ncbi.nlm.nih.gov/35882990/) <a name="luers2022"></a>
 
-6. [Tong, D., Zhang, Q., Davis, S. J., Liu, F., Zheng, B., Geng, G., Xue, T., Li, M., Hong, C., Lu, Z., Streets, D. G., Guan, D., & He, K. (2018). Targeted emission reductions from global super-polluting power plant units. *Nature Sustainability, 1*(1), 59–68.](https://doi.org/10.1038/s41893-017-0003-y) <a name="tong2018"></a>
+6. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery. *Climate Change AI*.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf) <a name="markakis2023"></a>
 
+7. [McDuffie, E. E., Smith, S. J., O’Rourke, P., Tibrewal, K., Venkataraman, C., Marais, E. A., Zheng, B., Crippa, M., Brauer, M., & Martin, R. V. (2020). A global anthropogenic emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): An application of the Community Emissions Data System (CEDS). *Earth System Science Data, 12*(4), 3413–3442.](https://doi.org/10.5194/essd-12-3413-2020) <a name="mcduffie2020"></a>
+
+8. [Oda, T., Maksyutov, S., & Andres, R. J. (2018). The Open-source Data Inventory for Anthropogenic CO2, version 2016 (ODIAC2016): A global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. *Earth System Science Data, 10*(1), 87–107.](https://doi.org/10.5194/essd-10-87-2018) <a name="oda2018"></a>
+
+9. [Tong, D., Zhang, Q., Davis, S. J., Liu, F., Zheng, B., Geng, G., Xue, T., Li, M., Hong, C., Lu, Z., Streets, D. G., Guan, D., & He, K. (2018). Targeted emission reductions from global super-polluting power plant units. *Nature Sustainability, 1*(1), 59–68.](https://doi.org/10.1038/s41893-017-0003-y) <a name="tong2018"></a>
 
 
 ## 10. Contributors  <a name="Contributors"></a>
