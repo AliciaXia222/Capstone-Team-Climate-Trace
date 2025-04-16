@@ -82,11 +82,11 @@ The accurate estimation of anthropogenic CO2 emissions is critical for understan
 In response to these challenges, recent advancements have been made in the development of more granular and timely emissions estimation methods. One such breakthrough is the High-resolution Global Building Emissions Estimation using Satellite Imagery model by [Markakis et al. (2023)](#markakis2023). This innovative model offers high-resolution, global emissions estimates for both residential and commercial buildings at a 1 km² resolution, with updates on a monthly basis. By leveraging satellite imagery-derived features and machine learning techniques, the model estimates direct emissions from buildings. This approach addresses the temporal and spatial limitations of previous datasets by predicting building areas, estimating energy use intensity, and calculating emissions based on regional fuel mixes. Unlike other datasets like GRACED and EDGAR, this model offers more granular insights into emissions at a higher frequency and resolution, making it a crucial tool for policymakers working to reduce emissions in the building sector on a global scale.
 
 ## 4. Methodology <a name="Methodology"></a>
-### 4.2 Overall Framework  <a name="overall"></a>
+### 4.1 Overall Framework  <a name="overall"></a>
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 ![methodology overview](/figures/methodology-1.jpg)
 
-### 4.1 Feature Map  <a name="FeatureMap"></a>
+### 4.2 Feature Map  <a name="FeatureMap"></a>
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
 ![feature map](/figures/methodology-2.jpg)
 
@@ -118,7 +118,7 @@ We develop the feature map by identifying variables that potentially affect the 
 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
-### 4.2 Feature Engineering  <a name="FeatureEngineering"></a>
+### 4.3 Feature Engineering  <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques: 
 
 1. **Geographic information techniques:**
