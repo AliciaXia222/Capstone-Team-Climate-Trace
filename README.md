@@ -91,7 +91,7 @@ This section provides an overview of the key deliverables and presentation mater
 
 ## 3. Background <a name="Background"></a>
 
-The accurate estimation of anthropogenic CO2 emissions is critical for understanding global climate change and formulating effective policies. Existing estimates are provided by several key datasets, including the Open-source Data Inventory for Anthropogenic CO2 ([Oda, Maksyutov, & Andres, 2018](#oda2018)), the Community Emissions Data System ([McDuffie et al., 2020](#mcduffie2020)), the Emissions Database for Global Atmospheric Research (EDGAR) ([Janssens-Maenhout et al., 2019](#janssens2019)), the Global Carbon Grid ([Tong et al., 2018](#tong2018)), and the Global Gridded Daily CO2 Emissions Dataset ([Dou et al., 2022](#dou2022)). While the GRACED data is updated nearly monthly, most of the other key datasets suffer from a significant production latency, often of a year or more. Additionally, the highest resolution available across these datasets is 0.1 decimal degrees, roughly equivalent to an 11 km grid near the equator. Furthermore, only a few of these datasets provide detailed breakdowns of emissions by sector, such as residential and commercial subsectors, or offer separate estimates for different greenhouse gases([Markakis et al., 2023](#markakis2023)).
+The accurate estimation of anthropogenic CO₂ emissions is critical for understanding global climate change and formulating effective policies. Existing estimates are provided by several key datasets, including the Open-source Data Inventory for Anthropogenic CO₂ ([Oda, Maksyutov, & Andres, 2018](#oda2018)), the Community Emissions Data System ([McDuffie et al., 2020](#mcduffie2020)), the Emissions Database for Global Atmospheric Research (EDGAR) ([Janssens-Maenhout et al., 2019](#janssens2019)), the Global Carbon Grid ([Tong et al., 2018](#tong2018)), and the Global Gridded Daily CO₂ Emissions Dataset ([Dou et al., 2022](#dou2022)). While the GRACED data is updated nearly monthly, most of the other key datasets suffer from a significant production latency, often of a year or more. Additionally, the highest resolution available across these datasets is 0.1 decimal degrees, roughly equivalent to an 11 km grid near the equator. Furthermore, only a few of these datasets provide detailed breakdowns of emissions by sector, such as residential and commercial subsectors, or offer separate estimates for different greenhouse gases([Markakis et al., 2023](#markakis2023)).
 
 In response to these challenges, recent advancements have been made in the development of more granular and timely emissions estimation methods. One such breakthrough is the High-resolution Global Building Emissions Estimation using Satellite Imagery model by [Markakis et al. (2023)](#markakis2023). This innovative model offers high-resolution, global emissions estimates for both residential and commercial buildings at a 1 km² resolution, with updates on a monthly basis. By leveraging satellite imagery-derived features and machine learning techniques, the model estimates direct emissions from buildings. This approach addresses the temporal and spatial limitations of previous datasets by predicting building areas, estimating energy use intensity, and calculating emissions based on regional fuel mixes. Unlike other datasets like GRACED and EDGAR, this model offers more granular insights into emissions at a higher frequency and resolution, making it a crucial tool for policymakers working to reduce emissions in the building sector on a global scale.
 
@@ -467,46 +467,56 @@ This section provides an overview of the repository's structure, explaining the 
 1. **`data/`**  
    - Contains all datasets used in the project. It is organized into subfolders:
      - **01_raw/**: Raw, unprocessed datasets like HDI, GDP, and population data.  
-     - **02_interim/**: Intermediate processed files such as HDD and CDD values.  
-     - **03_processed/**: Fully processed datasets ready for modeling (e.g., merged_df.csv).  
+     - **02_interim/**: Intermediate files including HDD, CDD, humidity, and city-level EUI datasets.  
+     - **03_processed/**: Fully processed datasets (e.g., merged_df.csv) ready for modeling and evaluation.  
 
 2. **`figures/`**  
-   - Contains visual resources such as diagrams, maps, and other illustrations used in presentations and documentation.  
-
+     - Includes all visual materials such as model evaluation plots, maps, diagrams, and methodology figures.
+       - **model_plots/**: Contains prediction visualizations and error distributions for all tested models across within, cross, and all-domain scenarios.
+         
 3. **`notebooks/`**  
 
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
-     - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).  
-     - **021_HumidityPreprocessing.ipynb**: Prepares humidity data for modeling.  
-     - **023_HDDPreprocessing.ipynb**: Prepares Heating Degree Days (HDD) data.  
-     - **024_CDDPreprocessing.ipynb**: Prepares Cooling Degree Days (CDD) data.  
+     - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).
+     - **011–019**: Download and process regional EUI datasets (e.g., Boston, Seattle, NYC).
+     - **020–025**: Process weather, humidity, Heating Degree Days (HDD), Cooling Degree Days (CDD), and population data for modeling. 
      - **030_DataPreprocessing.ipynb**: Prepares the final dataset for model input.  
-     - **040_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+     - **040_Plots.ipynb**: Generates visualizations for feature trends and region-level insights as well as for analysis and reporting.  
      - **050_FeatureImportance.ipynb**: Analyzes feature importance for model evaluation.  
-     - **060_Experiments_LR.ipynb**: Sets up and evaluates experiments using Logistic Regression.  
-     - **061_Experiments_KNN.ipynb**: Implements and evaluates K-Nearest Neighbors (KNN) models.  
-     - **062_Experiments_RF.ipynb**: Runs experiments using Random Forest (RF).  
-     - **063_Experiments_XGBoost.ipynb**: Executes XGBoost models for performance comparison.  
-     - **064_Experiments_CatBoost.ipynb**: Configures and evaluates CatBoost models.  
-     - **070_Model_Comparison.ipynb**: Compares the performance of different models across various datasets and variables.
-5. **`results/`**  
-   - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).
+     - **060–070**: Run experiments with Linear Regression, KNN, Random Forest, XGBoost, CatBoost, and compare model performance. 
 
-6. **`src/`**  
+4. **`results/`**  
+     - Stores results from all model runs including:
+       - Average and detailed results from each model and domain (e.g., `ridge_cross_domain_detailed_results.csv`)  
+       - Grid search output from hyperparameter tuning.  
+       - Final model comparison tables (`comparison_average_results.csv`).
+
+5. **`deliverables_agreement/`**  
+   - Documents submitted to course instructors for planning and mid-point check-ins.   
+
+
+6. **`slide_decks/`**  
+   - Final and mid-point presentation slides in PDF format.   
+     
+7. **`src/`**  
    - Contains core Python scripts for the project.  
      - **lib.py**: Provides utility functions and shared modules for data preprocessing, feature extraction, and model evaluation, used across notebooks and scripts.  
 
-7. **`requirements.txt`**  
+8. **`requirements.txt`**  
    - Lists all dependencies needed for the project environment, ensuring reproducibility.  
 
-8. **`README.md`**  
+9. **`README.md`**  
    - The entry point of the repository, providing an overview, key results, and links to all major components.  
 
 
 ### Usage Instructions  
 
 1. **Setup**:  
-   Clone the repository and ensure all dependencies are installed. Use `requirements.txt` 
+   Clone the repository and ensure all dependencies are installed. Use `requirements.txt`
+      ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   pip install -r requirements.txt   
 
 2. **Data Processing**:  
    - Start with `010_Download_WeatherData_API.ipynb` to download raw weather data from the Copernicus Climate Data Store.  
@@ -514,13 +524,16 @@ This section provides an overview of the repository's structure, explaining the 
    - Process specific features with `021_HumidityPreprocessing.ipynb`, `023_HDDPreprocessing.ipynb`, and `024_CDDPreprocessing.ipynb` to compute humidity, Heating Degree Days (HDD), and Cooling Degree Days (CDD) data.  
    - Finalize the dataset with `030_DataPreprocessing.ipynb` before moving to modeling.
 
-3. **Modeling**:  
-   - Open `06_Model.ipynb` to train models and evaluate performance across domains.  
+4. **Modeling**:  
+   - Open `060_Experiments_LR.ipynb` and `061_Experiments_KNN.ipynb`, etc., to train individual models and evaluate performance across domains.
+   - `070_Model_Comparison.ipynb` to compare models across domains. 
 
-4. **Results Analysis**:  
-   - Use the `results/` directory to analyze model outputs and metrics.  
+5. **Results Analysis**:  
+   - Use the `results/` directory to analyze model outputs and metrics.
+   - Use figures in figures/model_plots/ for performance visualizations.   
+ 
 
-5. **Figures and Visuals**:  
+6. **Figures and Visuals**:  
    - All generated plots and diagrams are stored in `figures/` for easy reference in presentations or reports.  
 
 
