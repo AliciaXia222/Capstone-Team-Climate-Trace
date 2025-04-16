@@ -11,11 +11,11 @@
    2.5 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
 3. [Background](#Background)  
 4. [Methodology](#Methodology)   
-   4.1 [Overall Framework](#Overall)  
+   4.1 [Overall Framework](#OverallFramework)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)  
    
-5. model and onwards  
+5. [Model and Onwards](#ModelandOnwards)  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.4 [Experimental Design](#ExperimentalDesign)  
    
@@ -105,7 +105,7 @@ The accurate estimation of anthropogenic CO2 emissions is critical for understan
 In response to these challenges, recent advancements have been made in the development of more granular and timely emissions estimation methods. One such breakthrough is the High-resolution Global Building Emissions Estimation using Satellite Imagery model by [Markakis et al. (2023)](#markakis2023). This innovative model offers high-resolution, global emissions estimates for both residential and commercial buildings at a 1 km² resolution, with updates on a monthly basis. By leveraging satellite imagery-derived features and machine learning techniques, the model estimates direct emissions from buildings. This approach addresses the temporal and spatial limitations of previous datasets by predicting building areas, estimating energy use intensity, and calculating emissions based on regional fuel mixes. Unlike other datasets like GRACED and EDGAR, this model offers more granular insights into emissions at a higher frequency and resolution, making it a crucial tool for policymakers working to reduce emissions in the building sector on a global scale.
 
 ## 4. Methodology <a name="Methodology"></a>
-### 4.1 Overall Framework  <a name="overall"></a>
+### 4.1 Overall Framework  <a name="OverallFramework"></a>   
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 ![methodology overview](/figures/methodology-1.jpg)
 ** Grid image from Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (n.d.). High-resolution Global Building Emissions Estimation using Satellite Imagery.
@@ -172,7 +172,7 @@ Feature engineering is essential to transform raw data into meaningful represent
 **After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 
-#### model and onwards
+#### Model and Onwards <a name="ModelandOnwards"></a>
 
 ### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
