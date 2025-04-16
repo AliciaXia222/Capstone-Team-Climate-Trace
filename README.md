@@ -477,7 +477,7 @@ This section provides an overview of the repository's structure, explaining the 
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
      - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).
      - **011–019**: Download and process regional EUI datasets (e.g., Boston, Seattle, NYC).
-     - **020–025**: Process weather, humidity, Heating Degree Days (HDD), Cooling Degree Days (CDD), and population data for modeling. 
+     - **020–025**: Process weather, humidity, HDD, CDD, and population data for modeling. 
      - **030_DataPreprocessing.ipynb**: Prepares the final dataset for model input.  
      - **040_Plots.ipynb**: Generates visualizations for feature trends and region-level insights as well as for analysis and reporting.  
      - **050_FeatureImportance.ipynb**: Analyzes feature importance for model evaluation.  
