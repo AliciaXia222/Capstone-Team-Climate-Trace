@@ -171,22 +171,26 @@ Feature engineering is essential to transform raw data into meaningful represent
     - **Heating Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculate HDD to measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
     - **Cooling Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
    
-Note:Temperature, DewPoint Temperature are also developed with similar techniques.
+**Note:Temperature, DewPoint Temperature are also developed with similar techniques.
 
 2. **Image Embedding Retreval Method:**
    
    - Retrieve satellite images from Sentinel-2 for the locations of interest.
    - Employ Clay (a pretrained Vision Transformer MAE model specialized in satellite images) to generate embeddings.
    - Apply dimension reduction(PCA) and/or classification methods(Fuzzy Classter;KNN;GMM) to optimize the representational ability of embeddings.
-   - These derived features encode spatial, visual, and structural patterns for downstream prediction task.     
-Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
+   - These derived features encode spatial, visual, and structural patterns for downstream prediction task.
+      
+**Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
 
 3. **Standard Statistical Techniques:**
    
    - **Nearest Reference Mapping:** Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
    - **GDP per Capita Calculation:** We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
-   - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity. 
-Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
+   - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity.
+     
+**Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
+
+**After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 ### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
