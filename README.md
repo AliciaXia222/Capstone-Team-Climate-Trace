@@ -487,7 +487,7 @@ This section provides an overview of the repository's structure, explaining the 
 
 4. **`results/`**  
      - Stores results from all model runs including:
-       - Average and detailed results from each model and domain (e.g., `ridge_cross_domain_detailed_results.csv`)  
+       - Average and detailed results from each model and domain. 
        - Grid search output from hyperparameter tuning.  
        - Final model comparison tables (`comparison_average_results.csv`).
 
@@ -514,8 +514,8 @@ This section provides an overview of the repository's structure, explaining the 
 1. **Setup**:  
    Clone the repository and ensure all dependencies are installed. Use `requirements.txt`
       ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone git@github.com:AliciaXia222/Capstone-Team-Climate-Trace.git
+   cd Capstone-Team-Climate-Trace
    pip install -r requirements.txt   
 
 2. **Data Processing**:  
