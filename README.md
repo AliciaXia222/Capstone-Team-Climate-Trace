@@ -9,13 +9,13 @@
    2.3 [Goals](#Goals)  
    2.4 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
 3. [Background](#Background)  
-4. [Data and Features Overview](#DataAndFeaturesOverview)  
-   4.1 [GHG Estimation](#GHGEstimation)  
-   4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
-   4.3 [Generated data](#GeneratedData)  
-5. [Methodology](#Methodology)  
-   5.1 [Feature Engineering](#FeatureEngineering)  
-   5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
+
+4. [Methodology](#Methodology)  
+   4.1 [Overall Framework](#overall)
+   4.2 [Feature Map](#FeatureMap)  
+   4.3 [Feature Engineering](#FeatureEngineering)
+   
+5.model and onwards
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
    5.4 [Experimental Design](#ExperimentalDesign)
 7. [Experiments](#Experiments)  
@@ -26,6 +26,12 @@
 10. [Resources](#Resources)
 11. [Contributors](#Contributors) 
 
+
+## take whatever needed and delete!
+4. [Data and Features Overview](#DataAndFeaturesOverview)  
+   4.1 [GHG Estimation](#GHGEstimation)  
+   4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction) ----delete  
+   4.3 [Generated data](#GeneratedData)  ---delete
 
 ## 1. Abstract <a name="Abstract"></a>
 
@@ -75,69 +81,16 @@ The accurate estimation of anthropogenic CO2 emissions is critical for understan
 
 In response to these challenges, recent advancements have been made in the development of more granular and timely emissions estimation methods. One such breakthrough is the High-resolution Global Building Emissions Estimation using Satellite Imagery model by [Markakis et al. (2023)](#markakis2023). This innovative model offers high-resolution, global emissions estimates for both residential and commercial buildings at a 1 km² resolution, with updates on a monthly basis. By leveraging satellite imagery-derived features and machine learning techniques, the model estimates direct emissions from buildings. This approach addresses the temporal and spatial limitations of previous datasets by predicting building areas, estimating energy use intensity, and calculating emissions based on regional fuel mixes. Unlike other datasets like GRACED and EDGAR, this model offers more granular insights into emissions at a higher frequency and resolution, making it a crucial tool for policymakers working to reduce emissions in the building sector on a global scale.
 
-
-## 4. Data and Features Overview <a name="DataAndFeaturesOverview"></a>
-
-### 4.1 GHG Estimation <a name="GHGEstimation"></a>
-
-To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
-
-The estimation formula is:
-![Formula](/figures/01_formula.png)
-
-### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
-
-In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. These independent features serve as inputs to the model, and some of them are used to calculate additional derived features, such as the Heating Degree Days (HDD) and Comfort Index, which are explained further in the Feature Engineering section. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
-
-1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**:
-EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
-
-   - Residential EUI:  Indicates the energy consumption of residential buildings, expressed in kWh/m²/year.
-   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year.
-  
-To better understand the distribution of this variable, we can observe the following map, which visualizes how EUI is distributed across the different regions and building types.
-
-![EUI map](/figures/02_eui_map.png)
-
-2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
-
-3. **[Dewpoint Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: The temperature at which air at 2m above the surface becomes saturated, indicating humidity levels. Measured in kelvin. 
-
-4. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
-
-5. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
-
-6. **[Population](https://globaldatalab.org/shdi/metadata/pop/)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
-
-7. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
-
-8. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
-   - *Health*: A long and healthy life.  
-   - *Knowledge*: Access to education.  
-   - *Standard of Living*: A decent standard of living.  
-   We extracted data for the year 2022 to maintain consistency with other datasets.
-
-9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
-
-10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
-   - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
-   - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
-
-11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
-
-
-### 4.3 Generated Data <a name="GeneratedData"></a>
-After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
-
-## 5. Methodology <a name="Methodology"></a>
+## 4. Methodology <a name="Methodology"></a>
+### 4.2 Overall Framework  <a name="overall"></a>
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 ![methodology overview](/figures/methodology-1.jpg)
 
-### 5.1 Feature Map  <a name="FeatureMap"></a>
+### 4.1 Feature Map  <a name="FeatureMap"></a>
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
 ![feature map](/figures/methodology-2.jpg)
 
-1. **[Imagi Embedding]**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
+1. **[Imagi Embedding](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
 
 2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
 
@@ -165,7 +118,7 @@ We develop the feature map by identifying variables that potentially affect the 
 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
-### 5.2 Feature Engineering  <a name="FeatureEngineering"></a>
+### 4.2 Feature Engineering  <a name="FeatureEngineering"></a>
 Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques: 
 
 1. **Geographic information techniques:**
@@ -193,6 +146,9 @@ Feature engineering is essential to transform raw data into meaningful represent
 **Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
 **After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
+
+
+#### model and onwards
 
 ### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
@@ -474,5 +430,60 @@ This section provides an overview of the repository's structure, explaining the 
 
 
 #### Project Mentor and Client: [Dr. Kyle Bradbury](https://energy.duke.edu/about/staff/kyle-bradbury)
+
+
+
+## 4. Data and Features Overview <a name="DataAndFeaturesOverview"></a>
+
+### 4.1 GHG Estimation <a name="GHGEstimation"></a>
+
+To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
+
+The estimation formula is:
+![Formula](/figures/01_formula.png)
+
+### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
+
+In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. These independent features serve as inputs to the model, and some of them are used to calculate additional derived features, such as the Heating Degree Days (HDD) and Comfort Index, which are explained further in the Feature Engineering section. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
+
+1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**:
+EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
+
+   - Residential EUI:  Indicates the energy consumption of residential buildings, expressed in kWh/m²/year.
+   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year.
+  
+To better understand the distribution of this variable, we can observe the following map, which visualizes how EUI is distributed across the different regions and building types.
+
+![EUI map](/figures/02_eui_map.png)
+
+2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
+
+3. **[Dewpoint Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: The temperature at which air at 2m above the surface becomes saturated, indicating humidity levels. Measured in kelvin. 
+
+4. **[Latitude](https://download.geonames.org/export/dump/)**: Provides global latitude data in decimal degrees (WGS84 coordinate reference system), adding geographical context to our analysis.
+
+5. **[Longitude](https://download.geonames.org/export/dump/)**: Provides global longitude data in decimal degrees (WGS84 coordinate reference system), complementing the latitude data for geographical analysis.
+
+6. **[Population](https://globaldatalab.org/shdi/metadata/pop/)**: Includes population data for various countries and regions from 1960 to 2023. For our analysis, we extracted the population figures for 2023 to align with our project goals.
+
+7. **[GDP](https://globaldatalab.org/shdi/metadata/shdi/)**: Contains data on human development, health, education, and income across 160+ countries from 1990 to 2022. We used the GDP values for 2022 as a key feature for our model.
+
+8. **[Human Development Index (HDI)](https://globaldatalab.org/shdi/metadata/shdi/)**: HDI measures a country's achievements in three key areas:  
+   - *Health*: A long and healthy life.  
+   - *Knowledge*: Access to education.  
+   - *Standard of Living*: A decent standard of living.  
+   We extracted data for the year 2022 to maintain consistency with other datasets.
+
+9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
+
+10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
+   - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
+   - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
+
+11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
+
+
+### 4.3 Generated Data <a name="GeneratedData"></a>
+After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 
