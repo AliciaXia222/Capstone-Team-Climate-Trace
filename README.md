@@ -19,12 +19,17 @@
 5.model and onwards  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.4 [Experimental Design](#ExperimentalDesign)  
+   
 6. [Experiments](#Experiments)    
    6.1 [Feature Importance](#FeatureImportance)    
-   6.2 [Models](#Models)  
-7. [Conclusion](#Conclusion)    
-8. [Repository Structure and Usage](#RepositoryStructureAndUsage)  
-9. [Resources](#Resources)  
+   6.2 [Models](#Models)
+   
+7. [Conclusion](#Conclusion)
+
+8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+   
+9. [Resources](#Resources)
+    
 10. [Contributors](#Contributors)   
 
 
