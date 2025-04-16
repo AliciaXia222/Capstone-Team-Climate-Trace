@@ -14,7 +14,7 @@
    4.1 [Overall Framework](#OverallFramework)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)
-5. [Model and Onwards](#ModelandOnwards)  
+5. [Models](#Models)  
    5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.2 [Experimental Design](#ExperimentalDesign)
 6. [Experiments](#Experiments)    
@@ -161,7 +161,7 @@ Feature engineering is essential to transform raw data into meaningful represent
 **After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 
-#### Model and Onwards <a name="ModelandOnwards"></a>
+## 5. Models <a name="Models"></a>   
 
 ### 5.1 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
@@ -293,12 +293,12 @@ Other regions show more variable performance, with Europe, Northern America and 
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
-Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 21% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
+Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 20% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
 
 Regional analysis uncovered important patterns in model performance. Asia & Oceania and Central/South America demonstrated the strongest results, while Europe and Northern America showed more variable predictions. Africa presented an interesting case with low error rates but poor explanatory power. The significant performance differences between within-domain and cross-domain validation highlight the strong influence of regional characteristics on EUI predictions.
 
-The technical insights gained suggest strongly non-linear relationships between features and EUI, reinforcing the necessity of sophisticated modeling approaches. Temperature-related features emerged as crucial predictors, while the regional variations in performance indicate the potential benefit of region-specific model tuning.
-Looking forward, several opportunities exist for model improvement. These include incorporating additional features such as detailed weather variables and satellite imagery data, developing separate models for residential and non-residential buildings, and exploring techniques to improve cross-domain generalization while maintaining low MAPE values
+The technical insights gained suggest strongly non-linear relationships between features and EUI, reinforcing the necessity of sophisticated modeling approaches. After evaluating several algorithms, we found
+that the Random Forest model delivered the best performance. Among the features, Income Index, Average Temperature, and Latitude emerged as the most influential in predicting energy use intensity. These results can support future researchers in generating high-resolution EUI predictions to improve emissions estimates while also helping policymakers better understand spatial patterns of energy consumption and design more targeted emission reduction strategies.   
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
