@@ -131,9 +131,11 @@ After feature engineering and merging our datasets, we've generated the final da
 
 ## 5. Methodology <a name="Methodology"></a>
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
+![methodology overview](/figures/methodology-1.jpg)
 
 ### 5.1 Feature Map  <a name="FeatureMap"></a>
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
+![feature map](/figures/methodology-2.jpg)
 
 1. **[Imagi Embedding]**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
 
