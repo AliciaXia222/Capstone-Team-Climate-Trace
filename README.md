@@ -10,26 +10,21 @@
    2.4 [Goals](#Goals)  
    2.5 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
 3. [Background](#Background)  
-
 4. [Methodology](#Methodology)   
    4.1 [Overall Framework](#Overall)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)  
    
-5.model and onwards  
+5. model and onwards  
    5.3 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.4 [Experimental Design](#ExperimentalDesign)  
    
 6. [Experiments](#Experiments)    
    6.1 [Feature Importance](#FeatureImportance)    
-   6.2 [Models](#Models)
-   
+   6.2 [Models](#Models)   
 7. [Conclusion](#Conclusion)
-
-8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-   
-9. [Resources](#Resources)
-    
+8. [Repository Structure and Usage](#RepositoryStructureAndUsage)   
+9. [Resources](#Resources)    
 10. [Contributors](#Contributors)   
 
 
@@ -55,7 +50,7 @@ In 2024, global carbon dioxide (CO₂) emissions reached a record 41.6 billion m
 
 Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. In contrast, indirect emissions from lighting, consumer electronics, and air conditioning are excluded as they typically result from electricity use and are accounted for separately in the Climate TRACE database.
 
-Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated or spatially limited data, and emissions inventories remain incomplete—52 countries lack emissions data after 2012, with even larger gaps at the subnational and local levels ([Climate TRACE, 2023](#climatetrace2023) ; [Luers et al., 2022](#luers2022)）. In addition, available data is often spatially coarse or inconsistently reported, further limiting the effectiveness of climate action at local scales.
+Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated or spatially limited data, and emissions inventories remain incomplete—52 countries lack emissions data after 2012, with even larger gaps at the subnational and local levels ([Climate TRACE, 2023](#climatetrace2023) ; [Luers et al., 2022](#luers2022). In addition, available data is often spatially coarse or inconsistently reported, further limiting the effectiveness of climate action at local scales.
 
 ### 2.2  Problem Statement  <a name="ProblemStatement"></a>
 
