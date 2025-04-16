@@ -69,11 +69,21 @@ In the second semester, the objective will be to refine the model by incorporati
 
 This section provides an overview of the key deliverables and presentation materials developed throughout the project. These materials summarize the project's progress, next steps, and areas to explore in the upcoming semester, offering insights into the work completed and the outcomes achieved.
 
-1. The deliverables we've agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/deliverables_agreement).
+2024 Fall Semester:
+
+1. The deliverables we have agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/deliverables_agreement).
 
 2. For a visual summary of the project, check out the slide deck presentation [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Climate_TRACE_Presentation.pdf).
 
 3. The mid-point slide deck of analysis and results can be found [here](https://docs.google.com/presentation/d/1aeell_KmJwJAF3aopTo4ghbe1blzv2hjZ7Oo8uiPV3E/edit?usp=sharing).
+
+
+2025 Spring Semester:
+
+1. The deliverables we have agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/deliverables_agreement/Capstone_Spring_Semester_Plan.pdf).
+
+2. For a visual summary of the project, the final symposium slide deck of analysis and results can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Final_Climate%20Trace_Presentation.pdf).
+
 
 ## 3. Background <a name="Background"></a>
 
