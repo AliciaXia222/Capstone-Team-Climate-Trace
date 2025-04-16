@@ -5,27 +5,27 @@
 1. [Abstract](#Abstract)
 2. [Introduction](#Introduction)  
    2.1 [Project Motivation](#ProjectMotivation)  
-   2.2 [Problem Statement](#ProblemStatement)
-   2.3 [GHG Estimation Formula](#GHGEstimation)  
+   2.2 [Problem Statement](#ProblemStatement)  
+   2.3 [GHG Estimation Formula](#GHGEstimation)    
    2.4 [Goals](#Goals)  
    2.5 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
 3. [Background](#Background)  
 
-4. [Methodology](#Methodology)  
-   4.1 [Overall Framework](#Overall)
-   4.2 [Feature Map](#FeatureMap)  
-   4.3 [Feature Engineering](#FeatureEngineering)
+4. [Methodology](#Methodology)   
+   4.1 [Overall Framework](#Overall)  
+   4.2 [Feature Map](#FeatureMap)   
+   4.3 [Feature Engineering](#FeatureEngineering)  
    
-5.model and onwards
-   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
-   5.4 [Experimental Design](#ExperimentalDesign)
-6. [Experiments](#Experiments)  
-   6.1 [Feature Importance](#FeatureImportance)  
-   6.2 [Models](#Models)
-7. [Conclusion](#Conclusion)  
-8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-9. [Resources](#Resources)
-10. [Contributors](#Contributors) 
+5.model and onwards  
+   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)    
+   5.4 [Experimental Design](#ExperimentalDesign)  
+6. [Experiments](#Experiments)    
+   6.1 [Feature Importance](#FeatureImportance)    
+   6.2 [Models](#Models)  
+7. [Conclusion](#Conclusion)    
+8. [Repository Structure and Usage](#RepositoryStructureAndUsage)  
+9. [Resources](#Resources)  
+10. [Contributors](#Contributors)   
 
 
 ## take whatever needed and delete!
