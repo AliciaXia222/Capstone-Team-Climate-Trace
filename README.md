@@ -85,6 +85,7 @@ In response to these challenges, recent advancements have been made in the devel
 ### 4.1 Overall Framework  <a name="overall"></a>
 Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
 ![methodology overview](/figures/methodology-1.jpg)
+** Grid image from Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (n.d.). High-resolution Global Building Emissions Estimation using Satellite Imagery.
 
 ### 4.2 Feature Map  <a name="FeatureMap"></a>
 We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
