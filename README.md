@@ -6,44 +6,40 @@
 2. [Introduction](#Introduction)  
    2.1 [Project Motivation](#ProjectMotivation)  
    2.2 [Problem Statement](#ProblemStatement)  
-   2.3 [Goals](#Goals)  
-   2.4 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)   
-3. [Background](#Background)  
-4. [Data and Features Overview](#DataAndFeaturesOverview)  
-   4.1 [GHG Estimation](#GHGEstimation)  
-   4.2 [Features for EUI Prediction](#FeaturesForEUIPrediction)  
-   4.3 [Generated data](#GeneratedData)  
-5. [Methods](#Methods)  
-   5.1 [Feature Engineering](#FeatureEngineering)  
-   5.2 [Nearest Reference Mapping](#NearestReferenceMapping)  
-   5.3 [Supervised Machine Learning](#SupervisedMachineLearning)  
-   5.4 [Experimental Design](#ExperimentalDesign)
-7. [Experiments](#Experiments)  
-   6.1 [Feature Importance](#FeatureImportance)  
+   2.3 [GHG Estimation Formula](#GHGEstimation)    
+   2.4 [Goals](#Goals)  
+   2.5 [Project Deliverables and Presentation Materials](#ProjectDeliverablesAndPresentationMaterials)
+3. [Background](#Background)
+4. [Methodology](#Methodology)   
+   4.1 [Overall Framework](#OverallFramework)  
+   4.2 [Feature Map](#FeatureMap)   
+   4.3 [Feature Engineering](#FeatureEngineering)
+5. [Models](#Models)  
+   5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
+   5.2 [Experimental Design](#ExperimentalDesign)
+6. [Experiments](#Experiments)    
+   6.1 [Feature Importance](#FeatureImportance)    
    6.2 [Models](#Models)
-8. [Conclusion](#Conclusion)  
-9. [Repository Structure and Usage](#RepositoryStructureAndUsage)
-10. [Resources](#Resources)
-11. [Contributors](#Contributors) 
-
+7. [Conclusion](#Conclusion)
+8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
+9. [Resources](#Resources)
+10. [Contributors](#Contributors)   
 
 ## 1. Abstract <a name="Abstract"></a>
 
-This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables for both residential and non-residential buildings. These EUI estimates, along with global building floor area, will be used in the next stage of this project to calculate direct GHG emissions from buildings, offering a timely, high-resolution method for global emissions estimation.
+This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables. These EUI estimates, combined with global building floor area, will be used in the next stage to calculate direct GHG emissions from buildings, offering a timely, high-resolution approach to global emissions estimation.
 
-This current work outlines preliminary EUI estimation techniques, with the primary focus on minimizing the Mean Absolute Percentage Error (MAPE) with a target range of less than 30-40%. Other performance metrics, such as R², Mean Squared Error (MSE), Mean Absolute Error (MAE), and Weighted Absolute Percentage Error (WAPE), were also considered. Future iterations will refine and expand the model by incorporating additional features to enhance performance, ultimately addressing the challenge of estimating global direct GHG emissions from buildings.
-
-Analysis showed that ensemble and tree-based models, including Random Forest, XGBoost, and CatBoost, outperformed traditional methods, with Random Forest achieving the best results overall and a MAPE averaging less than 21% across different cross-validation strategies. However, R² was generally low across all models. Additionally, results varied by region, with models performing better within-domain but struggling to generalize effectively in cross-domain scenarios.
+The work focuses on developing preliminary EUI estimation techniques, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE), a metric where lower values indicate better model performance. Starting from a baseline K-Nearest Neighbors (KNN) model with a MAPE of 38.9%, we reduced the error to 18.4% using a Random Forest model, representing a 53% improvement from the baseline in cross-domain validation. As the most conservative validation strategy compared to all-domain and within-domain evaluations, this result highlights the robustness of the model and the effectiveness of the proposed approach.   
 
 ## 2. Introduction <a name="Introduction"></a>
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
 
-Global warming is one of the most critical challenges of our time, and to address it effectively, we need more detailed information on where and when greenhouse gas emissions occur. This data is crucial for setting actionable emissions reduction goals and enabling policymakers to make informed decisions. Given this situation, Climate TRACE, a non-profit coalition of organizations, is building a timely, open, and accessible inventory of global emissions sources, currently covering around 83% of global emissions.
+In 2024, global carbon dioxide (CO₂) emissions reached a record 41.6 billion metric tons, equivalent to covering nearly 1.5 million football fields with a one-meter-thick layer of CO₂ ([Live Science, 2024](#livescience2024)). Global warming is one of the most critical challenges of our time, and to address it effectively, we need more detailed information on where and when GHG emissions occur. This data is crucial for setting actionable emissions reduction goals and enabling policymakers to make informed decisions. Given this situation, Climate TRACE, a non-profit coalition of organizations, is building a timely, open, and accessible inventory of global emissions sources that currently covers around 83% of global emissions.
 
-Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. Indirect emissions from lighting, consumer electronics, and air conditioning are excluded, as they are typically electric and accounted for separately in the Climate TRACE database.
+Building direct emissions are responsible for between 6% and 9% of global GHG emissions, primarily due to onsite fossil fuel combustion for heating, water heating, and cooking. In contrast, indirect emissions from lighting, consumer electronics, and air conditioning are excluded as they typically result from electricity use and are accounted for separately in the Climate TRACE database.
 
-Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated data, often delayed by over a year, or on self-reported data that is scarce or unavailable globally.
+Despite their significant contribution to global emissions, the building sector still lacks the timely, high-resolution, and low-latency data needed to assess GHG emissions accurately. Current methodologies rely on outdated or spatially limited data, and emissions inventories remain incomplete—52 countries lack emissions data after 2012, with even larger gaps at the subnational and local levels ([Climate TRACE, 2023](#climatetrace2023) ; [Luers et al., 2022](#luers2022)). In addition, available data is often spatially coarse or inconsistently reported, further limiting the effectiveness of climate action at local scales.
 
 ### 2.2  Problem Statement  <a name="ProblemStatement"></a>
 
@@ -51,53 +47,63 @@ Specifically, we can define our problem statement as follows:
 
 ***The building sector lacks timely, high-resolution data on direct greenhouse gas (GHG) emissions, limiting the ability to accurately track and reduce emissions from building energy use.***
 
-### 2.3  Goals  <a name="Goals"></a>
 
-The goal of this project is to develop a machine learning model to estimate greenhouse gas (GHG) emissions based on building energy consumption. The model will predict energy use intensity (EUI) using climatic, geographical, and socioeconomic variables. These EUI estimates, along with building area data, will be used to calculate direct GHG building emissions.
+### 2.3 GHG Estimation Formula <a name="GHGEstimation"></a>
+
+To estimate GHG emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
+
+The estimation formula is:
+![Formula](/figures/01_formula.png)
+*<sub>Source: Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery. Presented at the NeurIPS 2023 Workshop on Tackling Climate Change with Machine Learning.</sub>*
+
+
+### 2.4  Goals  <a name="Goals"></a>
+
+The goal of this project is to develop a machine learning model to predict the Energy Use Intensity (EUI) of buildings using globally available climatic, geographical, and socioeconomic features. These EUI predictions serve as a foundation for estimating global GHG emissions from buildings in future work.
+
+Energy Use Intensity is a key metric representing the amount of energy consumed per unit area of a building. To evaluate prediction accuracy, we use the Mean Absolute Percentage Error (MAPE), where lower values indicate better model performance. Therefore, minimizing MAPE is a central objective of this work.
 
 In the first semester, the focus has been on developing the Energy Use Intensity (EUI) estimation technique, using globally available features to predict EUI. By selecting these key features, the goal has been to generate the first iteration of EUI predictions. The target for this stage is to achieve a Mean Absolute Percentage Error (MAPE) in the range of 30-40%. While this is the ideal range for this milestone, it is possible that we may not meet this target at this stage. Refining and improving this technique will be the focus for the second semester.
 
-In the second semester, the objective will be to refine the model by incorporating additional features and enhancing its performance. The final goal is to enable global EUI prediction, providing a high-resolution, actionable method for estimating direct GHG emissions from building energy use.
+In the second semester, the model will be further refined through feature engineering and tuning. The goal is to achieve a MAPE below 20%, representing over a 50% improvement from the initial baseline. Achieving this level of accuracy would demonstrate strong predictive capability and robustness across diverse global contexts. The expected outcome is a global-scale EUI prediction model that enables high-resolution, data-driven analysis of building energy demand. Estimating direct GHG emissions from buildings, using EUI predictions and the other two components in the GHG estimation formula, is identified as an important next step for future work.
 
-### 2.4 Project Deliverables and Presentation Materials <a name="ProjectDeliverablesAndPresentationMaterials"></a>
+### 2.5 Project Deliverables and Presentation Materials <a name="ProjectDeliverablesAndPresentationMaterials"></a>
 
 This section provides an overview of the key deliverables and presentation materials developed throughout the project. These materials summarize the project's progress, next steps, and areas to explore in the upcoming semester, offering insights into the work completed and the outcomes achieved.
 
-1. The deliverables we've agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/deliverables_agreement).
+2024 Fall Semester:
+
+1. The deliverables we have agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/deliverables_agreement).
 
 2. For a visual summary of the project, check out the slide deck presentation [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Climate_TRACE_Presentation.pdf).
 
 3. The mid-point slide deck of analysis and results can be found [here](https://docs.google.com/presentation/d/1aeell_KmJwJAF3aopTo4ghbe1blzv2hjZ7Oo8uiPV3E/edit?usp=sharing).
 
+
+2025 Spring Semester:
+
+1. The deliverables we have agreed to provide to our client this semester can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/deliverables_agreement/Capstone_Spring_Semester_Plan.pdf).
+
+2. For a visual summary of the project, the final symposium slide deck of analysis and results can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/slide_decks/Final_Climate%20Trace_Presentation.pdf).
+
+
 ## 3. Background <a name="Background"></a>
 
-The accurate estimation of anthropogenic CO2 emissions is critical for understanding global climate change and formulating effective policies. Existing estimates are provided by several key datasets, including the Open-source Data Inventory for Anthropogenic CO2 ([Oda, Maksyutov, & Andres, 2018](#oda2018)), the Community Emissions Data System ([McDuffie et al., 2020](#mcduffie2020)), the Emissions Database for Global Atmospheric Research (EDGAR) ([Janssens-Maenhout et al., 2019](#janssens2019)), the Global Carbon Grid ([Tong et al., 2018](#tong2018)), and the Global Gridded Daily CO2 Emissions Dataset ([Dou et al., 2022](#dou2022)). While the GRACED data is updated nearly monthly, most of the other key datasets suffer from a significant production latency, often of a year or more. Additionally, the highest resolution available across these datasets is 0.1 decimal degrees, roughly equivalent to an 11 km grid near the equator. Furthermore, only a few of these datasets provide detailed breakdowns of emissions by sector, such as residential and commercial subsectors, or offer separate estimates for different greenhouse gases([Markakis et al., 2023](#markakis2023)).
+The accurate estimation of anthropogenic CO₂ emissions is critical for understanding global climate change and formulating effective policies. Existing estimates are provided by several key datasets, including the Open-source Data Inventory for Anthropogenic CO₂ ([Oda, Maksyutov, & Andres, 2018](#oda2018)), the Community Emissions Data System ([McDuffie et al., 2020](#mcduffie2020)), the Emissions Database for Global Atmospheric Research (EDGAR) ([Janssens-Maenhout et al., 2019](#janssens2019)), the Global Carbon Grid ([Tong et al., 2018](#tong2018)), and the Global Gridded Daily CO₂ Emissions Dataset ([Dou et al., 2022](#dou2022)). While the GRACED data is updated nearly monthly, most of the other key datasets suffer from a significant production latency, often of a year or more. Additionally, the highest resolution available across these datasets is 0.1 decimal degrees, roughly equivalent to an 11 km grid near the equator. Furthermore, only a few of these datasets provide detailed breakdowns of emissions by sector, such as residential and commercial subsectors, or offer separate estimates for different greenhouse gases([Markakis et al., 2023](#markakis2023)).
 
 In response to these challenges, recent advancements have been made in the development of more granular and timely emissions estimation methods. One such breakthrough is the High-resolution Global Building Emissions Estimation using Satellite Imagery model by [Markakis et al. (2023)](#markakis2023). This innovative model offers high-resolution, global emissions estimates for both residential and commercial buildings at a 1 km² resolution, with updates on a monthly basis. By leveraging satellite imagery-derived features and machine learning techniques, the model estimates direct emissions from buildings. This approach addresses the temporal and spatial limitations of previous datasets by predicting building areas, estimating energy use intensity, and calculating emissions based on regional fuel mixes. Unlike other datasets like GRACED and EDGAR, this model offers more granular insights into emissions at a higher frequency and resolution, making it a crucial tool for policymakers working to reduce emissions in the building sector on a global scale.
 
+## 4. Methodology <a name="Methodology"></a>
+### 4.1 Overall Framework  <a name="OverallFramework"></a>   
+Overall, we develop feature map to define the solution search boundaries, employ geographic information techniques, image embedding retrieval methods, and standard statistical techniques to process features, apply supervised learning models to predict target variables, and conduct cross-region evaluations to provide conservative prediction.
+![methodology overview](/figures/methodology-1.jpg)
+** Grid image from Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (n.d.). High-resolution Global Building Emissions Estimation using Satellite Imagery.
 
-## 4. Data and Features Overview <a name="DataAndFeaturesOverview"></a>
+### 4.2 Feature Map  <a name="FeatureMap"></a>
+We develop the feature map by identifying variables that potentially affect the target variable. Starting from previous studies, we conduct a literature review and further interpret the project from both personal and professional perspectives. Considering data coverage and availability, we summarize our features into four main categories: building geometry data, weather, socioeconomics, and policy/law.
+![feature map](/figures/methodology-2.jpg)
 
-### 4.1 GHG Estimation <a name="GHGEstimation"></a>
-
-To estimate greenhouse gas (GHG) emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
-
-The estimation formula is:
-![Formula](/figures/01_formula.png)
-
-### 4.2 Features for EUI Prediction <a name="FeaturesForEUIPrediction"></a>
-
-In this section, we describe both the dependent variable of our model (EUI) and the independent features we are exploring to predict Energy Use Intensity (EUI) in buildings. The independent features include factors that are considered potentially influential on energy consumption, based on both prior research and discussions with experts in the field. These independent features serve as inputs to the model, and some of them are used to calculate additional derived features, such as the Heating Degree Days (HDD) and Comfort Index, which are explained further in the Feature Engineering section. Below, we outline the open datasets we are using to build and refine our EUI prediction model.
-
-1. **[EUI](https://drive.google.com/uc?id=12qGq_DLefI1RihIF_RKQUyJtm480-xRC)**:
-EUI is a metric used to measure the intensity of energy use in buildings. These EUI values serve as our dependent variable, or the target we seek to predict, in our model. This dataset, provided by the client, contains 482 entries and focuses on two key variables:
-
-   - Residential EUI:  Indicates the energy consumption of residential buildings, expressed in kWh/m²/year.
-   - Non-Residential EUI: Reflects the energy consumption of non-residential buildings, also expressed in kWh/m²/year.
-  
-To better understand the distribution of this variable, we can observe the following map, which visualizes how EUI is distributed across the different regions and building types.
-
-![EUI map](/figures/02_eui_map.png)
+1. **[Image Embedding](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)**:Embeddings from the pretrained Clay model represent image-based features. We compress these features via PCA (n=1) to extract the principal component score and/or apply KNN to assign cluster memberships and/or Fuzzy C-means to compute the maximum probability score of the assigned cluster for downstream prediction tasks.
 
 2. **[Temperature](https://cds.climate.copernicus.eu/datasets/derived-era5-land-daily-statistics?tab=overview)**: Air temperature at 2m above the surface, interpolated using atmospheric conditions. Measured in kelvin. This feature is essential for estimating heating needs (which contribute to direct energy use in buildings) and is later used to calculate Heating Degree Days (HDD) and Cooling Degree Days (CDD).
 
@@ -125,32 +131,39 @@ To better understand the distribution of this variable, we can observe the follo
 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
+### 4.3 Feature Engineering  <a name="FeatureEngineering"></a>
+Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques: 
 
-### 4.3 Generated Data <a name="GeneratedData"></a>
-After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
-
-## 5. Methods <a name="Methods"></a>
-
-### 5.1 Feature Engineering <a name="FeatureEngineering"></a>
-Feature engineering is essential to transform raw data into meaningful representations that enhance model performance and predictive accuracy. In this study, we applied the following techniques:  
-
-1. **Heating Degree Days Calculation:**  
-   Calculated using temperature data to derive features measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+1. **Geographic information techniques:**
    
-2. **Cooling Degree Days Calculation:**  
-   Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C). 
+    - **Heating Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculate HDD to measure the demand for heating energy based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+    - **Cooling Degree Days Calculation:** Retrieve air temperature at 2m above the surface, data source from European Commission and the Group on Earth Observations. Calculated using temperature data to derive features measure the demand for Cooling related energy usage based on the difference between outdoor temperature and a baseline "comfort" temperature, typically 65°F (18°C).
+   
+**Note:Temperature, DewPoint Temperature are also developed with similar techniques.
 
-3. **GDP per Capita Calculation:**
-We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes. 
+2. **Image Embedding Retreval Method:**
+   
+   - Retrieve satellite images from Sentinel-2 for the locations of interest.
+   - Employ Clay (a pretrained Vision Transformer MAE model specialized in satellite images) to generate embeddings.
+   - Apply dimension reduction(PCA) and/or classification methods(Fuzzy Classter;KNN;GMM) to optimize the representational ability of embeddings.
+   - These derived features encode spatial, visual, and structural patterns for downstream prediction task.
+      
+**Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
 
-### 5.2 Nearest Reference Mapping <a name="NearestReferenceMapping"></a>
+3. **Standard Statistical Techniques:**
+   
+   - **Nearest Reference Mapping:** Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
+   - **GDP per Capita Calculation:** We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
+   - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity.
+     
+**Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
-Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. 
+**After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
-In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
 
-### 5.3 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
+## 5. Models <a name="Models"></a>   
 
+### 5.1 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
 In this project, we will employ a range of supervised machine learning models to predict and analyze the target variable. The following models will be utilized:
 
@@ -172,7 +185,7 @@ In this project, we will employ a range of supervised machine learning models to
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
-### 5.4 Experimental Design <a name="ExperimentalDesign"></a>
+### 5.2 Experimental Design <a name="ExperimentalDesign"></a>
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
 
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. This approach helps to account for local differences in energy use patterns and improve the model’s predictive accuracy across diverse contexts. The regions we are using are defined as follows:
@@ -280,12 +293,12 @@ Other regions show more variable performance, with Europe, Northern America and 
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
-Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 21% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
+Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 20% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
 
 Regional analysis uncovered important patterns in model performance. Asia & Oceania and Central/South America demonstrated the strongest results, while Europe and Northern America showed more variable predictions. Africa presented an interesting case with low error rates but poor explanatory power. The significant performance differences between within-domain and cross-domain validation highlight the strong influence of regional characteristics on EUI predictions.
 
-The technical insights gained suggest strongly non-linear relationships between features and EUI, reinforcing the necessity of sophisticated modeling approaches. Temperature-related features emerged as crucial predictors, while the regional variations in performance indicate the potential benefit of region-specific model tuning.
-Looking forward, several opportunities exist for model improvement. These include incorporating additional features such as detailed weather variables and satellite imagery data, developing separate models for residential and non-residential buildings, and exploring techniques to improve cross-domain generalization while maintaining low MAPE values
+The technical insights gained suggest strongly non-linear relationships between features and EUI, reinforcing the necessity of sophisticated modeling approaches. After evaluating several algorithms, we found
+that the Random Forest model delivered the best performance. Among the features, Income Index, Average Temperature, and Latitude emerged as the most influential in predicting energy use intensity. These results can support future researchers in generating high-resolution EUI predictions to improve emissions estimates while also helping policymakers better understand spatial patterns of energy consumption and design more targeted emission reduction strategies.   
 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
@@ -303,40 +316,143 @@ This section provides an overview of the repository's structure, explaining the 
 │   │   ├── gdp_data.csv
 │   │   └── population.csv
 │   ├── 02_interim
-│   │   ├── CDD.csv
-│   │   ├── HDD.csv
-│   │   └── Humidity.csv
+│   │   ├── CDD_scalematched.csv
+│   │   ├── HDD_scalematched.csv
+│   │   ├── eui_boston.csv
+│   │   ├── eui_california.csv
+│   │   ├── eui_chicago.csv
+│   │   ├── eui_miami.csv
+│   │   ├── eui_nyc.csv
+│   │   ├── eui_philadephia.csv
+│   │   ├── eui_seattle.csv
+│   │   ├── eui_usa_cities_grouped_df.csv
+│   │   ├── humidity_backup.csv
+│   │   ├── image_results.csv
+│   │   ├── population_density.csv
+│   │   └── temperature_dewpoint_precipitation_2023.csv
 │   └── 03_processed
-│       └── merged_df.csv
+│   │   ├── merged_df.csv
+│   │   ├── train_test_split_new_data.csv
+│       └── train_test_split_original_data.csv
 ├── deliverables_agreement
-│   └── Mid-Point Deliverables - Climate Trace.pdf
+│   │   ├── Capstone_Spring_Semester_Plan.pdf
+│       └── Mid-Point Deliverables - Climate Trace.pdf
 ├── figures
+│   ├── model_plots
+│   │   ├── 00_model_comparison_mape.png
+│   │   ├── 00_model_comparison_r2.png
+│   │   ├── 00_model_comparison_rmse.png
+│   │   ├── cat_all_domain_error_distribution.png
+│   │   ├── cat_all_domain_eui_predictions.png
+│   │   ├── cat_cross_domain_error_distribution.png
+│   │   ├── cat_cross_domain_eui_predictions.png
+│   │   ├── cat_within_domain_error_distribution.png
+│   │   ├── cat_within_domain_eui_predictions.png
+│   │   ├── knn_all_domain_error_distribution.png
+│   │   ├── knn_all_domain_eui_predictions.png
+│   │   ├── knn_cross_domain_error_distribution.png
+│   │   ├── knn_cross_domain_eui_predictions.png
+│   │   ├── knn_within_domain_error_distribution.png
+│   │   ├── knn_within_domain_eui_predictions.png
+│   │   ├── lasso_all_domain_error_distribution.png
+│   │   ├── lasso_all_domain_eui_predictions.png
+│   │   ├── lasso_cross_domain_error_distribution.png
+│   │   ├── lasso_cross_domain_eui_predictions.png
+│   │   ├── lasso_within_domain_error_distribution.png
+│   │   ├── lasso_within_domain_eui_predictions.png
+│   │   ├── lr_all_domain_error_distribution.png
+│   │   ├── lr_all_domain_eui_predictions.png
+│   │   ├── lr_cross_domain_error_distribution.png
+│   │   ├── lr_cross_domain_eui_predictions.png
+│   │   ├── lr_within_domain_error_distribution.png
+│   │   ├── lr_within_domain_eui_predictions.png
+│   │   ├── rf_all_domain_error_distribution.png
+│   │   ├── rf_all_domain_eui_predictions.png
+│   │   ├── rf_cross_domain_error_distribution.png
+│   │   ├── rf_cross_domain_eui_predictions.png
+│   │   ├── rf_within_domain_error_distribution.png
+│   │   ├── rf_within_domain_eui_predictions.png
+│   │   ├── ridge_all_domain_error_distribution.png
+│   │   ├── ridge_all_domain_eui_predictions.png
+│   │   ├── ridge_cross_domain_error_distribution.png
+│   │   ├── ridge_cross_domain_eui_predictions.png
+│   │   ├── ridge_within_domain_error_distribution.png
+│   │   ├── ridge_within_domain_eui_predictions.png
+│   │   ├── xgb_all_domain_error_distribution.png
+│   │   ├── xgb_all_domain_eui_predictions.png
+│   │   ├── xgb_cross_domain_error_distribution.png
+│   │   ├── xgb_cross_domain_eui_predictions.png
+│   │   ├── xgb_within_domain_error_distribution.png
+│   │   └── xgb_within_domain_eui_predictions.png
 │   ├── 01_formula.png
 │   ├── 02_eui_map.png
 │   ├── 03_region_map.png
 │   ├── 04_experimental_design.png
 │   ├── 05_feature_importance.png
 │   ├── 06_avg_rf.png
-│   └── model_plots
+│   ├── methodology-1.jpg
+│   ├── methodology-2.jpg
+│   ├── methodology-3.jpg
+│   ├── methodology-4.jpg
+│   └── methodology-5.jpg
 ├── notebooks
+│   ├── catboost_info
+│   │   ├── learn
+│   │   │   └── events.out.tfevents
+│   │   ├── catboost_training.json
+│   │   ├── learn_error.tsv
+│   │   └── time_left.tsv
 │   ├── 010_Download_WeatherData_API.ipynb
+│   ├── 011_EUIBostonProcessing.ipynb
+│   ├── 012_EUISeattleProcessing.ipynb
+│   ├── 014_EUICaliforniaProcessing.ipynb
+│   ├── 015_EUINYCProcessing.ipynb
+│   ├── 016_EUIChicagoProcessing.ipynb
+│   ├── 017_EUIPhiladelphiaProcessing.ipynb
+│   ├── 018_EUIMiamiProcessing.ipynb
+│   ├── 019_MergeEUI.ipynb
 │   ├── 020_WeatherData_Preprocessing.ipynb
 │   ├── 021_HumidityPreprocessing.ipynb
 │   ├── 023_HDDPreprocessing.ipynb
 │   ├── 024_CDDPreprocessing.ipynb
+│   ├── 025_Population.ipynb
 │   ├── 030_DataPreprocessing.ipynb
 │   ├── 040_Plots.ipynb
 │   ├── 050_FeatureImportance.ipynb
 │   ├── 060_Experiments_LR.ipynb
 │   ├── 061_Experiments_KNN.ipynb
 │   ├── 062_Experiments_RF.ipynb
+│   ├── 062_Experiments_RF_GridSearch.ipynb
 │   ├── 063_Experiments_XGBoost.ipynb
+│   ├── 063_Experiments_XGBoost_GridSearch.ipynb
 │   ├── 064_Experiments_CatBoost.ipynb
+│   ├── 064_Experiments_CatBoost_GridSearch.ipynb
 │   ├── 070_Model_Comparison.ipynb
+│   └── iamge-embeddingv2.ipynb
 ├── requirements.txt
 ├── results
+│   ├── gridsearch
+│   │   ├── 20250326_1249_rf_grid_search_results.csv
+│   │   └── 20250326_1522_cat_grid_search_results.csv
+│   ├── .result.txt
+│   ├── 20250325_2018_lasso_average_results.csv
+│   ├── 20250325_2018_lasso_detailed_results.csv
+│   ├── 20250325_2018_lr_average_results.csv
+│   ├── 20250325_2018_lr_detailed_results.csv
+│   ├── 20250325_2018_ridge_average_results.csv
+│   ├── 20250325_2018_ridge_detailed_results.csv
+│   ├── 20250325_2047_knn_average_results.csv
+│   ├── 20250325_2047_knn_detailed_results.csv
+│   ├── 20250325_2109_cat_average_results.csv
+│   ├── 20250325_2109_cat_detailed_results.csv
+│   ├── 20250326_1551_xgb_average_results.csv
+│   ├── 20250326_1551_xgb_detailed_results.csv
+│   ├── 20250403_1440_rf_average_results.csv
+│   ├── 20250403_1440_rf_detailed_results.csv
+│   └── comparison_average_results.csv
 ├── slide_decks
-│   └── Climate_TRACE_Presentation.pdf
+│   ├── Climate_TRACE_Presentation.pdf
+│   └── Final_Climate Trace_Presentation.pdf
 └── src
     ├── __init__.py
     ├── __pycache__
@@ -349,46 +465,56 @@ This section provides an overview of the repository's structure, explaining the 
 1. **`data/`**  
    - Contains all datasets used in the project. It is organized into subfolders:
      - **01_raw/**: Raw, unprocessed datasets like HDI, GDP, and population data.  
-     - **02_interim/**: Intermediate processed files such as HDD and CDD values.  
-     - **03_processed/**: Fully processed datasets ready for modeling (e.g., merged_df.csv).  
+     - **02_interim/**: Intermediate files including HDD, CDD, humidity, and city-level EUI datasets.  
+     - **03_processed/**: Fully processed datasets (e.g., merged_df.csv) ready for modeling and evaluation.  
 
 2. **`figures/`**  
-   - Contains visual resources such as diagrams, maps, and other illustrations used in presentations and documentation.  
-
+     - Includes all visual materials such as model evaluation plots, maps, diagrams, and methodology figures.
+       - **model_plots/**: Contains prediction visualizations and error distributions for all tested models across within, cross, and all-domain scenarios.
+         
 3. **`notebooks/`**  
 
    - Jupyter notebooks used for data processing, feature engineering, modeling, and analysis. Notebooks are ordered and labeled for clarity:  
-     - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).  
-     - **021_HumidityPreprocessing.ipynb**: Prepares humidity data for modeling.  
-     - **023_HDDPreprocessing.ipynb**: Prepares Heating Degree Days (HDD) data.  
-     - **024_CDDPreprocessing.ipynb**: Prepares Cooling Degree Days (CDD) data.  
+     - **010_Download_WeatherData_API.ipynb**: Downloads weather data from the Copernicus Climate Data Store (ERA5-Land daily statistics).
+     - **011–019**: Download and process regional EUI datasets (e.g., Boston, Seattle, NYC).
+     - **020–025**: Process weather, humidity, HDD, CDD, and population data for modeling. 
      - **030_DataPreprocessing.ipynb**: Prepares the final dataset for model input.  
-     - **040_Plots.ipynb**: Generates visualizations for analysis and reporting.  
+     - **040_Plots.ipynb**: Generates visualizations for feature trends and region-level insights as well as for analysis and reporting.  
      - **050_FeatureImportance.ipynb**: Analyzes feature importance for model evaluation.  
-     - **060_Experiments_LR.ipynb**: Sets up and evaluates experiments using Logistic Regression.  
-     - **061_Experiments_KNN.ipynb**: Implements and evaluates K-Nearest Neighbors (KNN) models.  
-     - **062_Experiments_RF.ipynb**: Runs experiments using Random Forest (RF).  
-     - **063_Experiments_XGBoost.ipynb**: Executes XGBoost models for performance comparison.  
-     - **064_Experiments_CatBoost.ipynb**: Configures and evaluates CatBoost models.  
-     - **070_Model_Comparison.ipynb**: Compares the performance of different models across various datasets and variables.
-5. **`results/`**  
-   - Stores evaluation outputs from various modeling strategies (e.g., `all_domain` or `cross_domain`) and models (e.g., KNN, Logistic Regression).
+     - **060–070**: Run experiments with Linear Regression, KNN, Random Forest, XGBoost, CatBoost, and compare model performance. 
 
-6. **`src/`**  
+4. **`results/`**  
+     - Stores results from all model runs including:
+       - Average and detailed results from each model and domain. 
+       - Grid search output from hyperparameter tuning.  
+       - Final model comparison tables (`comparison_average_results.csv`).
+
+5. **`deliverables_agreement/`**  
+   - Documents submitted to course instructors for planning and mid-point check-ins.   
+
+
+6. **`slide_decks/`**  
+   - Final and mid-point presentation slides in PDF format.   
+     
+7. **`src/`**  
    - Contains core Python scripts for the project.  
      - **lib.py**: Provides utility functions and shared modules for data preprocessing, feature extraction, and model evaluation, used across notebooks and scripts.  
 
-7. **`requirements.txt`**  
+8. **`requirements.txt`**  
    - Lists all dependencies needed for the project environment, ensuring reproducibility.  
 
-8. **`README.md`**  
+9. **`README.md`**  
    - The entry point of the repository, providing an overview, key results, and links to all major components.  
 
 
 ### Usage Instructions  
 
 1. **Setup**:  
-   Clone the repository and ensure all dependencies are installed. Use `requirements.txt` 
+   Clone the repository and ensure all dependencies are installed. Use `requirements.txt`
+      ```bash
+   git clone git@github.com:AliciaXia222/Capstone-Team-Climate-Trace.git
+   cd Capstone-Team-Climate-Trace
+   pip install -r requirements.txt   
 
 2. **Data Processing**:  
    - Start with `010_Download_WeatherData_API.ipynb` to download raw weather data from the Copernicus Climate Data Store.  
@@ -396,30 +522,38 @@ This section provides an overview of the repository's structure, explaining the 
    - Process specific features with `021_HumidityPreprocessing.ipynb`, `023_HDDPreprocessing.ipynb`, and `024_CDDPreprocessing.ipynb` to compute humidity, Heating Degree Days (HDD), and Cooling Degree Days (CDD) data.  
    - Finalize the dataset with `030_DataPreprocessing.ipynb` before moving to modeling.
 
-3. **Modeling**:  
-   - Open `06_Model.ipynb` to train models and evaluate performance across domains.  
+4. **Modeling**:  
+   - Open `060_Experiments_LR.ipynb` and `061_Experiments_KNN.ipynb`, etc., to train individual models and evaluate performance across domains.
+   - `070_Model_Comparison.ipynb` to compare models across domains. 
 
-4. **Results Analysis**:  
-   - Use the `results/` directory to analyze model outputs and metrics.  
+5. **Results Analysis**:  
+   - Use the `results/` directory to analyze model outputs and metrics.
+   - Use figures in figures/model_plots/ for performance visualizations.   
+ 
 
-5. **Figures and Visuals**:  
+6. **Figures and Visuals**:  
    - All generated plots and diagrams are stored in `figures/` for easy reference in presentations or reports.  
 
 
 ## 9. Resources  <a name="Resources"></a>
 
-1. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. *The Innovation, 3*(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182) <a name="dou2022"></a>
+1. [Climate TRACE. (2023). *More than 70,000 of the highest-emitting greenhouse gas sources in the world are now tracked by Climate TRACE*.](https://climatetrace.org/news/more-than-70000-of-the-highest-emitting-greenhouse-gas) <a name="climatetrace2023"></a>
 
-2. [Janssens-Maenhout, G., Crippa, M., Guizzardi, D., Muntean, M., Schaaf, E., Dentener, F., Bergamaschi, P., Pagliari, V., Olivier, J. G. J., Peters, J. A. H. W., van Aardenne, J. A., Monni, S., Doering, U., Petrescu, A. M. R., Solazzo, E., & Oreggioni, G. D. (2019). EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. *Earth System Science Data, 11*(3), 959–1002.](https://doi.org/10.5194/essd-11-959-2019) <a name="janssens2019"></a>
+2. [Dou, X., Wang, Y., Ciais, P., Chevallier, F., Davis, S. J., Crippa, M., Janssens-Maenhout, G., Guizzardi, D., Solazzo, E., Yan, F., Huo, D., Zheng, B., Zhu, B., Cui, D., Ke, P., Sun, T., Wang, H., Zhang, Q., Gentine, P., Deng, Z., & Liu, Z. (2022). Near-realtime global gridded daily CO2 emissions. *The Innovation, 3*(1), 100182.](https://doi.org/10.1016/j.xinn.2021.100182) <a name="dou2022"></a>
 
-3. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery. *Climate Change AI*.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf) <a name="markakis2023"></a>
+3. [Janssens-Maenhout, G., Crippa, M., Guizzardi, D., Muntean, M., Schaaf, E., Dentener, F., Bergamaschi, P., Pagliari, V., Olivier, J. G. J., Peters, J. A. H. W., van Aardenne, J. A., Monni, S., Doering, U., Petrescu, A. M. R., Solazzo, E., & Oreggioni, G. D. (2019). EDGAR v4.3.2 Global Atlas of the three major greenhouse gas emissions for the period 1970–2012. *Earth System Science Data, 11*(3), 959–1002.](https://doi.org/10.5194/essd-11-959-2019) <a name="janssens2019"></a>
 
-4. [McDuffie, E. E., Smith, S. J., O’Rourke, P., Tibrewal, K., Venkataraman, C., Marais, E. A., Zheng, B., Crippa, M., Brauer, M., & Martin, R. V. (2020). A global anthropogenic emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): An application of the Community Emissions Data System (CEDS). *Earth System Science Data, 12*(4), 3413–3442.](https://doi.org/10.5194/essd-12-3413-2020) <a name="mcduffie2020"></a>
+4. [Live Science. (2024, March 5). *Global carbon emissions reach new record high in 2024*.](https://www.livescience.com/planet-earth/climate-change/global-carbon-emissions-reach-new-record-high-in-2024-with-no-end-in-sight-scientists-say) <a name="livescience2024"></a>
 
-5. [Oda, T., Maksyutov, S., & Andres, R. J. (2018). The Open-source Data Inventory for Anthropogenic CO2, version 2016 (ODIAC2016): A global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. *Earth System Science Data, 10*(1), 87–107.](https://doi.org/10.5194/essd-10-87-2018) <a name="oda2018"></a>
+5. [Luers, A., Yona, L., Field, C. B., Jackson, R. B., Mach, K. J., Cashore, B. W., Elliott, C., Gifford, L., Honigsberg, C., Klaassen, L., & Matthews, H. D. (2022). *Make greenhouse-gas accounting reliable—Build interoperable systems*. *Nature, 607*(7920), 653–656.](https://pubmed.ncbi.nlm.nih.gov/35882990/) <a name="luers2022"></a>
 
-6. [Tong, D., Zhang, Q., Davis, S. J., Liu, F., Zheng, B., Geng, G., Xue, T., Li, M., Hong, C., Lu, Z., Streets, D. G., Guan, D., & He, K. (2018). Targeted emission reductions from global super-polluting power plant units. *Nature Sustainability, 1*(1), 59–68.](https://doi.org/10.1038/s41893-017-0003-y) <a name="tong2018"></a>
+6. [Markakis, P. J., Gowdy, T., Malof, J. M., Collins, L., Davitt, A., Volpato, G., & Bradbury, K. (2023). High-resolution global building emissions estimation using satellite imagery. *Climate Change AI*.](https://www.climatechange.ai/papers/neurips2023/128/paper.pdf) <a name="markakis2023"></a>
 
+7. [McDuffie, E. E., Smith, S. J., O’Rourke, P., Tibrewal, K., Venkataraman, C., Marais, E. A., Zheng, B., Crippa, M., Brauer, M., & Martin, R. V. (2020). A global anthropogenic emission inventory of atmospheric pollutants from sector- and fuel-specific sources (1970–2017): An application of the Community Emissions Data System (CEDS). *Earth System Science Data, 12*(4), 3413–3442.](https://doi.org/10.5194/essd-12-3413-2020) <a name="mcduffie2020"></a>
+
+8. [Oda, T., Maksyutov, S., & Andres, R. J. (2018). The Open-source Data Inventory for Anthropogenic CO2, version 2016 (ODIAC2016): A global monthly fossil fuel CO2 gridded emissions data product for tracer transport simulations and surface flux inversions. *Earth System Science Data, 10*(1), 87–107.](https://doi.org/10.5194/essd-10-87-2018) <a name="oda2018"></a>
+
+9. [Tong, D., Zhang, Q., Davis, S. J., Liu, F., Zheng, B., Geng, G., Xue, T., Li, M., Hong, C., Lu, Z., Streets, D. G., Guan, D., & He, K. (2018). Targeted emission reductions from global super-polluting power plant units. *Nature Sustainability, 1*(1), 59–68.](https://doi.org/10.1038/s41893-017-0003-y) <a name="tong2018"></a>
 
 
 ## 10. Contributors  <a name="Contributors"></a>
@@ -430,5 +564,3 @@ This section provides an overview of the repository's structure, explaining the 
 
 
 #### Project Mentor and Client: [Dr. Kyle Bradbury](https://energy.duke.edu/about/staff/kyle-bradbury)
-
-
