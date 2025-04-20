@@ -335,7 +335,7 @@ def create_metrics_comparison(results_path="../results"):
     model_names = {
         'LinearRegression': 'LR',
         'KNeighborsRegressor': 'KNN \n(Base line)',
-        'RandomForestRegressor': 'RF\n(Best)',
+        'RandomForestRegressor': 'RF',
         'XGBRegressor': 'XGB',
         'CatBoostRegressor': 'CAT',
         'LR Lasso': 'Lasso',   
@@ -358,7 +358,7 @@ def create_metrics_comparison(results_path="../results"):
     all_models_results['Model'] = all_models_results['Model'].map(model_names)
     all_models_results['Target'] = all_models_results['Target'].map(target_names)
 
-    model_order = ['KNN \n(Base line)','LR', 'Lasso', 'Ridge', 'RF\n(Best)', 'XGB', 'CAT']
+    model_order = ['KNN \n(Base line)','LR', 'Lasso', 'Ridge', 'RF', 'XGB', 'CAT']
     all_models_results['Model'] = pd.Categorical(
         all_models_results['Model'],
         categories=model_order,
@@ -461,31 +461,20 @@ def create_model_comparison(comparison_table, metric, save_path=None, y_limits=N
         # Create an empty list to store bar containers
         containers = []
         
-        # Define custom colors for each model and target combination
-        # Regular color palette for all models except KNN
+        # Define regular color palette for all models
         regular_palette = {
-            'Non-residential': '#ffdabd', 
-            'Residential': '#c4d8ea'
-        }
-
-        
-        # Special colors for KNN
-        knn_palette = {
             'Non-residential': '#fcaa70', 
             'Residential': '#84aaca'       
         }
         
-        # Plot each target separately to handle custom coloring
+        # Plot each target separately
         for target in targets:
             target_data = strategy_data[strategy_data['Target'] == target]
             
-            # Create a list to store colors for each bar
+            # Create a list to store colors for each bar - now all use regular_palette
             colors = []
             for model in target_data['Model']:
-                if (model == 'KNN \n(Base line)' or model == 'RF\n(Best)' ):
-                    colors.append(knn_palette[target])
-                else:
-                    colors.append(regular_palette[target])
+                colors.append(regular_palette[target])
             
             # Create bar plot for this target
             bars = ax.bar(
@@ -529,13 +518,11 @@ def create_model_comparison(comparison_table, metric, save_path=None, y_limits=N
         
         # Position legend with adjusted position and style
         if strategy == 'Cross Domain':
-            # Create custom legend handles
+            # Create custom legend handles using only regular palette
             from matplotlib.patches import Patch
             legend_elements = [
-                Patch(facecolor=knn_palette['Non-residential'], label='Non-residential'),
-                Patch(facecolor=knn_palette['Residential'], label='Residential'),
-                #Patch(facecolor=knn_palette['Non-residential'], label='Non-residential (KNN)'),
-                #Patch(facecolor=knn_palette['Residential'], label='Residential (KNN)')
+                Patch(facecolor=regular_palette['Non-residential'], label='Non-residential'),
+                Patch(facecolor=regular_palette['Residential'], label='Residential')
             ]
             
             legend = ax.legend(handles=legend_elements,
