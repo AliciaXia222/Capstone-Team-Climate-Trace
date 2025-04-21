@@ -14,7 +14,7 @@
    4.1 [Overall Framework](#OverallFramework)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)
-5. [Models](#Models)  
+5. [Machine Learning Approach and Experimental Setup](#Machine Learning Approach and Experimental Setup)  
    5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.2 [Experimental Design](#ExperimentalDesign)
 6. [Experiments](#Experiments)    
@@ -159,7 +159,7 @@ Feature engineering is essential to transform raw data into meaningful represent
 
 **After feature engineering and merging our datasets, the full process is available in the Jupyter notebook [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/notebooks/030_DataPreprocessing.ipynb). This resulted in the final dataset for model input, containing 482 data points, which can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
-## 5. Models <a name="Models"></a>   
+## 5. Machine Learning Approach and Experimental Setup <a name="Machine Learning Approach and Experimental Setup"></a>   
 
 ### 5.1 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
