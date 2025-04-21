@@ -291,24 +291,24 @@ To better understand the Random Forest model's performance across different vali
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_within_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_within_domain_error_distribution.png)
 
 2. **Cross Domain**:  
 
    - **Actual EUI vs. Predicted EUI** 
-![eui_predictions_cross_domain](/figures/model_plots/rf_cross_domain_eui_predictions.png)
+![eui_predictions_cross_domain](/figures/model_plots/selected_features/rf_cross_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/rf_cross_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_cross_domain_error_distribution.png)
 
 
 3. **All Domain**:  
 
    - **Actual EUI vs. Predicted EUI** 
-![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_eui_predictions.png)
+![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_all_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/rf_all_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_all_domain_error_distribution.png)
 
 
 The regional analysis shows that Asia & Oceania consistently demonstrates one of the best overall performances across validation strategies, with low MAPE (18.2% residential, 6.4% non-residential) and strong R² values (0.69 residential, 0.85 non-residential) in within-domain validation. This performance remains relatively stable in cross-domain validation (MAPE 35.3% residential, 13.7% non-residential; R² 0.44 residential, 0.52 non-residential), outperforming other regions. 
@@ -344,73 +344,26 @@ This section provides an overview of the repository's structure, explaining the 
 │   │   └── population.csv
 │   ├── 02_interim
 │   │   ├── CDD_scalematched.csv
-│   │   ├── HDD_scalematched.csv
-│   │   ├── eui_boston.csv
-│   │   ├── eui_california.csv
-│   │   ├── eui_chicago.csv
-│   │   ├── eui_miami.csv
-│   │   ├── eui_nyc.csv
-│   │   ├── eui_philadephia.csv
-│   │   ├── eui_seattle.csv
-│   │   ├── eui_usa_cities_grouped_df.csv
-│   │   ├── humidity_backup.csv
-│   │   ├── image_results.csv
-│   │   ├── population_density.csv
+│   │   ├── HDD_matchedscale.csv
+│   │   ├── eui_boston.csv
+│   │   ├── eui_california.csv
+│   │   ├── eui_chicago.csv
+│   │   ├── eui_miami.csv
+│   │   ├── eui_nyc.csv
+│   │   ├── eui_philadelphia.csv
+│   │   ├── eui_seattle.csv
+│   │   ├── eui_usa_cities_grouped_df.csv
+│   │   ├── image_results.csv
+│   │   ├── population_density.csv
 │   │   └── temperature_dewpoint_precipitation_2023.csv
 │   └── 03_processed
-│   │   ├── merged_df.csv
-│   │   ├── train_test_split_new_data.csv
+│       ├── merged_df.csv
+│       ├── train_test_split_new_data.csv
 │       └── train_test_split_original_data.csv
 ├── deliverables_agreement
-│   │   ├── Capstone_Spring_Semester_Plan.pdf
-│       └── Mid-Point Deliverables - Climate Trace.pdf
+│   ├── Capstone_Spring_Semester_Plan.pdf
+│   └── Mid-Point Deliverables - Climate Trace.pdf
 ├── figures
-│   ├── model_plots
-│   │   ├── 00_model_comparison_mape.png
-│   │   ├── 00_model_comparison_r2.png
-│   │   ├── 00_model_comparison_rmse.png
-│   │   ├── cat_all_domain_error_distribution.png
-│   │   ├── cat_all_domain_eui_predictions.png
-│   │   ├── cat_cross_domain_error_distribution.png
-│   │   ├── cat_cross_domain_eui_predictions.png
-│   │   ├── cat_within_domain_error_distribution.png
-│   │   ├── cat_within_domain_eui_predictions.png
-│   │   ├── knn_all_domain_error_distribution.png
-│   │   ├── knn_all_domain_eui_predictions.png
-│   │   ├── knn_cross_domain_error_distribution.png
-│   │   ├── knn_cross_domain_eui_predictions.png
-│   │   ├── knn_within_domain_error_distribution.png
-│   │   ├── knn_within_domain_eui_predictions.png
-│   │   ├── lasso_all_domain_error_distribution.png
-│   │   ├── lasso_all_domain_eui_predictions.png
-│   │   ├── lasso_cross_domain_error_distribution.png
-│   │   ├── lasso_cross_domain_eui_predictions.png
-│   │   ├── lasso_within_domain_error_distribution.png
-│   │   ├── lasso_within_domain_eui_predictions.png
-│   │   ├── lr_all_domain_error_distribution.png
-│   │   ├── lr_all_domain_eui_predictions.png
-│   │   ├── lr_cross_domain_error_distribution.png
-│   │   ├── lr_cross_domain_eui_predictions.png
-│   │   ├── lr_within_domain_error_distribution.png
-│   │   ├── lr_within_domain_eui_predictions.png
-│   │   ├── rf_all_domain_error_distribution.png
-│   │   ├── rf_all_domain_eui_predictions.png
-│   │   ├── rf_cross_domain_error_distribution.png
-│   │   ├── rf_cross_domain_eui_predictions.png
-│   │   ├── rf_within_domain_error_distribution.png
-│   │   ├── rf_within_domain_eui_predictions.png
-│   │   ├── ridge_all_domain_error_distribution.png
-│   │   ├── ridge_all_domain_eui_predictions.png
-│   │   ├── ridge_cross_domain_error_distribution.png
-│   │   ├── ridge_cross_domain_eui_predictions.png
-│   │   ├── ridge_within_domain_error_distribution.png
-│   │   ├── ridge_within_domain_eui_predictions.png
-│   │   ├── xgb_all_domain_error_distribution.png
-│   │   ├── xgb_all_domain_eui_predictions.png
-│   │   ├── xgb_cross_domain_error_distribution.png
-│   │   ├── xgb_cross_domain_eui_predictions.png
-│   │   ├── xgb_within_domain_error_distribution.png
-│   │   └── xgb_within_domain_eui_predictions.png
 │   ├── 01_formula.png
 │   ├── 02_eui_map.png
 │   ├── 03_region_map.png
@@ -419,16 +372,12 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 06_avg_rf.png
 │   ├── methodology-1.jpg
 │   ├── methodology-2.jpg
-│   ├── methodology-3.jpg
 │   ├── methodology-4.jpg
-│   └── methodology-5.jpg
+│   ├── methodology-5.jpg
+│   └── model_plots
+│       ├── all_features
+│       └── selected_features
 ├── notebooks
-│   ├── catboost_info
-│   │   ├── learn
-│   │   │   └── events.out.tfevents
-│   │   ├── catboost_training.json
-│   │   ├── learn_error.tsv
-│   │   └── time_left.tsv
 │   ├── 010_Download_WeatherData_API.ipynb
 │   ├── 011_EUIBostonProcessing.ipynb
 │   ├── 012_EUISeattleProcessing.ipynb
@@ -443,6 +392,7 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 023_HDDPreprocessing.ipynb
 │   ├── 024_CDDPreprocessing.ipynb
 │   ├── 025_Population.ipynb
+│   ├── 026_ImageEmbedding.ipynb
 │   ├── 030_DataPreprocessing.ipynb
 │   ├── 040_Plots.ipynb
 │   ├── 050_FeatureImportance.ipynb
@@ -455,28 +405,19 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 064_Experiments_CatBoost.ipynb
 │   ├── 064_Experiments_CatBoost_GridSearch.ipynb
 │   ├── 070_Model_Comparison.ipynb
-│   └── iamge-embeddingv2.ipynb
+│   ├── catboost_info
+│   │   ├── catboost_training.json
+│   │   ├── learn
+│   │   │   └── events.out.tfevents
+│   │   ├── learn_error.tsv
+│   │   ├── time_left.tsv
+│   │   └── tmp
+│   └── importance_df_abbr.csv
 ├── requirements.txt
 ├── results
+│   ├── all_features
 │   ├── gridsearch
-│   │   ├── 20250326_1249_rf_grid_search_results.csv
-│   │   └── 20250326_1522_cat_grid_search_results.csv
-│   ├── .result.txt
-│   ├── 20250325_2018_lasso_average_results.csv
-│   ├── 20250325_2018_lasso_detailed_results.csv
-│   ├── 20250325_2018_lr_average_results.csv
-│   ├── 20250325_2018_lr_detailed_results.csv
-│   ├── 20250325_2018_ridge_average_results.csv
-│   ├── 20250325_2018_ridge_detailed_results.csv
-│   ├── 20250325_2047_knn_average_results.csv
-│   ├── 20250325_2047_knn_detailed_results.csv
-│   ├── 20250325_2109_cat_average_results.csv
-│   ├── 20250325_2109_cat_detailed_results.csv
-│   ├── 20250326_1551_xgb_average_results.csv
-│   ├── 20250326_1551_xgb_detailed_results.csv
-│   ├── 20250403_1440_rf_average_results.csv
-│   ├── 20250403_1440_rf_detailed_results.csv
-│   └── comparison_average_results.csv
+│   └── selected_features
 ├── slide_decks
 │   ├── Climate_TRACE_Presentation.pdf
 │   └── Final_Climate Trace_Presentation.pdf
@@ -519,7 +460,6 @@ This section provides an overview of the repository's structure, explaining the 
 5. **`deliverables_agreement/`**  
    - Documents submitted to course instructors for planning and mid-point check-ins.   
 
-
 6. **`slide_decks/`**  
    - Final and mid-point presentation slides in PDF format.   
      
@@ -556,7 +496,6 @@ This section provides an overview of the repository's structure, explaining the 
 5. **Results Analysis**:  
    - Use the `results/` directory to analyze model outputs and metrics.
    - Use figures in figures/model_plots/ for performance visualizations.   
- 
 
 6. **Figures and Visuals**:  
    - All generated plots and diagrams are stored in `figures/` for easy reference in presentations or reports.  
