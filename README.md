@@ -283,14 +283,12 @@ The following figure shows detailed performance metrics for the Random Forest mo
 
 ![eui_predictions_all_domain](/figures/06_avg_rf.png)
 
-A detailed analysis of the Random Forest model's performance revealed distinct patterns across building types and validation strategies. For non-residential buildings, the model achieved its best performance in within-domain validation with a MAPE of 8.96% and R² of 0.22, though performance declined in cross-domain scenarios (MAPE 13.58%, R² -0.36). For residential buildings, while showing higher error rates (MAPE 12.76% within-domain), it demonstrated stronger explanatory power (R² 0.52). The all-domain strategy provided a balanced middle ground, with MAPE of 9.98% and 13.08% for non-residential and residential buildings respectively. These results demonstrate that while geographical variations impact model performance, the Random Forest consistently maintains error levels well within our target range of 30-40% MAPE across all scenarios, making it a robust choice for global EUI prediction.
-
 To better understand the Random Forest model's performance across different validation strategies, we examine the relationship between predicted and actual EUI values, along with error distributions for each region. The following figures show these relationships for within-domain, cross-domain, and all-domain validation approaches. For each strategy, we present both scatter plots comparing predicted versus actual values, and corresponding error distribution histograms, broken down by geographical region and building type.
 
 1. **Within Domain**:  
 
    - **Actual EUI vs. Predicted EUI**  
-![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_eui_predictions.png)
+![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_within_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
 ![eui_predictions_all_domain](/figures/model_plots/rf_within_domain_error_distribution.png)
