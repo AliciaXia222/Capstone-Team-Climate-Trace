@@ -29,7 +29,7 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables. These EUI estimates, combined with global building floor area, serve as a basis for calculating direct GHG emissions from buildings, offering a timely, high-resolution approach to global emissions estimation.
 
-The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-validation, we reduced the error to an average of 17.51% using a Random Forest model and selecting the most important features among those evaluated. This represents a 54% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
+The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross domain validation, we reduced the error to an average of 17.51% using a Random Forest model and selecting the most important features among those evaluated. This represents a 54% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
 
 ## 2. Introduction <a name="Introduction"></a>
 
@@ -226,12 +226,26 @@ For details on the calculations, check the [Feature Importance Notebook](/notebo
 
 In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. 
 
-En particular, estamos considerando 
+In particular, we select the best model based on **minimizing MAPE in the cross domain strategy**, as it better reflects the model’s real-world generalization ability and allows us to optimize accordingly.
+
+As a **baseline**, we consider the scenario where EUI is predicted simply by using the value from the geographically closest data point. To implement this, we use a **K-Nearest Neighbors model with K=1, using only latitude and longitude** as input features.
+
+With this approach, we obtained an average MAPE of 37.8%, which serves as our reference point for evaluating model improvements.
+
+We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
+
+
+1. **Model Performance Using All Features**
+The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
+
+
+3. **Model Performance After Feature Selection**
+The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
 
 
 
 
-The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv). The findings and recommendations for model improvement will be further explored in the [Results & Analysis slide deck](https://docs.google.com/presentation/d/1aeell_KmJwJAF3aopTo4ghbe1blzv2hjZ7Oo8uiPV3E/edit?usp=sharing).
+
 
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique. By analyzing these results, we can determine which model performs best across different scenarios, guiding our final decision on the most effective approach for predicting EUI. In addition to MAPE, R², and RMSE, other evaluation metrics can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv).
