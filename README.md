@@ -157,8 +157,7 @@ Feature engineering is essential to transform raw data into meaningful represent
      
 **Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
-**After feature engineering and merging our datasets, we've generated the final dataset for model input, containing 482 data points. It can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
-
+**After feature engineering and merging our datasets, the full process is available in the Jupyter notebook [here]((https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/notebooks/019_MergeEUI.ipynb)). This resulted in the final dataset for model input, containing 482 data points, which can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 ## 5. Models <a name="Models"></a>   
 
