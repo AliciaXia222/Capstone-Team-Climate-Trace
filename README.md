@@ -271,7 +271,7 @@ The following table summarizes the MAPE results under the cross-domain validatio
 
 | Model                           | Non-residential MAPE (Cross-domain) | Residential MAPE (Cross-domain) | Average MAPE  (Cross-domain) |
 |--------------------------------|--------------------------------------|----------------------------------|--------------|
-| KNN (K=1, Lat & Long only)     | 38.4%                               | 37.2%                           | 37.8%        |
+| KNN (K=1, Lat & Long)     | 38.4%                               | 37.2%                           | 37.8%        |
 | CAT Boost (All Features)       | 17.2%                               | 20.7%                           | 18.95%       |
 | Random Forest (Top Features)   | 13.8%                               | 21.2%                           | 17.51%       |
 
