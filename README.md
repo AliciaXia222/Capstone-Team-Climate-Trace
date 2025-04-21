@@ -204,11 +204,11 @@ Given the challenge of regional variations in global data, we will validate our 
 
 
 ![Geographic Distribution of Data Points by Region](/figures/03_region_map.png)
-
+   
    The strategies we will be using are as follows:
 
 ![Image](/figures/04_experimental_design.png)
-
+   
    We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
 ## 6. Experiments <a name="Experiments"></a>
