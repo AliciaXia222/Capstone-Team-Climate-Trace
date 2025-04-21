@@ -29,7 +29,7 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables. These EUI estimates, combined with global building floor area, serve as a basis for calculating direct GHG emissions from buildings, offering a timely, high-resolution approach to global emissions estimation.
 
-The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 38.9% in cross-validation, we reduced the error to an average of 18.4% using a Random Forest model and selecting the most important features among those evaluated. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
+The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-validation, we reduced the error to an average of 17.56% using a Random Forest model and selecting the most important features among those evaluated. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
 
 ## 2. Introduction <a name="Introduction"></a>
 
@@ -50,7 +50,8 @@ Specifically, we can define our problem statement as follows:
 
 ### 2.3 GHG Estimation Formula <a name="GHGEstimation"></a>
 
-To estimate GHG emissions from buildings, we will use Energy Use Intensity (EUI) as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
+To estimate GHG emissions from buildings, Energy Use Intensity (EUI) can be used as a central metric. EUI measures the energy consumption per square meter of building space, making it a valuable indicator for emissions estimation. By combining EUI values with total building floor area and an emissions factor, we can calculate the GHG emissions associated with buildings.
+
 
 The estimation formula is:
 ![Formula](/figures/01_formula.png)
@@ -63,9 +64,7 @@ The goal of this project is to develop a machine learning model to predict the E
 
 Energy Use Intensity is a key metric representing the amount of energy consumed per unit area of a building. To evaluate prediction accuracy, we use the Mean Absolute Percentage Error (MAPE), where lower values indicate better model performance. Therefore, minimizing MAPE is a central objective of this work.
 
-In the first semester, the focus has been on developing the Energy Use Intensity (EUI) estimation technique, using globally available features to predict EUI. By selecting these key features, the goal has been to generate the first iteration of EUI predictions. The target for this stage is to achieve a Mean Absolute Percentage Error (MAPE) in the range of 30-40%. While this is the ideal range for this milestone, it is possible that we may not meet this target at this stage. Refining and improving this technique will be the focus for the second semester.
-
-In the second semester, the model will be further refined through feature engineering and tuning. The goal is to achieve a MAPE below 20%, representing over a 50% improvement from the initial baseline. Achieving this level of accuracy would demonstrate strong predictive capability and robustness across diverse global contexts. The expected outcome is a global-scale EUI prediction model that enables high-resolution, data-driven analysis of building energy demand. Estimating direct GHG emissions from buildings, using EUI predictions and the other two components in the GHG estimation formula, is identified as an important next step for future work.
+This project focuses on developing the Energy Use Intensity (EUI) estimation technique using globally available features. By selecting key features, the goal has been to improve EUI predictions and reduce the average MAPE in the cross-validation context.
 
 ### 2.5 Project Deliverables and Presentation Materials <a name="ProjectDeliverablesAndPresentationMaterials"></a>
 
