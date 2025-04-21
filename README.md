@@ -157,7 +157,7 @@ Feature engineering is essential to transform raw data into meaningful represent
      
 **Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
-**After feature engineering and merging our datasets, the full process is available in the Jupyter notebook [here]((https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/notebooks/019_MergeEUI.ipynb)). This resulted in the final dataset for model input, containing 482 data points, which can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
+**After feature engineering and merging our datasets, the full process is available in the Jupyter notebook [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/notebooks/030_DataPreprocessing.ipynb). This resulted in the final dataset for model input, containing 482 data points, which can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
 ## 5. Models <a name="Models"></a>   
 
@@ -210,11 +210,11 @@ We aim to assess our model's generalization by comparing its performance within 
 
 ### 6.1 Feature Importance <a name="FeatureImportance"></a>
 
-To find the most important factors in building energy use and greenhouse gas emissions, we used a linear regression model. The target variable, energy use intensity (EUI), was calculated as the total of residential and non-residential energy use (kWh/m²/year).
+To identify the most influential factors in building energy use and greenhouse gas emissions, we used a Random Forest model. The input variables included socioeconomic, climatic, and geographic indicators. Among the evaluated features, the Income Index (32.09%) and Average Temperature (23.58%) emerged as the most important predictors of energy use intensity (EUI), followed by Latitude (16.41%) and Average Dewpoint Temperature (6.53%). These results highlight the strong influence of income levels and climate on building energy consumption. In contrast, features such as GDP per capita (0.45%), the Paris Agreement indicator (0.01%), and image-based embeddings contributed very little, suggesting that image-derived features were not particularly informative in this context.
 
-The model included factors like GDP per capita, urbanization rate, latitude, and subnational HDI. To make all variables comparable, we standardized the data before training the model. Heating Degree Days (HDD), which measures heating demand based on temperature, turned out to be the most important factor, showing how much temperature affects energy use.
+We initially tested our models using all available features and then evaluated performance by selecting the most important ones. After testing several options, we decided to set a threshold to retain only the features contributing more than 1% to the model's predictions. This feature selection process helped streamline the model, focusing on the most influential variables while improving computational efficiency.
 
-In the future, the model could include other temperature-related factors, like average temperature and humidity, which were not included in this iteration. For details on the calculations, check the [Feature Importance Notebook](/notebooks/050_FeatureImportance.ipynb).   
+For details on the calculations, check the [Feature Importance Notebook](/notebooks/050_FeatureImportance.ipynb).   
 
 ![Feature Importance](/figures/05_feature_importance.png)
 
