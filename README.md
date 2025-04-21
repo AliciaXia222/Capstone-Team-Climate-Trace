@@ -184,15 +184,21 @@ In this project, we will employ a range of supervised machine learning models to
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
 ### 5.2 Experimental Design <a name="ExperimentalDesign"></a>
-Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
+1. **Feature Selection**
+Removed less important features based on feature importance analysis.
 
+3. **Hyperparameter Tuning**
+Grid Search for MAPE optimization.
+
+4. **Validation Strategy**
+Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. This approach helps to account for local differences in energy use patterns and improve the model’s predictive accuracy across diverse contexts. The regions we are using are defined as follows:
 
-1. Asia & Oceania
-2. Europe
-3. Africa
-4. Central and South America
-5. Northern America
+   - **Asia & Oceania**
+   - **Europe**
+   - **Africa**
+   - **Central and South America**
+   - **Northern America**
 
 The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
 
@@ -236,7 +242,6 @@ The following graphs display the average performance metrics for MAPE, R², and 
 # Top Features
 
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_mape.png)
-
 
 
    - **R²**  
