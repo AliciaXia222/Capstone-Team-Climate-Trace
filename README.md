@@ -320,7 +320,7 @@ Other regions show more variable performance, with Europe, Northern America and 
 
 ## 7. Conclusion <a name="Conclusion"></a>
 
-Our analysis reveals significant insights into developing machine learning approaches for global EUI prediction. Ensemble models, particularly Random Forest, consistently outperformed traditional methods across validation strategies, achieving MAPE values below 20% and surpassing our initial target of 30-40%. However, the variation in R² values, especially in cross-domain scenarios, indicates challenges in capturing the full complexity of EUI patterns across different regions.
+This project presents a robust and efficient methodology for estimating Energy Use Intensity (EUI) in buildings at a global scale, aiming to lay the groundwork for more accurate estimation of direct greenhouse gas (GHG) emissions from the building sector. Starting from a baseline KNN model that relied solely on latitude and longitude, we achieved a substantial improvement by incorporating climatic, geographic, and socioeconomic variables. This resulted in a reduction of the average error (MAPE) from 37.8% to 17.51% through the use of Random Forests. This 54% improvement in cross-domain validation highlights the model’s robustness and the importance of effective feature selection.
 
 Regional analysis uncovered important patterns in model performance. Asia & Oceania and Central/South America demonstrated the strongest results, while Europe and Northern America showed more variable predictions. Africa presented an interesting case with low error rates but poor explanatory power. The significant performance differences between within-domain and cross-domain validation highlight the strong influence of regional characteristics on EUI predictions.
 
