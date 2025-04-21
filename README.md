@@ -124,9 +124,9 @@ We develop the feature map by identifying variables that potentially affect the 
 
 9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
 
-10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
-   - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
-   - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
+10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:
+      - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
+      - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
@@ -200,16 +200,16 @@ Given the challenge of regional variations in global data, we will validate our 
    - **Central and South America**
    - **Northern America**
 
-The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
+   The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
 
 
 ![Geographic Distribution of Data Points by Region](/figures/03_region_map.png)
 
-The strategies we will be using are as follows:
+   The strategies we will be using are as follows:
 
 ![Image](/figures/04_experimental_design.png)
 
-We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
+   We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
 ## 6. Experiments <a name="Experiments"></a>
 
