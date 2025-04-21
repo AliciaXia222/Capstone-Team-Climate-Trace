@@ -226,9 +226,7 @@ In this section, we evaluate the performance of several machine learning models 
 
 In particular, we select the best model based on **minimizing MAPE in the cross domain strategy**, as it better reflects the model’s real-world generalization ability and allows us to optimize accordingly.
 
-As a **baseline**, we consider the scenario where EUI is predicted simply by using the value from the geographically closest data point. To implement this, we use a **K-Nearest Neighbors model with K=1, using only latitude and longitude** as input features.
-
-With this approach, we obtained an average MAPE of 37.8%, which serves as our reference point for evaluating model improvements.
+As a **baseline**, we consider the scenario where EUI is predicted simply by using the value from the geographically closest data point. To implement this, we use a **K-Nearest Neighbors model with K=1, using only latitude and longitude** as input features. With this approach, we obtained an **average MAPE of 37.8%**, which serves as our reference point for evaluating model improvements.
 
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
@@ -236,23 +234,19 @@ We initially tested our models using all available features and then evaluated p
 1. **Model Performance Using All Features**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
 
-
-2. **Model Performance After Feature Selection**
-The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
-
-
-
-
-
-
-
-The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique. By analyzing these results, we can determine which model performs best across different scenarios, guiding our final decision on the most effective approach for predicting EUI. In addition to MAPE, R², and RMSE, other evaluation metrics can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv).
-
    - **MAPE**  
    The MAPE across validation strategies revealed that predictions for non-residential buildings generally demonstrated superior predictive capability compared to residential buildings. Ensemble models (Random Forest, XGBoost, and CatBoost) consistently outperformed traditional approaches. We can observe that the within-domain strategy delivered better results, while the cross-domain strategy presented more challenges, with the all-domain strategy serving as an intermediate point. One of the challenges that arises is how to improve generalization in order to reduce the gap between these strategies, ultimately enhancing model performance across different regions. On average, we achieved the target of a MAPE below 30-40%, although it is important to note that some individual predictions fell outside this range, as will be discussed further later.
 
-# All Features
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_mape.png)
+
+
+3. **Model Performance After Feature Selection**
+The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
+
+The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique. By analyzing these results, we can determine which model performs best across different scenarios, guiding our final decision on the most effective approach for predicting EUI.
+
+
+
 
 # Top Features
 
