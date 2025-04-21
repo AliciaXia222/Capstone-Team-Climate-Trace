@@ -14,7 +14,7 @@
    4.1 [Overall Framework](#OverallFramework)  
    4.2 [Feature Map](#FeatureMap)   
    4.3 [Feature Engineering](#FeatureEngineering)
-5. [Machine Learning Approach and Experimental Setup](#Machine Learning Approach and Experimental Setup)  
+5. [Machine Learning Approach and Experimental Setup](#MachineLearningApproachandExperimentalSetup)  
    5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.2 [Experimental Design](#ExperimentalDesign)
 6. [Experiments](#Experiments)    
