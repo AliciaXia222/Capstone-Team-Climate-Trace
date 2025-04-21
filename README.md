@@ -267,6 +267,17 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
 #### Best Model Overall: Random Forest - With Feature Selection
 
+The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
+
+| Model                           | Non-residential MAPE (Cross-domain) | Residential MAPE (Cross-domain) | Average MAPE  (Cross-domain) |
+|--------------------------------|--------------------------------------|----------------------------------|--------------|
+| KNN (K=1, Lat & Long only)     | 38.4%                               | 37.2%                           | 37.8%        |
+| CAT Boost (All Features)       | 17.2%                               | 20.7%                           | 18.95%       |
+| Random Forest (Top Features)   | 13.8%                               | 21.2%                           | 17.51%       |
+
+
+
+
 Based on our evaluation across metrics, we selected Random Forest as our primary model for EUI prediction. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types. It achieved MAPE values below 15% for non-residential and 21% for residential in within-domain validation, maintained positive R² values (0.22-0.52 within-domain), and showed stable RMSE values (29.3 non-residential, 23.6 residential within-domain). This consistent performance, along with its ability to handle non-linear relationships and maintain stability in cross-domain scenarios, makes Random Forest the most reliable choice for global EUI prediction.
 
 
