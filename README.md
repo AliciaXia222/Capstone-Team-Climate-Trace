@@ -236,15 +236,15 @@ The specific features utilized in each model, along with the hyperparameters tes
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
 
-   - **MAPE**  
+   - **MAPE (All Features)**  
 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_mape.png)
 
-   - **R²**  
+   - **R² (All Features)**  
 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_r2.png)
 
-   - **RMSE** 
+   - **RMSE (All Features)** 
 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_rmse.png)
 
@@ -254,13 +254,13 @@ The specific features utilized in each model, along with the hyperparameters tes
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
 
-   - **MAPE**  
+   - **MAPE (Top Features)**  
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_mape.png)
 
-   - **R²**  
+   - **R² (Top Features)**  
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_r2.png)
 
-   - **RMSE** 
+   - **RMSE (Top Features)** 
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_rmse.png)
 
 
