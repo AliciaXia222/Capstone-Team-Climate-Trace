@@ -231,7 +231,7 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
 
-1. **Model Performance Using All Features**
+#### **Model Performance Using All Features**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
@@ -249,7 +249,7 @@ The following graphs display the average performance metrics for MAPE, R², and 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_rmse.png)
 
 
-2. **Model Performance After Feature Selection**
+#### **Model Performance After Feature Selection**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
