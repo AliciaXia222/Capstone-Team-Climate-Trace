@@ -222,8 +222,6 @@ For details on the calculations, check the [Feature Importance Notebook](/notebo
 
 ### 6.2 Models <a name="Models"></a>
 
-#### Comparison Between Models
-
 In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. 
 
 In particular, we select the best model based on **minimizing MAPE in the cross domain strategy**, as it better reflects the model’s real-world generalization ability and allows us to optimize accordingly.
@@ -239,7 +237,7 @@ We initially tested our models using all available features and then evaluated p
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
 
 
-3. **Model Performance After Feature Selection**
+2. **Model Performance After Feature Selection**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
 
 
