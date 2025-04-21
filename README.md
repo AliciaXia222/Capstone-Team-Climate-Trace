@@ -29,7 +29,7 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables. These EUI estimates, combined with global building floor area, serve as a basis for calculating direct GHG emissions from buildings, offering a timely, high-resolution approach to global emissions estimation.
 
-The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-validation, we reduced the error to an average of 17.56% using a Random Forest model and selecting the most important features among those evaluated. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
+The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-validation, we reduced the error to an average of 17.51% using a Random Forest model and selecting the most important features among those evaluated. This represents a 54% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
 
 ## 2. Introduction <a name="Introduction"></a>
 
@@ -124,9 +124,9 @@ We develop the feature map by identifying variables that potentially affect the 
 
 9. **[Urbanization Rate](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?end=2023&start=2023&view=map&year=2022)**: Urbanization rate reflects the average annual growth of urban populations. For consistency, we used data from 2022.
 
-10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:  
-   - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
-   - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
+10. **[Educational Index](https://globaldatalab.org/shdi/metadata/edindex/)**: This index comprises two indicators:
+      - *Mean Years of Schooling (MYS)*: The average years of schooling for adults aged 25 and above.  
+      - *Expected Years of Schooling (EYS)*: The anticipated years of education for the current population.  
 
 11. **[Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement)**: The Paris Agreement is an international treaty adopted by 196 parties in 2015. We used this information to create a binary variable to indicate whether a country is a signatory.
 
@@ -151,9 +151,9 @@ Feature engineering is essential to transform raw data into meaningful represent
 
 3. **Standard Statistical Techniques:**
    
-   - **Nearest Reference Mapping:** Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
-   - **GDP per Capita Calculation:** We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
-   - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity.
+    - **Nearest Reference Mapping:** Nearest Reference Mapping involves assign each data point to its closest reference location based on a defined distance metric, enriching the dataset with relevant features from these reference points. In this project, we aim to assigning **EUI values** to each data point based on its nearest starting point with known ground truth. By using the EUI values as features and incorporating spatial context into our model, we aim to improve the model’s starting point and enhance prediction accuracy for global projections. 
+    - **GDP per Capita Calculation:** We use GDP per capita, which is the result of dividing total GDP by the population, as it provides more relevant information for our model. This approach better captures the economic impact on energy consumption at the individual level, enabling more accurate comparisons across regions with varying population sizes.
+    - **Sin/Cos transformation:** To preserve directionality and spatial information, we transform latitude and longitude using sine and cosine functions. Specifically, we convert lat/lon to radians and compute their sine and cosine values as input features.This accounts for the circular nature of geographic coordinates and helps the model capture spatial proximity. However, after experimentation, this approach did not yield better performance compared to using raw latitude and longitude values. Therefore, we reverted to using the standard lat/lon features in our final models.
      
 **Note:HDI, GDP, Education, Income, Urbanization, and Paris Agreement features are processed using statistical techniques suited to their characteristics.
 
@@ -173,40 +173,42 @@ In this project, we will employ a range of supervised machine learning models to
 
 3. **Ensemble Models:**
 
-   - **Random Forest:**
-     Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
-   - **XGBoost:**  
-     XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
+   - **Random Forest:** Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
+   - **XGBoost:** XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
    
-   - **CatBoost:**  
-     CatBoost is another gradient boosting algorithm known for its handling of categorical features without the need for explicit preprocessing. It is expected to provide competitive results, particularly in datasets with mixed types of variables.
+   - **CatBoost:** CatBoost is another gradient boosting algorithm known for its handling of categorical features without the need for explicit preprocessing. It is expected to provide competitive results, particularly in datasets with mixed types of variables.
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
 ### 5.2 Experimental Design <a name="ExperimentalDesign"></a>
-Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
+1. **Feature Selection**
+Removed less important features based on feature importance analysis.
 
+3. **Hyperparameter Tuning**
+Grid Search for MAPE optimization.
+
+4. **Validation Strategy**
+Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. The regions we are using are defined as follows:
 Given the challenge of regional variations in global data, we will validate our predictions at the regional level across five distinct regions using three strategies to identify biases and improve model robustness. This approach helps to account for local differences in energy use patterns and improve the model’s predictive accuracy across diverse contexts. The regions we are using are defined as follows:
 
-1. Asia & Oceania
-2. Europe
-3. Africa
-4. Central and South America
-5. Northern America
+   - **Asia & Oceania**
+   - **Europe**
+   - **Africa**
+   - **Central and South America**
+   - **Northern America**
 
-The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
+   The data points in our dataset, which we intend to predict, are distributed across these various regions, as illustrated in the following map.
 
 
 ![Geographic Distribution of Data Points by Region](/figures/03_region_map.png)
-
-The strategies we will be using are as follows:
+   
+   The strategies we will be using are as follows:
 
 ![Image](/figures/04_experimental_design.png)
-
-We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
+   
+   We aim to assess our model's generalization by comparing its performance within the same region (Within-Domain) and its ability to extrapolate to other regions (Cross-Domain). The goal is to reduce the gap between these strategies to improve accuracy and understand extrapolation errors. Additionally, we want to understand if there are regions that perform better than others in specific outcomes, which can help us tailor our model to regional differences.
 
 ## 6. Experiments <a name="Experiments"></a>
-
 
 ### 6.1 Feature Importance <a name="FeatureImportance"></a>
 
@@ -222,7 +224,14 @@ For details on the calculations, check the [Feature Importance Notebook](/notebo
 
 #### Comparison Between Models
 
-In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv). The findings and recommendations for model improvement will be further explored in the [Results & Analysis slide deck](https://docs.google.com/presentation/d/1aeell_KmJwJAF3aopTo4ghbe1blzv2hjZ7Oo8uiPV3E/edit?usp=sharing).
+In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. 
+
+En particular, estamos considerando 
+
+
+
+
+The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv). The findings and recommendations for model improvement will be further explored in the [Results & Analysis slide deck](https://docs.google.com/presentation/d/1aeell_KmJwJAF3aopTo4ghbe1blzv2hjZ7Oo8uiPV3E/edit?usp=sharing).
 
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique. By analyzing these results, we can determine which model performs best across different scenarios, guiding our final decision on the most effective approach for predicting EUI. In addition to MAPE, R², and RMSE, other evaluation metrics can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/comparison_average_results.csv).
@@ -236,7 +245,6 @@ The following graphs display the average performance metrics for MAPE, R², and 
 # Top Features
 
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_mape.png)
-
 
 
    - **R²**  
