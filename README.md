@@ -173,13 +173,10 @@ In this project, we will employ a range of supervised machine learning models to
 
 3. **Ensemble Models:**
 
-   - **Random Forest:**
-     Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
-   - **XGBoost:**  
-     XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
+   - **Random Forest:** Random Forest is an ensemble learning method that combines multiple decision trees to improve accuracy and reduce overfitting. It is particularly useful for handling high-dimensional data and capturing complex, non-linear relationships.
+   - **XGBoost:** XGBoost is an optimized gradient boosting algorithm that performs well in a variety of prediction tasks. It builds an ensemble of decision trees sequentially, improving the model’s performance by reducing bias and variance.
    
-   - **CatBoost:**  
-     CatBoost is another gradient boosting algorithm known for its handling of categorical features without the need for explicit preprocessing. It is expected to provide competitive results, particularly in datasets with mixed types of variables.
+   - **CatBoost:** CatBoost is another gradient boosting algorithm known for its handling of categorical features without the need for explicit preprocessing. It is expected to provide competitive results, particularly in datasets with mixed types of variables.
 
 The combination of linear models, distance-based methods like KNN, and powerful ensemble models like XGBoost and CatBoost will allow us to capture a range of patterns in the data, from simple linear trends to more complex interactions and non-linear relationships.
 
