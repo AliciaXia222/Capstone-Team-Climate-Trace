@@ -231,7 +231,7 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
 
-#### **Model Performance Using All Features**
+### **Model Performance Using All Features**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
@@ -249,7 +249,7 @@ The following graphs display the average performance metrics for MAPE, R², and 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_rmse.png)
 
 
-#### **Model Performance After Feature Selection**
+### **Model Performance After Feature Selection**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
 
 The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
@@ -265,7 +265,7 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
 
 
-#### Best Model Overall: Random Forest - With Feature Selection
+### Best Model Overall: Random Forest (Top Features)
 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
@@ -276,10 +276,7 @@ The following table summarizes the MAPE results under the cross-domain validatio
 | RF (Top Features)   | 13.8%                               | 21.2%                           | 17.51%       |
 
 
-
-
-Based on our evaluation across metrics, we selected Random Forest as our primary model for EUI prediction. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types. It achieved MAPE values below 15% for non-residential and 21% for residential in within-domain validation, maintained positive R² values (0.22-0.52 within-domain), and showed stable RMSE values (29.3 non-residential, 23.6 residential within-domain). This consistent performance, along with its ability to handle non-linear relationships and maintain stability in cross-domain scenarios, makes Random Forest the most reliable choice for global EUI prediction.
-
+Based on our evaluation across metrics, we selected Random Forest using top features as our primary model for EUI prediction. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which we aim to minimize. It achieved a MAPE of 13.8% for non-residential and 21.2% for residential buildings under cross-domain validation. This consistent performance, along with its ability to handle non-linear relationships and maintain stability across regions, makes Random Forest the most reliable choice for global EUI prediction.
 
 The following figure shows detailed performance metrics for the Random Forest model across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20241208_2046_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20241208_2046_rf_average_results.csv).
 
