@@ -281,11 +281,17 @@ The following graphs display the average performance metrics for MAPE, R², and 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
 
-| Model                        | Non-residential MAPE <br> (Cross-domain) | Residential MAPE <br> (Cross-domain) | Average MAPE <br> (Cross-domain) |
-|------------------------------|------------------------------------------|--------------------------------------|----------------------------------|
-| KNN (K=1, Lat & Long)        | 38.4%                                    | 37.2%                                | 37.8%                            |
-| CAT Boost (All Features)     | 17.2%                                    | 20.7%                                | 18.95%                           |
-| **RF (Top Features)**        | 13.8%                                    | 21.2%                                | **17.51%**                       |
+| Model    | Parameters                              | Non-residential MAPE <br> (Cross-domain) | Residential MAPE <br> (Cross-domain) | Average MAPE <br> (Cross-domain) |
+|----------|-----------------------------------------|------------------------------------------|--------------------------------------|----------------------------------|
+| KNN      | K=1, Lat & Long                         | 38.4%                                    | 37.2%                                | 37.8%                            |
+| CAT Boost| All Features n Clusters = 2            | x%                                       | x%                                   | x%                               |
+| CAT Boost| All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
+| CAT Boost| All Features n Clusters = 20           | 17.2%                                    | 20.7%                                | 18.95%                           |
+| CAT Boost| Top Features                            | x%                                       | x%                                   | x%                               |
+| RF       | All Features n Clusters = 2            | x%                                       | x%                                   | x%                               |
+| RF       | All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
+| RF       | All Features n Clusters = 20           | x%                                       | x%                                   | x%                               |
+| RF       | Top Features                            | 13.8%                                    | 21.2%                                | **17.51%**                       |
 
 
 Based on our evaluation across metrics, **we selected Random Forest using top features as our primary model for EUI prediction**. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which we aim to minimize. It achieved a MAPE of 13.8% for non-residential and 21.2% for residential buildings under cross-domain validation. This consistent performance, along with its ability to handle non-linear relationships and maintain stability across regions, makes Random Forest the most reliable choice for global EUI prediction.
