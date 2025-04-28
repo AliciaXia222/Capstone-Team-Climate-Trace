@@ -33,6 +33,18 @@ This project develops a machine learning model to estimate direct greenhouse gas
 The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-domain validation, we reduced the error by training a Random Forest model. To further improve performance, we applied grid search to optimize hyperparameters and iterated over different combinations of image embedding clusterings. As a result, we achieved an average MAPE of 17.9%. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. These results highlight the robustness of the model and the effectiveness of the proposed methodology.
 
 
+| Model | Details                        | Non-residential MAPE <br> (Cross-domain) | Residential MAPE <br> (Cross-domain) | Average MAPE <br> (Cross-domain) |
+|:------|:-------------------------------|:----------------------------------------|:------------------------------------|:--------------------------------|
+| KNN   | K=1, Lat & Long only           | 38.4%                                   | 37.2%                               | 37.8%                           |
+| **RF** | **Number of Clusters = 5**     | **15.6%**                               | **20.2%**                           | **17.9%**                       |
+| **RF** | **Number of Clusters = 10**    | **14.5%**                               | **21.3%**                           | **17.9%**                       |
+| RF    | Number of Clusters = 20        | 16.8%                                   | 23.1%                               | 20.0%                           |
+| XGB   | Number of Clusters = 5         | 15.4%                                   | 23.1%                               | 19.3%                           |
+| XGB   | Number of Clusters = 10        | 14.4%                                   | 24.0%                               | 19.2%                           |
+| XGB   | Number of Clusters = 20        | 14.1%                                   | 23.1%                               | 18.6%                           |
+
+
+
 ## 2. Introduction <a name="Introduction"></a>
 
 ### 2.1  Project Motivation  <a name="ProjectMotivation"></a>
