@@ -245,28 +245,13 @@ We initially tested our models using all available features and then evaluated p
 ### **Model Performance Using 5 Clusters from Image Embeddings**
 
 
-   - **MAPE (All Features)**  
-
 ![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
-
-
-   - **RMSE (All Features)** 
-
-![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_rmse.png)
-
 
 
 ### **Model Performance Using 10 Clusters from Image Embeddings**
 
 
-   - **MAPE (All Features)**  
-
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
-
-
-   - **RMSE (All Features)** 
-
-![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_rmse.png)
 
 
 ### **Model Performance Using 20 Clusters from Image Embeddings**
@@ -277,15 +262,7 @@ We initially tested our models using all available features and then evaluated p
 ![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
 
-   - **RMSE (All Features)** 
-
-![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_rmse.png)
-
-
-
-
-
-### Best Model Overall: Random Forest 
+### Best Model Overall: Random Forest with 10 Clusters
 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
