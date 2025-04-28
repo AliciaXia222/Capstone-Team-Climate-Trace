@@ -242,36 +242,50 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions, as this provided better results in terms of average MAPE. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
-### **Model Performance Using All Features**
-The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
+### **Model Performance Using 5 Clusters from Image Embeddings**
 
-The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
 
    - **MAPE (All Features)**  
 
-![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_mape.png)
+![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
 
 
    - **RMSE (All Features)** 
 
-![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_rmse.png)
-
-
-### **Model Performance After Feature Selection**
-The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/selected_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/comparison_average_results.csv).
-
-The following graphs display the average performance metrics for MAPE, R², and RMSE for both residential and non-residential buildings across different cross-validation strategies: within domain, cross-domain, and all domain. These averages are calculated for various regions, helping us to identify the best model and select our EUI Estimation Technique.
-
-   - **MAPE (Top Features)**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_mape.png)
-
-
-   - **RMSE (Top Features)** 
-![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_rmse.png)
+![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_rmse.png)
 
 
 
-### Best Model Overall: Random Forest (Top Features)
+### **Model Performance Using 10 Clusters from Image Embeddings**
+
+
+   - **MAPE (All Features)**  
+
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
+
+
+   - **RMSE (All Features)** 
+
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_rmse.png)
+
+
+### **Model Performance Using 20 Clusters from Image Embeddings**
+
+
+   - **MAPE (All Features)**  
+
+![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
+
+
+   - **RMSE (All Features)** 
+
+![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_rmse.png)
+
+
+
+
+
+### Best Model Overall: Random Forest 
 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
@@ -279,10 +293,6 @@ The following table summarizes the MAPE results under the cross-domain validatio
 | Model    | Parameters                              | Non-residential MAPE <br> (Cross-domain) | Residential MAPE <br> (Cross-domain) | Average MAPE <br> (Cross-domain) |
 |----------|-----------------------------------------|------------------------------------------|--------------------------------------|----------------------------------|
 | KNN      | K=1, Lat & Long                         | 38.4%                                    | 37.2%                                | 37.8%                            |
-| CAT Boost| All Features n Clusters = 5            | x%                                       | x%                                   | x%                               |
-| CAT Boost| All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
-| CAT Boost| All Features n Clusters = 20           | 17.2%                                    | 20.7%                                | 18.95%                           |
-| CAT Boost| Top Features                            | x%                                       | x%                                   | x%                               |
 | RF       | All Features n Clusters = 5            | x%                                       | x%                                   | x%                               |
 | RF       | All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
 | RF       | All Features n Clusters = 20           | x%                                       | x%                                   | x%                               |
