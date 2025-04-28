@@ -17,9 +17,10 @@
 5. [Machine Learning Approach and Experimental Setup](#MachineLearningApproachandExperimentalSetup)  
    5.1 [Supervised Machine Learning](#SupervisedMachineLearning)    
    5.2 [Experimental Design](#ExperimentalDesign)
-6. [Experiments](#Experiments)    
-   6.1 [Feature Importance](#FeatureImportance)    
-   6.2 [Models](#Models)
+6. [Experiments](#Experiments)  
+   6.1 [Number of Clusters in Fuzzy C-Means](#NumberofClustersinFuzzyCMeans)  
+   6.2 [Feature Importance](#FeatureImportance)  
+   6.3 [Models](#Models)    
 7. [Conclusion](#Conclusion)
 8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
 9. [Resources](#Resources)
@@ -159,7 +160,7 @@ Feature engineering is essential to transform raw data into meaningful represent
 
 **After feature engineering and merging our datasets, the full process is available in the Jupyter notebook [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/notebooks/030_DataPreprocessing.ipynb). This resulted in the final dataset for model input, containing 482 data points, which can be accessed [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/data/03_processed/merged_df.csv)
 
-## 5. Machine Learning Approach and Experimental Setup <a name="Machine Learning Approach and Experimental Setup"></a>   
+## 5. Machine Learning Approach and Experimental Setup <a name="MachineLearningApproachandExperimentalSetup"></a>   
 
 ### 5.1 Supervised Machine Learning <a name="SupervisedMachineLearning"></a>  
 
@@ -210,7 +211,10 @@ Given the challenge of regional variations in global data, we will validate our 
 
 ## 6. Experiments <a name="Experiments"></a>
 
-### 6.1 Feature Importance <a name="FeatureImportance"></a>
+### 6.1 Number of Clusters in Fuzzy C-Means <a name="NumberofClustersinFuzzyCMeans"></a>
+![FFPC](/figures/05_fuzzy_partition_coefficient.png)
+
+### 6.2 Feature Importance <a name="FeatureImportance"></a>
 
 To identify the most influential factors in building energy use and greenhouse gas emissions, we used a Random Forest model. The input variables included socioeconomic, climatic, and geographic indicators. Among the evaluated features, the Income Index (32.09%) and Average Temperature (23.58%) emerged as the most important predictors of energy use intensity (EUI), followed by Latitude (16.41%) and Average Dewpoint Temperature (6.53%). These results highlight the strong influence of income levels and climate on building energy consumption. In contrast, features such as GDP per capita (0.45%), the Paris Agreement indicator (0.01%), and image-based embeddings contributed very little, suggesting that image-derived features were not particularly informative in this context.
 
@@ -218,9 +222,9 @@ We initially tested our models using all available features and then evaluated p
 
 For details on the calculations, check the [Feature Importance Notebook](/notebooks/050_FeatureImportance.ipynb).   
 
-![Feature Importance](/figures/05_feature_importance.png)
+![Feature Importance](/figures/06_feature_importance.png)
 
-### 6.2 Models <a name="Models"></a>
+### 6.3 Models <a name="Models"></a>
 
 In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and R², are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. 
 
@@ -281,7 +285,7 @@ Based on our evaluation across metrics, **we selected Random Forest using top fe
 
 The following figure shows detailed performance metrics for the Random Forest model across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/20250421_0210_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/20250421_0210_rf_average_results.csv).
 
-![eui_predictions_all_domain](/figures/06_avg_rf.png)
+![eui_predictions_all_domain](/figures/07_avg_rf.png)
 
 To better understand the Random Forest model's performance across different validation strategies, we examine the relationship between predicted and actual EUI values, along with error distributions for each region. The following figures show these relationships for within-domain, cross-domain, and all-domain validation approaches. For each strategy, we present both scatter plots comparing predicted versus actual values, and corresponding error distribution histograms, broken down by geographical region and building type.
 
