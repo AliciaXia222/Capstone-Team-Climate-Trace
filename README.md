@@ -30,9 +30,8 @@
 
 This project develops a machine learning model to estimate direct greenhouse gas (GHG) emissions from residential and non-residential building energy consumption. The model predicts energy use intensity (EUI) by incorporating climatic, geographical, and socioeconomic variables. These EUI estimates, combined with global building floor area, serve as a basis for calculating direct GHG emissions from buildings, offering a timely, high-resolution approach to global emissions estimation.
 
-The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross domain validation, we reduced the error to an average of 17.51% using a Random Forest model and selecting the most important features among those evaluated. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. This result highlights the robustness of the model and the effectiveness of the proposed approach.  
-
 The work focuses on developing an EUI estimation technique, with an emphasis on minimizing the Mean Absolute Percentage Error (MAPE). Starting from a baseline K-Nearest Neighbors (KNN) model (K = 1), using only geographic location (latitude and longitude), with an average MAPE of 37.8% in cross-domain validation, we reduced the error by training a Random Forest model. To further improve performance, we applied grid search to optimize hyperparameters and iterated over different combinations of image embedding clusterings. As a result, we achieved an average MAPE of 17.9%. This represents a 53% improvement from the baseline in cross-domain validation, which is the most conservative strategy compared to all-domain and within-domain evaluations. These results highlight the robustness of the model and the effectiveness of the proposed methodology.
+
 
 ## 2. Introduction <a name="Introduction"></a>
 
