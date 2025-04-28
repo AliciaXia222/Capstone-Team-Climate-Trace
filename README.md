@@ -241,8 +241,7 @@ In particular, we select the best model based on **minimizing MAPE in the cross 
 
 As a **baseline**, we consider the scenario where EUI is predicted simply by using the value from the geographically closest data point. To implement this, we use a **K-Nearest Neighbors model with K=1, using only latitude and longitude** as input features. With this approach, we obtained an **average MAPE of 37.8%**, which serves as our reference point for evaluating model improvements.
 
-We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
-
+We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions, as this provided better results in terms of average MAPE. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
 ### **Model Performance Using All Features**
 The specific features utilized in each model, along with the hyperparameters tested, can be found in detail in the tables [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/all_features) and are summarized in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/all_features/comparison_average_results.csv).
