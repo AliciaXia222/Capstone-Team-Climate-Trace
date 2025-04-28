@@ -1,0 +1,7 @@
+,Target,Strategy,Model,Model Details,Features Used,Features Abbreviated,MAPE,R²,MSE,RMSE,MAE,WAPE
+0,Non-residential EUI (kWh/m2/year),within_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,11.66,-0.023,2196.831,34.429,23.092,11.08
+1,Non-residential EUI (kWh/m2/year),cross_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,38.4,-32.965,11058.675,91.044,75.644,39.2
+2,Non-residential EUI (kWh/m2/year),all_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,16.06,-1.069,4040.621,48.004,34.4,15.38
+3,Residential EUI (kWh/m2/year),within_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,18.2,-0.854,2219.349,36.352,23.977,17.84
+4,Residential EUI (kWh/m2/year),cross_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,37.22,-6.397,4679.926,62.368,49.056,38.7
+5,Residential EUI (kWh/m2/year),all_domain,KNeighborsRegressor,n_neighbors=1,"latitude, longitude",Lat | Long,21.1,-1.257,2410.082,40.953,27.209,20.3
