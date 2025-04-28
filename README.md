@@ -250,9 +250,6 @@ The following graphs display the average performance metrics for MAPE, R², and 
 
 ![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_mape.png)
 
-   - **R² (All Features)**  
-
-![eui_predictions_all_domain](/figures/model_plots/all_features/00_model_comparison_r2.png)
 
    - **RMSE (All Features)** 
 
@@ -267,8 +264,6 @@ The following graphs display the average performance metrics for MAPE, R², and 
    - **MAPE (Top Features)**  
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_mape.png)
 
-   - **R² (Top Features)**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_r2.png)
 
    - **RMSE (Top Features)** 
 ![eui_predictions_all_domain](/figures/model_plots/selected_features/00_model_comparison_rmse.png)
