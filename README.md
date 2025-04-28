@@ -287,27 +287,27 @@ To better understand the Random Forest model's performance across different vali
 1. **Within Domain**:  
 
    - **Actual EUI vs. Predicted EUI**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_within_domain_eui_predictions.png)
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_within_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_within_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_within_domain_error_distribution.png)
 
 2. **Cross Domain**:  
 
    - **Actual EUI vs. Predicted EUI** 
-![eui_predictions_cross_domain](/figures/model_plots/selected_features/rf_cross_domain_eui_predictions.png)
+![eui_predictions_cross_domain](/figures/model_plots/10_clusters/rf_cross_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_cross_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_cross_domain_error_distribution.png)
 
 
 3. **All Domain**:  
 
    - **Actual EUI vs. Predicted EUI** 
-![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_all_domain_eui_predictions.png)
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_all_domain_eui_predictions.png)
 
    - **Error Distribution Plot**  
-![eui_predictions_all_domain](/figures/model_plots/selected_features/rf_all_domain_error_distribution.png)
+![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_all_domain_error_distribution.png)
 
 
 The regional analysis shows that Asia & Oceania consistently demonstrates one of the best overall performances across validation strategies. This performance remains relatively stable in cross-domain validation, outperforming other regions. 
