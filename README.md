@@ -149,7 +149,7 @@ Feature engineering is essential to transform raw data into meaningful represent
    - These derived features encode spatial, visual, and structural patterns for downstream prediction task.
 ![imageembedding](/figures/satteliteimage.jpg)
    
-**Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
+**Note:[Clay model related materials(GitHub link for env info, introductory video for clay)](https://clay-foundation.github.io/model/index.html)
 
 3. **Standard Statistical Techniques:**
    
