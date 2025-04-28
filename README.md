@@ -278,7 +278,7 @@ The following table summarizes the MAPE results under the cross-domain validatio
 
 Based on our evaluation across metrics, **we selected Random Forest using top features as our primary model for EUI prediction**. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which we aim to minimize. It achieved a MAPE of 13.8% for non-residential and 21.2% for residential buildings under cross-domain validation. This consistent performance, along with its ability to handle non-linear relationships and maintain stability across regions, makes Random Forest the most reliable choice for global EUI prediction.
 
-The following figure shows detailed performance metrics for the Random Forest model across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/20250421_0210_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/selected_features/20250421_0210_rf_average_results.csv).
+The following figure shows detailed performance metrics for the Random Forest model across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_average_results.csv).
 
 ![eui_predictions_all_domain](/figures/07_avg_rf.png)
 
@@ -335,6 +335,7 @@ This section provides an overview of the repository's structure, explaining the 
 ### Directory Structure
 
 ```python
+
 .
 ├── LICENSE
 ├── README.md
@@ -354,7 +355,9 @@ This section provides an overview of the repository's structure, explaining the 
 │   │   ├── eui_philadelphia.csv
 │   │   ├── eui_seattle.csv
 │   │   ├── eui_usa_cities_grouped_df.csv
+│   │   ├── image_embeddings_matrix.csv
 │   │   ├── image_results.csv
+│   │   ├── image_results_v2.csv
 │   │   ├── population_density.csv
 │   │   └── temperature_dewpoint_precipitation_2023.csv
 │   └── 03_processed
@@ -369,15 +372,21 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 02_eui_map.png
 │   ├── 03_region_map.png
 │   ├── 04_experimental_design.png
-│   ├── 05_feature_importance.png
-│   ├── 06_avg_rf.png
+│   ├── 05_fuzzy_partition_coefficient.png
+│   ├── 06_feature_importance.png
+│   ├── 06_feature_importance_10_clusters.png
+│   ├── 06_feature_importance_20_clusters.png
+│   ├── 06_feature_importance_5_clusters.png
+│   ├── 07_avg_rf.png
 │   ├── methodology-1.jpg
 │   ├── methodology-2.jpg
 │   ├── methodology-4.jpg
 │   ├── methodology-5.jpg
-│   └── model_plots
-│       ├── all_features
-│       └── selected_features
+│   ├── model_plots
+│   │   ├── 10_clusters
+│   │   ├── 20_clusters
+│   │   └── 5_clusters
+│   └── satteliteimage.jpg
 ├── notebooks
 │   ├── 010_Download_WeatherData_API.ipynb
 │   ├── 011_EUIBostonProcessing.ipynb
@@ -389,11 +398,11 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 018_EUIMiamiProcessing.ipynb
 │   ├── 019_MergeEUI.ipynb
 │   ├── 020_WeatherData_Preprocessing.ipynb
-│   ├── 021_HumidityPreprocessing.ipynb
 │   ├── 023_HDDPreprocessing.ipynb
 │   ├── 024_CDDPreprocessing.ipynb
 │   ├── 025_Population.ipynb
 │   ├── 026_ImageEmbedding.ipynb
+│   ├── 027_ImageEmbedding_Clustering.ipynb
 │   ├── 030_DataPreprocessing.ipynb
 │   ├── 040_Plots.ipynb
 │   ├── 050_FeatureImportance.ipynb
@@ -406,19 +415,22 @@ This section provides an overview of the repository's structure, explaining the 
 │   ├── 064_Experiments_CatBoost.ipynb
 │   ├── 064_Experiments_CatBoost_GridSearch.ipynb
 │   ├── 070_Model_Comparison.ipynb
-│   ├── catboost_info
-│   │   ├── catboost_training.json
-│   │   ├── learn
-│   │   │   └── events.out.tfevents
-│   │   ├── learn_error.tsv
-│   │   ├── time_left.tsv
-│   │   └── tmp
-│   └── importance_df_abbr.csv
+│   └── catboost_info
+│       ├── catboost_training.json
+│       ├── learn
+│       │   └── events.out.tfevents
+│       ├── learn_error.tsv
+│       ├── time_left.tsv
+│       └── tmp
 ├── requirements.txt
 ├── results
-│   ├── all_features
-│   ├── gridsearch
-│   └── selected_features
+│   ├── 10_clusters
+│   ├── 20_clusters
+│   ├── 5_clusters
+│   └── gridsearch
+│       ├── 20250428_1503_xgb_grid_search_results.csv
+│       ├── 20250428_1504_cat_grid_search_results.csv
+│       └── 20250428_1716_rf_grid_search_results.csv
 ├── slide_decks
 │   ├── Climate_TRACE_Presentation.pdf
 │   └── Final_Climate Trace_Presentation.pdf
@@ -427,6 +439,7 @@ This section provides an overview of the repository's structure, explaining the 
     ├── __pycache__
     │   └── lib.cpython-311.pyc
     └── lib.py
+
 
 ```
 
