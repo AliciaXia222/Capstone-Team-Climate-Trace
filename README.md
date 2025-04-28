@@ -330,13 +330,17 @@ Central and South America also stands out with strong performance in both within
 Other regions show more variable performance, with Europe, Northern America and Africa having higher error rates and less consistent R² values.
 
 
-## 7. Conclusion <a name="Conclusion"></a>
+## 7. Conclusion and Discussion <a name="Conclusion"></a>
 
 This project presents a robust and efficient methodology for estimating Energy Use Intensity (EUI) in buildings at a global scale, aiming to lay the groundwork for more accurate estimation of direct greenhouse gas (GHG) emissions from the building sector. Starting from a baseline KNN model that relied solely on latitude and longitude, we achieved a substantial improvement by incorporating climatic, geographic, and socioeconomic variables. This resulted in a reduction of the average error (MAPE) from 37.8% to 17.51% through the use of Random Forests. This 54% improvement in cross-domain validation highlights the model’s robustness and the importance of effective feature selection.
 
 Among all input features, the most influential variables—based on feature importance from the Random Forest model—were the Income Index (32.09%), Average Temperature (23.58%), Latitude (16.41%), and Average Dewpoint Temperature (6.53%). These features consistently demonstrated strong predictive power regarding building energy use, highlighting the significant roles of economic development and climate in driving energy demand. Conversely, features such as GDP per capita (0.45%), the Paris Agreement indicator (0.01%), and the fuzzy cluster features derived from satellite imagery each contributed less than 1%. To improve model performance, we applied a threshold and retained only those features with importance greater than 1%, which led to a reduction in MAPE.
 
 Future research could build on this approach to predict greenhouse gas (GHG) emissions from buildings by combining the estimated Energy Use Intensity (EUI) with building area data. This could lead to more accurate GHG estimates and help better understand the environmental impact of buildings.
+
+The results of this project, however, may have been affected by the quality of the satellite images. For eight cities, satellite image data were missing entirely, and among the successfully retrieved images, the quality varied significantly from city to city. Identified issues included heavy coverage by unknown objects, significant blurriness, and, in some cases, retrieval of only about half of the expected images. Expanding the dataset to include higher-resolution and more recent satellite imagery, implementing data augmentation strategies, or integrating multi-modal data (such as combining satellite imagery with weather or geographic information) could further enhance the robustness and accuracy of the embedding and downstream predictions.
+
+The embedding process also presents important opportunities for future improvement. The current method, based on the Clay model, produces generalized embeddings that may not fully capture task-specific characteristics. Future work could also explore on fine-tuning the embedding model for the specific downstream tasks, adopting domain adaptation techniques, or exploring alternative models specialized for geographic or environmental image analysis. 
 
 ## 8. Repository Structure and Usage <a name="RepositoryStructureAndUsage"></a>
 This section provides an overview of the repository's structure, explaining the purpose of each directory and file. It also includes instructions for navigating and using the code.
