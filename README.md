@@ -212,14 +212,14 @@ Given the challenge of regional variations in global data, we will validate our 
 ## 6. Experiments <a name="Experiments"></a>
 
 ### 6.1 Number of Clusters in Fuzzy C-Means <a name="NumberofClustersinFuzzyCMeans"></a>
-To determine the optimal number of clusters for the fuzzy C-means algorithm, we used the Fuzzy Partition Coefficient (FPC). The FPC measures how well the data points fit into the clusters, with higher values indicating that the data is more clearly grouped. A high FPC means the clusters are more distinct and less overlapping. In the graph, we can see how the FPC changes as we increase the number of clusters, helping us identify the best number of clusters for this dataset.
+To determine the optimal number of clusters for the fuzzy C-means algorithm, we used the Fuzzy Partition Coefficient (FPC). The FPC measures how well the data points fit into the clusters, with higher values indicating that the data is more clearly grouped. In general, a high FPC means the clusters are more distinct and less overlapping. By examining how the FPC changes as the number of clusters increases, we can assess the overall quality of the clustering.
 
 ![FFPC](/figures/05_fuzzy_partition_coefficient.png)
 
-From the graph, we observe that as the number of clusters increases from 2 to 20, the Fuzzy Partition Coefficient (FPC) steadily decreases. Starting at a high value of approximately 0.50 for 2 clusters, it gradually drops, reaching around 0.05 by 20 clusters. This suggests that as the number of clusters grows, the clarity of the data's clustering decreases, implying that a higher number of clusters leads to less distinct groupings.
+From the graph, we observe that as the number of clusters increases from 2 to 20, the FPC decreases steadily, following a trend close to 
+1/n, where n is the number of clusters. This behavior suggests that the data does not naturally separate into distinct clusters, as a clear clustering structure would typically cause the FPC to remain relatively high for some specific number of clusters before dropping. The FPC starting around 0.50 for 2 clusters and gradually decreasing to around 0.05 for 20 clusters indicates that adding more clusters does not significantly improve the separation of the data.
 
-The Fuzzy Partition Coefficient (FPC) is highest at 2 clusters, indicating the clearest separation of data. However, we will also test 10 and 20 clusters to see how the model performs with more clusters. This range will help determine if finer groupings lead to better data representation and improve the model’s performance.
-
+Overall, the trend suggests that the dataset may not exhibit strong inherent clustering, and that the fuzzy memberships are relatively uniform across clusters. However, we proceed to test 2, 10, and 20 clusters to explore whether varying the number of clusters affects the downstream performance of the model.
 
 ### 6.2 Feature Importance <a name="FeatureImportance"></a>
 
