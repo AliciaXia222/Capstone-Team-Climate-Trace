@@ -242,22 +242,19 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions, as this provided better results in terms of average MAPE. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
-### **Model Performance Using 5 Clusters from Image Embeddings**
+### **MAPE Using 5 Clusters from Image Embeddings**
 
 
 ![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
 
 
-### **Model Performance Using 10 Clusters from Image Embeddings**
+### **MAPE Using 10 Clusters from Image Embeddings**
 
 
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
 
 
-### **Model Performance Using 20 Clusters from Image Embeddings**
-
-
-   - **MAPE (All Features)**  
+### **MAPE Using 20 Clusters from Image Embeddings**
 
 ![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
