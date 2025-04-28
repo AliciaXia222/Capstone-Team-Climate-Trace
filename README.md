@@ -21,7 +21,7 @@
    6.1 [Number of Clusters in Fuzzy C-Means](#NumberofClustersinFuzzyCMeans)  
    6.2 [Feature Importance](#FeatureImportance)  
    6.3 [Models](#Models)    
-7. [Conclusion](#Conclusion)
+7. [Conclusion and Discussion](#Conclusion)
 8. [Repository Structure and Usage](#RepositoryStructureAndUsage)
 9. [Resources](#Resources)
 10. [Contributors](#Contributors)   
