@@ -147,7 +147,8 @@ Feature engineering is essential to transform raw data into meaningful represent
    - Employ Clay (a pretrained Vision Transformer MAE model specialized in satellite images) to generate embeddings.
    - Apply dimension reduction(PCA) and/or classification methods(Fuzzy Classter;KNN;GMM) to optimize the representational ability of embeddings.
    - These derived features encode spatial, visual, and structural patterns for downstream prediction task.
-      
+![methodology overview](/figures/sattelite image.jpg)
+   
 **Note:Clay model related materials(GitHub link for env info, introductory video for clay): https://clay-foundation.github.io/model/index.html
 
 3. **Standard Statistical Techniques:**
