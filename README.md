@@ -219,11 +219,11 @@ To determine the optimal number of clusters for the fuzzy C-means algorithm, we 
 From the graph, we observe that as the number of clusters increases from 2 to 20, the FPC decreases steadily, following a trend close to 
 1/n, where n is the number of clusters. This behavior suggests that the data does not naturally separate into distinct clusters, as a clear clustering structure would typically cause the FPC to remain relatively high for some specific number of clusters before dropping. The FPC starting around 0.50 for 2 clusters and gradually decreasing to around 0.05 for 20 clusters indicates that adding more clusters does not significantly improve the separation of the data.
 
-Overall, the trend suggests that the dataset may not exhibit strong inherent clustering, and that the fuzzy memberships are relatively uniform across clusters. However, we proceed to test 2, 10, and 20 clusters to explore whether varying the number of clusters affects the downstream performance of the model.
+Overall, the trend suggests that the dataset may not exhibit strong inherent clustering, and that the fuzzy memberships are relatively uniform across clusters. However, we proceed to test 5, 10, and 20 clusters to explore whether varying the number of clusters affects the downstream performance of the model.
 
 ### 6.2 Feature Importance <a name="FeatureImportance"></a>
 
-To identify the most influential factors in building energy use and greenhouse gas emissions, we used a Random Forest model. In the following image, we compare three different cluster configurations: n=2, n=10, and n=20 clusters. In all three cases, we observe that the most important features remain consistent, although their relative contributions vary depending on the number of clusters used. The **Income Index** is consistently the most influential feature, followed by **Average Temperature** and **Latitude** in all three configurations.
+To identify the most influential factors in building energy use and greenhouse gas emissions, we used a Random Forest model. In the following image, we compare three different cluster configurations: n=5, n=10, and n=20 clusters. In all three cases, we observe that the most important features remain consistent, although their relative contributions vary depending on the number of clusters used. The **Income Index** is consistently the most influential feature, followed by **Average Temperature** and **Latitude** in all three configurations.
 
 While increasing the number of clusters provides more granular information, the contribution of image-derived features remains relatively small, with socio-economic and climatic factors continuing to dominate. Given the limited size of our dataset, with just over 400 rows, it may be more effective to evaluate the model's performance using fewer clusters to avoid overfitting and improve generalization. However, we will also test configurations with 10 and 20 clusters to assess whether finer clustering offers any additional value
 
@@ -278,11 +278,11 @@ The following table summarizes the MAPE results under the cross-domain validatio
 | Model    | Parameters                              | Non-residential MAPE <br> (Cross-domain) | Residential MAPE <br> (Cross-domain) | Average MAPE <br> (Cross-domain) |
 |----------|-----------------------------------------|------------------------------------------|--------------------------------------|----------------------------------|
 | KNN      | K=1, Lat & Long                         | 38.4%                                    | 37.2%                                | 37.8%                            |
-| CAT Boost| All Features n Clusters = 2            | x%                                       | x%                                   | x%                               |
+| CAT Boost| All Features n Clusters = 5            | x%                                       | x%                                   | x%                               |
 | CAT Boost| All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
 | CAT Boost| All Features n Clusters = 20           | 17.2%                                    | 20.7%                                | 18.95%                           |
 | CAT Boost| Top Features                            | x%                                       | x%                                   | x%                               |
-| RF       | All Features n Clusters = 2            | x%                                       | x%                                   | x%                               |
+| RF       | All Features n Clusters = 5            | x%                                       | x%                                   | x%                               |
 | RF       | All Features n Clusters = 10           | x%                                       | x%                                   | x%                               |
 | RF       | All Features n Clusters = 20           | x%                                       | x%                                   | x%                               |
 | RF       | Top Features                            | 13.8%                                    | 21.2%                                | **17.51%**                       |
