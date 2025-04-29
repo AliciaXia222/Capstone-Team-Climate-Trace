@@ -278,7 +278,7 @@ These RMSE plots correspond to the same image-based clustering strategy, with mo
 The RMSE results follow a similar trend to MAPE: tree-based models, especially Random Forest, consistently outperform the baseline and linear models across all cluster configurations. This consistency across both metrics reinforces that Random Forest models with 5 or 10 clusters offer the best balance between accuracy and generalization.
 
 
-### Best Model Overall: Random Forest with 10 Clusters
+### Best Model Overall: Random Forest with 5/10 Clusters
 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
@@ -293,9 +293,10 @@ The following table summarizes the MAPE results under the cross-domain validatio
 | XGB   | All features + 20 image clusters    | 14.1%                                  | 23.1%                              | 18.6%                          |
 
 
-Based on our evaluation across metrics, **we selected Random Forest using top features as our primary model for EUI prediction**. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which we aim to minimize. It achieved a MAPE of 13.8% for non-residential and 21.2% for residential buildings under cross-domain validation. This consistent performance, along with its ability to handle non-linear relationships and maintain stability across regions, makes Random Forest the most reliable choice for global EUI prediction.
+Based on our evaluation across different cluster configurations, **we selected Random Forest with 5 or 10 clusters as our primary model for EUI prediction**. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which is our main focus. It achieved an average MAPE of 17.9% under cross-domain validation, showing strong generalization ability without relying on feature selection filters. This consistent performance, combined with its robustness to non-linear relationships and variability across regions, makes Random Forest the most reliable choice for global EUI prediction.
 
-The following figure shows detailed performance metrics for the Random Forest model across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_average_results.csv).
+
+The following figure shows detailed performance metrics for the Random Forest model with 10 image clusters across different validation strategies and building types. Detailed results by region, along with the estimation technique used, including the specific variables and their hyperparameters, can be found in this [table](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_detailed_results.csv), while average performance metrics are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/20250428_1719_rf_average_results.csv).
 
 ![eui_predictions_all_domain](/figures/07_avg_rf.png)
 
