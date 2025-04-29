@@ -258,6 +258,9 @@ The plots below show the Mean Absolute Percentage Error (MAPE) for models traine
    - **20 Clusters**  
 ![MAPE - 20 Clusters](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
+As expected, the within-domain validation shows consistently better performance (lower MAPE values) than cross-domain validation across all models, since models tend to perform better when tested on data similar to their training set. However, the most critical evaluation metric is the cross-domain validation, which tests the model's ability to generalize to unseen geographical regions - a conservative but realistic assessment of real-world performance.
+
+In the cross-domain evaluation, all models utilizing the full feature set significantly outperform the baseline KNN model that uses only latitude and longitude. Tree-based models, particularly Random Forest (RF) and XGBoost (XGB), demonstrate superior performance. With 5 clusters, the RF model achieves a 15.6% MAPE for non-residential buildings and 20.2% for residential buildings, resulting in an average MAPE of 17.9%.  Interestingly, the 10-cluster configuration yields nearly identical overall performance (17.9% average MAPE), but with slightly better non-residential predictions (14.5%) and slightly worse residential predictions (21.3%). The 20-cluster configuration shows performance degradation (20.0% average MAPE), likely indicating overfitting due to excessive feature granularity relative to the dataset size. While XGBoost models demonstrate competitive performance, particularly for non-residential buildings with 20 clusters (14.1% MAPE), the Random Forest models with 5 or 10 clusters provide the best balance of accuracy and generalizability across both building types.
 
 ### **RMSE Comparison Across Cluster Configurations**
 
