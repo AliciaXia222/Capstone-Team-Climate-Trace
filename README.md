@@ -245,25 +245,36 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 We evaluate the impact of varying the number of clusters in the fuzzy C-means algorithm on the downstream model performance. Specifically, we test configurations with 5, 10, and 20 clusters to assess whether finer clustering improves model accuracy without leading to overfitting. The summary results for each clustering setting are presented below.
 
 
-### **Model Performance with 5 Clusters Derived from Image Embeddings**
+### **MAPE Comparison Across Cluster Configurations**
 
-The detailed results corresponding to the models trained and evaluated using 5 clusters derived from the image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/5_clusters/comparison_average_results.csv). This includes performance metrics such as MAPE and RMSE across different machine learning models and validation strategies.
+The plots below show the Mean Absolute Percentage Error (MAPE) for models trained using features derived from **image embeddings clustered with the fuzzy C-means algorithm**. We tested three configurations: 5, 10, and 20 clusters.
 
-   - **MAPE**  
-![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
+   - **5 Clusters**  
+Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/5_clusters/comparison_average_results.csv).  
+![MAPE - 5 Clusters](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
+
+   - **10 Clusters**  
+Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/comparison_average_results.csv).  
+![MAPE - 10 Clusters](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
+
+   - **20 Clusters**  
+Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20_clusters/comparison_average_results.csv).  
+![MAPE - 20 Clusters](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
 
-### **Model Performance with 10 Clusters Derived from Image Embeddings**
+### **RMSE Comparison Across Cluster Configurations**
 
-Summary results for the models trained with 10 clusters based on image embeddings can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/comparison_average_results.csv). 
+These RMSE plots correspond to the same image-based clustering strategy, with models trained using 5, 10, and 20 clusters from the image embeddings.
 
-![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
+   - **5 Clusters** 
+![RMSE - 5 Clusters](/figures/model_plots/5_clusters/00_model_comparison_rmse.png)
 
+   - **10 Clusters** 
+![RMSE - 10 Clusters](/figures/model_plots/10_clusters/00_model_comparison_rmse.png)
 
-### **Model Performance with20 Clusters Derived from Image Embeddings**
-Detailed metrics for models trained using 20 clusters from image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20_clusters/comparison_average_results.csv). 
+   - **20 Clusters** 
+![RMSE - 20 Clusters](/figures/model_plots/20_clusters/00_model_comparison_rmse.png)
 
-![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
 
 ### Best Model Overall: Random Forest with 10 Clusters
