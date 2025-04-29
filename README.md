@@ -328,13 +328,6 @@ To better understand the Random Forest model's performance across different vali
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_all_domain_error_distribution.png)
 
 
-The regional analysis shows that Asia & Oceania consistently demonstrates one of the best overall performances across validation strategies. This performance remains relatively stable in cross-domain validation, outperforming other regions. 
-
-Central and South America also stands out with strong performance in both within-domain and cross-domain validation, though with more variable R² values. 
-
-Other regions show more variable performance, with Europe, Northern America and Africa having higher error rates and less consistent R² values.
-
-
 ## 7. Conclusion and Discussion <a name="Conclusion"></a>
 
 This project presents a robust and efficient methodology for estimating Energy Use Intensity (EUI) in buildings at a global scale, aiming to lay the groundwork for more accurate estimation of direct greenhouse gas (GHG) emissions from the building sector. Starting from a baseline KNN model that relied solely on latitude and longitude, we achieved a substantial improvement by incorporating climatic, geographic, and socioeconomic variables. This resulted in a reduction of the average error (MAPE) from 37.8% to 17.51% through the use of Random Forests. This 54% improvement in cross-domain validation highlights the model’s robustness and the importance of effective feature selection.
