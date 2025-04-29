@@ -250,15 +250,12 @@ We evaluate the impact of varying the number of clusters in the fuzzy C-means al
 The plots below show the Mean Absolute Percentage Error (MAPE) for models trained using features derived from **image embeddings clustered with the fuzzy C-means algorithm**. We tested three configurations: 5, 10, and 20 clusters.
 
    - **5 Clusters**  
-Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/5_clusters/comparison_average_results.csv).  
 ![MAPE - 5 Clusters](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
 
    - **10 Clusters**  
-Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/comparison_average_results.csv).  
 ![MAPE - 10 Clusters](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
 
    - **20 Clusters**  
-Detailed results available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20_clusters/comparison_average_results.csv).  
 ![MAPE - 20 Clusters](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
 
