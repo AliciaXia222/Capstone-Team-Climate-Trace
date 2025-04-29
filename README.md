@@ -327,6 +327,9 @@ To better understand the Random Forest model's performance across different vali
    - **Error Distribution Plot**  
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/rf_all_domain_error_distribution.png)
 
+Considering the limited size of our dataset and the fact that several regions have very few data points (e.g., Northern America with only 22), it is not statistically reliable to draw strong conclusions for individual regions. Therefore, we focus on global trends observed across all regions when interpreting the following figures, which illustrate the relationship between predicted and actual EUI values, as well as error distributions for within-domain, cross-domain, and all-domain validation strategies.
+
+Overall, the Random Forest model performs considerably better under within-domain validation than under cross-domain validation, highlighting challenges in model generalization across regions. Error distributions also reveal that predictions tend to be tighter and more centered within-domain, while cross-domain results show wider and more dispersed errors. Residential and non-residential buildings exhibit different behaviors, with non-residential predictions showing more variability across strategies. These findings, combined with previous analyses, suggest that although the model demonstrates reasonable predictive capabilities when trained and tested within the same domain, significant regional variations and limited data remain key challenges for broader generalization.
 
 ## 7. Conclusion and Discussion <a name="Conclusion"></a>
 
