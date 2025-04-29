@@ -275,6 +275,7 @@ These RMSE plots correspond to the same image-based clustering strategy, with mo
    - **20 Clusters** 
 ![RMSE - 20 Clusters](/figures/model_plots/20_clusters/00_model_comparison_rmse.png)
 
+The RMSE results follow a similar trend to MAPE: tree-based models, especially Random Forest, consistently outperform the baseline and linear models across all cluster configurations. This consistency across both metrics reinforces that Random Forest models with 5 or 10 clusters offer the best balance between accuracy and generalization.
 
 
 ### Best Model Overall: Random Forest with 10 Clusters
