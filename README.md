@@ -253,6 +253,11 @@ As a **baseline**, we consider the scenario where EUI is predicted simply by usi
 
 We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions, as this provided better results in terms of average MAPE. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
 
+
+In our cross-domain validation experiment, we observed R² values close to 0 or even negative. This can be understood because the model is trained on data from one or more regions (e.g., regions 1-4) and tested on data from a completely different region (e.g., region 5). The model often struggles to generalize across regions, which can result in R² values lower than expected. In many cases, predicting the mean of the test region’s data may perform better than the model, indicating that regional differences play a significant role.
+
+This suggests that R² may not be the best metric for evaluating performance in cross-domain settings. While R² is useful for assessing model fit on a single dataset, it doesn’t fully capture the challenge of extrapolating to new regions. A low or negative R² here reflects the model’s difficulty adapting to these regional variations rather than a fundamental failure of the model.
+
 ### **MAPE Using 5 Clusters from Image Embeddings**
 
 
