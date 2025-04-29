@@ -247,7 +247,7 @@ We evaluate the impact of varying the number of clusters in the fuzzy C-means al
 
 ### **Model Performance with 5 Clusters Derived from Image Embeddings**
 
-The detailed results corresponding to the models trained and evaluated using 5 clusters derived from the image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/5_clusters). This includes performance metrics such as MAPE and RMSE across different machine learning models and validation strategies.
+The detailed results corresponding to the models trained and evaluated using 5 clusters derived from the image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/5_clusters/comparison_average_results.csv). This includes performance metrics such as MAPE and RMSE across different machine learning models and validation strategies.
 
    - **MAPE**  
 ![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
@@ -255,10 +255,13 @@ The detailed results corresponding to the models trained and evaluated using 5 c
 
 ### **Model Performance with 10 Clusters Derived from Image Embeddings**
 
+Summary results for the models trained with 10 clusters based on image embeddings can be found [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/10_clusters/comparison_average_results.csv). 
+
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
 
 
 ### **Model Performance with20 Clusters Derived from Image Embeddings**
+Detailed metrics for models trained using 20 clusters from image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/blob/main/results/20_clusters/comparison_average_results.csv). 
 
 ![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
