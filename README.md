@@ -34,13 +34,14 @@ The work focuses on developing an EUI estimation technique, with an emphasis on 
 
 | Model | Details | Non-residential MAPE <br> Cross-domain | Residential MAPE <br> Cross-domain | Average MAPE <br> Cross-domain |
 |:------|:--------|:---------------------------------------|:----------------------------------|:-------------------------------|
-| KNN   | Baseline (No embedding, K=1)             | 38.4%                                  | 37.2%                              | 37.8%                          |
+| KNN   | Baseline (Lat & Long only)             | 38.4%                                  | 37.2%                              | 37.8%                          |
 | **RF** | 5 image Fuzzy clusters         | **15.6%**                              | **20.2%**                          | **17.9%**                      |
 | **RF** | 10 image Fuzzy clusters        | **14.5%**                              | **21.3%**                          | **17.9%**                      |
 | RF    | 20 image Fuzzy clusters        | 16.8%                                  | 23.1%                              | 20.0%                          |
 | XGB   | 5 image Fuzzy clusters         | 15.4%                                  | 23.1%                              | 19.3%                          |
 | XGB   | 10 image Fuzzy clusters        | 14.4%                                  | 24.0%                              | 19.2%                          |
 | XGB   | 20 image Fuzzy clusters        | 14.1%                                  | 23.1%                              | 18.6%                          |
+
 
 
 ## 2. Introduction <a name="Introduction"></a>
@@ -274,17 +275,15 @@ We initially tested our models using all available features and then evaluated p
 
 The following table summarizes the MAPE results under the cross-domain validation strategy for residential and non-residential buildings, highlighting the average performance across both.
 
-
 | Model | Details | Non-residential MAPE <br> Cross-domain | Residential MAPE <br> Cross-domain | Average MAPE <br> Cross-domain |
 |:------|:--------|:---------------------------------------|:----------------------------------|:-------------------------------|
-| KNN   | Baseline (No embedding, K=1)             | 38.4%                                  | 37.2%                              | 37.8%                          |
+| KNN   | Baseline (Lat & Long only)             | 38.4%                                  | 37.2%                              | 37.8%                          |
 | **RF** | 5 image Fuzzy clusters         | **15.6%**                              | **20.2%**                          | **17.9%**                      |
 | **RF** | 10 image Fuzzy clusters        | **14.5%**                              | **21.3%**                          | **17.9%**                      |
 | RF    | 20 image Fuzzy clusters        | 16.8%                                  | 23.1%                              | 20.0%                          |
 | XGB   | 5 image Fuzzy clusters         | 15.4%                                  | 23.1%                              | 19.3%                          |
 | XGB   | 10 image Fuzzy clusters        | 14.4%                                  | 24.0%                              | 19.2%                          |
 | XGB   | 20 image Fuzzy clusters        | 14.1%                                  | 23.1%                              | 18.6%                          |
-
 
 
 Based on our evaluation across metrics, **we selected Random Forest using top features as our primary model for EUI prediction**. While some models occasionally outperformed in specific scenarios, Random Forest demonstrated the most consistent and balanced performance across validation strategies and building types, particularly in the cross-domain setting, which we aim to minimize. It achieved a MAPE of 13.8% for non-residential and 21.2% for residential buildings under cross-domain validation. This consistent performance, along with its ability to handle non-linear relationships and maintain stability across regions, makes Random Forest the most reliable choice for global EUI prediction.
