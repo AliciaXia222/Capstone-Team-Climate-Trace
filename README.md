@@ -234,32 +234,31 @@ For details on the calculations, check the [Feature Importance Notebook](/notebo
 
 ### 6.3 Models <a name="Models"></a>
 
-In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI) and estimating greenhouse gas (GHG) emissions from buildings. The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and Root Mean Squared Error (RMSE) are used to assess model performance across different feature sets. The models are also evaluated across various cross-validation strategies to ensure robustness and generalizability. 
+In this section, we evaluate the performance of several machine learning models used for predicting Energy Use Intensity (EUI). The models tested include Linear Regression (LR), Linear Regression with Lasso and Ridge regularization, K-Nearest Neighbors (KNN), Random Forest, XGBoost, and CatBoost. The evaluation metrics, such as Mean Absolute Percentage Error (MAPE) and Root Mean Squared Error (RMSE) are used to assess model performance across different feature sets. The models are also evaluated across various validation strategies to ensure robustness and generalizability. 
 
-In particular, we select the best model based on **minimizing MAPE in the cross domain strategy**, as it better reflects the model’s real-world generalization ability and allows us to optimize accordingly.
+In particular, we select the best model based on **minimizing MAPE in the cross domain strategy**, as it better reflects the model’s real-world generalization ability.
 
-In our cross-domain validation experiment, we observed **R²** values close to 0 or even negative. This can be understood because the model is trained on data from four regions (e.g., regions 1-4) and tested on a completely different region (e.g., region 5). Since the model is using information exclusively from other regions that may not fully represent the characteristics of the target region, it often struggles to generalize, leading to lower-than-expected R² values. In many cases, simply predicting the mean of the test region’s data can perform better than the model, indicating that regional differences play a significant role.
-
-This suggests that R² may not be the best metric for evaluating performance in cross-domain settings. While R² is useful for assessing model fit on a single dataset, it doesn’t fully capture the challenge of extrapolating to new regions. A low or negative R² here reflects the model’s difficulty adapting to these regional variations rather than a fundamental failure of the model.
+In our cross-domain validation experiment, we observed **R²** values close to 0 or even negative. This can be understood because the model is trained on data from four regions (e.g., regions 1-4) and tested on a completely different region (e.g., region 5). Since the model is using information exclusively from other regions that may not fully represent the characteristics of the target region, it often struggles to generalize, leading to lower-than-expected R² values. In many cases, simply predicting the mean of the test region’s data can perform better than the model, indicating that regional differences play a significant role. This suggests that R² may not be the best metric for evaluating performance in cross-domain settings. While R² is useful for assessing model fit on a single dataset, it doesn’t fully capture the challenge of extrapolating to new regions. A low or negative R² here reflects the model’s difficulty adapting to these regional variations rather than a fundamental failure of the model.
 
 As a **baseline**, we consider the scenario where EUI is predicted simply by using the value from the geographically closest data point. To implement this, we use a **K-Nearest Neighbors model with K=1, using only latitude and longitude** as input features. With this approach, we obtained an **average MAPE of 37.8%**, which serves as our reference point for evaluating model improvements.
 
-We initially tested our models using all available features and then evaluated performance by selecting only the most important ones. After testing several options, we decided to set a threshold to retain only features that contributed more than 1% to the model's predictions, as this provided better results in terms of average MAPE. The summary results of both alternatives—using all features versus using only those with more than 1% importance—are presented below.
+We evaluate the impact of varying the number of clusters in the fuzzy C-means algorithm on the downstream model performance. Specifically, we test configurations with 5, 10, and 20 clusters to assess whether finer clustering improves model accuracy without leading to overfitting. The summary results for each clustering setting are presented below.
 
 
-### **MAPE Using 5 Clusters from Image Embeddings**
+### **Model Performance with 5 Clusters Derived from Image Embeddings**
 
+The detailed results corresponding to the models trained and evaluated using 5 clusters derived from the image embeddings are available [here](https://github.com/AliciaXia222/Capstone-Team-Climate-Trace/tree/main/results/5_clusters). This includes performance metrics such as MAPE and RMSE across different machine learning models and validation strategies.
 
+   - **MAPE**  
 ![eui_predictions_all_domain](/figures/model_plots/5_clusters/00_model_comparison_mape.png)
 
 
-### **MAPE Using 10 Clusters from Image Embeddings**
-
+### **Model Performance with 10 Clusters Derived from Image Embeddings**
 
 ![eui_predictions_all_domain](/figures/model_plots/10_clusters/00_model_comparison_mape.png)
 
 
-### **MAPE Using 20 Clusters from Image Embeddings**
+### **Model Performance with20 Clusters Derived from Image Embeddings**
 
 ![eui_predictions_all_domain](/figures/model_plots/20_clusters/00_model_comparison_mape.png)
 
